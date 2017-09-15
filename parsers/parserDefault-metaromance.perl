@@ -53,6 +53,7 @@ my $Fca = "Fca_[0-9]+";#<string>
 my $Fct = "Fct_[0-9]+";#<string>
 my $SENT = "SENT_[0-9]+";#<string>
 my $SYM = "SYM_[0-9]+";#<string>
+my $NOUNCOORD = "CONJ_[0-9]+${l}coord:noun${r}|NOUN_[0-9]+";#<string>
 my $NP = "NOUN_[0-9]+$a2|CARD_[0-9]+$a2|PRP_[0-9]+${l}nomin:yes${r}|VERB_[0-9]+${l}nomin:yes${r}";#<string>
 my $NOMINAL = "NOUN_[0-9]+$a2|PRP_[0-9]+${l}nomin:yes${r}|VERB_[0-9]+${l}nomin:yes${r}";#<string>
 my $NOUNS = "NOUN_[0-9]+$a2|CARD_[0-9]+$a2|DATE_[0-9]+";#<string>
@@ -64,21 +65,22 @@ my $PUNCT = "F[a-z]+_[0-9]+";#<string>
 
 #################################### LEXICAL CLASSES #####################################
 my $Quant  = "(?:very\|more\|less\|quite\|muy\|mucho\|bastante\|bien\|casi\|muy\|realmente\|considerablemente\|bem\|ben\|menos\|poco\|mui\|moi\|muito\|más\|mais\|pouco\|peu\|assez\|plus\|moins\|massa\|força\|prou\|més\|menys\|tant\|molt\|bastant\|gaire\|)";#<string>
-my $CCoord  = "(?:and\|y\|e\|or\|o\|ou\|i\|ni\|nin\|nem\|né\|nor\|)";#<string>
+my $CCoord  = "(?:and\|y\|e\|or\|o\|ou\|i\|ni\|nin\|nem\|né\|nor\|sau\|ori\|și\|nici\|et\|)";#<string>
 my $Partitive  = "(?:de\|of\|di\|)";#<string>
 my $PrepLocs  = "(?:a\|de\|por\|par\|by\|to\|)";#<string>
-my $PrepRA  = "(?:de\|di\|com\|con\|sobre\|sem\|sen\|entre\|of\|with\|about\|without\|between\|for\|on\|avec\|sûr\|amb\|)";#<string>
-my $PrepMA  = "(?:hasta\|até\|hacia\|desde\|em\|en\|para\|since\|until\|at\|in\|for\|to\|jusqu\'\|depuis\|pour\|per\|fins\|)";#<string>
+my $PrepRA  = "(?:de\|di\|com\|con\|sobre\|sem\|sen\|entre\|of\|with\|about\|without\|between\|for\|on\|avec\|sûr\|amb\|cu\|)";#<string>
+my $PrepMA  = "(?:hasta\|até\|hacia\|desde\|em\|en\|în\|para\|since\|until\|at\|in\|for\|to\|jusqu
+\|depuis\|pour\|per\|fins\|pentru\|)";#<string>
 my $AdvDe  = "(?:cerca\|lejos\|acerca\|alrededor\|longe\|lonxe\|perto\|arredor\|preto\|prop\|fora\|fuera\|fóra\|)";#<string>
-my $cliticopers  = "(?:lo\|la\|los\|las\|le\|les\|nos\|os\|me\|te\|se\|Lo\|La\|Las\|Le\|Les\|Nos\|Os\|Me\|Te\|Se\|lle\|lles\|lhe\|lhes\|Lles\|Lhes\|Lle\|Lhe\|che\|ches\|Che\|Ches\|o\|O\|a\|A\|em\|et\|el\|es\|en\|)";#<string>
+my $cliticopers  = "(?:lo\|la\|los\|las\|le\|les\|nos\|os\|me\|te\|se\|Lo\|La\|Las\|Le\|Les\|Nos\|Os\|Me\|Te\|Se\|lle\|lles\|lhe\|lhes\|Lles\|Lhes\|Lle\|Lhe\|che\|ches\|Che\|Ches\|o\|O\|a\|A\|em\|et\|el\|es\|en\|em\|es\|el\|els\|)";#<string>
 my $cliticoInd  = "(?:le\|les\|nos\|os\|me\|te\|Le\|Les\|Nos\|Me\|Te\|lle\|lles\|lhe\|lhes\|Lles\|Lhes\|Lle\|Lhe\|che\|ches\|Che\|Ches\|em\|et\|es\|)";#<string>
-my $cliticoDir  = "(?:lo\|la\|los\|las\|le\|les\|nos\|os\|me\|te\|Lo\|La\|Las\|Nos\|Os\|Me\|Te\|o\|O\|a\|A\|em\|et\|el\|es\|)";#<string>
+my $cliticoDir  = "(?:lo\|la\|los\|las\|le\|les\|nos\|os\|me\|te\|Lo\|La\|Las\|Nos\|Os\|Me\|Te\|o\|O\|a\|A\|em\|et\|el\|es\|els\|)";#<string>
 my $Month  = "(?:enero\|xaneiro\|janeiro\|febrero\|febreiro\|fevereiro\|marzo\|março\|abril\|mayo\|maio\|junio\|xuño\|junho\|julio\|xullo\|julho\|agosto\|septiembre\|setembro\|octubre\|outubro\|noviembre\|novembro\|diciembre\|decembro\|dezembro\|)";#<string>
 my $Day  = "(?:semana\|mes\|mês\|día\|dia\|lunes\|luns\|segunda-feira\|martes\|terça-feira\|terza\|miércoles\|mércores\|quarta-feira\|jueves\|xoves\|quinta-feira\|viernes\|venres\|sexta-feira\|sábado\|domingo\|)";#<string>
 my $PROperssuj = "(?:yo\|tú\|usted\|él\|ella\|nosotros\|vosotros\|ellos\|ellas\|ustedes\|eu\|ti\|tu\|vostede\|vocé\|el\|ele\|ela\|nós\|vós\|eles\|elas\|vostedes\|vocés\|eles\|elas\|)";#<string>
 my $PROsujgz = "(?:eu\|ti\|tu\|vostede\|vocé\|el\|ele\|ela\|nós\|vós\|eles\|elas\|vostedes\|vocés\|eles\|elas\|)";#<string>
 my $VModalEN  = "(?:can\|cannot\|should\|must\|shall\|will\|would\|may\|might\|)";#<string>
-my $VModalES   = "(?:poder\|deber\|dever\|)";#<string>
+my $VModal   = "(?:poder\|deber\|dever\|)";#<string>
 my $VPerif  = "(?:ir\|deber\|venir\|empezar\|comenzar\|acabar\|finalizar\|terminar\|dejar\|pasar\|estar\|vir\|comezar\|passar\|dever\|deixar\|hacer\|fazer\|facer\|)";#<string>
 my $NincSp  = "(?:alusión\|comentario\|referencia\|llamamiento\|mención\|observación\|declaración\|propuesta\|pregunta\|)";#<string>
 my $NincExp  = "(?:afecto\|alegría\|amparo\|angustia\|ánimo\|cariño\|cobardía\|comprensión\|consuelo\|corte\|daño\|disgusto\|duda\|escándalo\|fobia\|gana\|gracias\|gusto\|inquietud\|)";#<string>

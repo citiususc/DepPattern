@@ -118,10 +118,12 @@ if (defined $GRAMMAR){
 	system("ruby \"$path_ruby\" \"$dependencies\" \"$GRAMMAR\" $it \"$PARSER\"");
 }
 #Cogemos el parser correspondiente al idioma
-elsif (!defined $PARSER){
+elsif (!defined $PARSER && !defined $META){
 	$PARSER = "$DIRPARSER/parserDefault-${LING}.perl";
 }
-
+elsif (defined $META){
+    $PARSER = "$DIRPARSER/parserDefault-metaromance.perl";
+}
 $PARSER .= ".perl" if $PARSER !~ /\.perl$/;
 
 

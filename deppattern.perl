@@ -44,7 +44,7 @@ my $errorPrint = "$name: ";
 my $parser = Getopt::ArgParse -> new_parser( prog => $name, help => $shortDescription, description => $longDescription, epilog => $foot, error_prefix  => $errorPrint);
 
 #Arguments
-$parser->add_argument('lang', type => 'Scalar', dest => 'lang', required => 1, metavar => "<lang>", help => "Choose the language", choices_i => ["en", "es", "gl", "pt"]);
+$parser->add_argument('lang', type => 'Scalar', dest => 'lang', required => 1, metavar => "<lang>", help => "Choose the language", choices_i => ["en", "es", "gl", "pt", "fr"]);
 $parser->add_argument('-c', type => 'Bool', dest => 'c', help => "Tagged text with syntactic information (for correction rules)");
 $parser->add_argument('-fa', type => 'Bool', dest => 'fa', help => "Full dependency analysis");
 $parser->add_argument('-conll', type => 'Bool', dest => 'conll', help => "Full dependency analysis with CoNLL format");
@@ -65,7 +65,7 @@ my $args = $parser->parse_args();
 my $LING = $args->get_attr("lang");
 my $FILE = $args->get_attr("file");
 my $PARSER = $args->get_attr("parser");
-my $GRAMMAR = $args->get_attr("grammar") or $args->get_attr("ngrammar");
+my $GRAMMAR = $args->get_attr("grammar") // $args->get_attr("ngrammar");
 my $ITERATIONS = $args->get_attr("grammar");
 my $META = $args->get_attr("meta");
 
@@ -139,23 +139,22 @@ if($mode){
 	do $TAGGER;
 	do $FILTER;
 	do $PARSER;
-	do $CONLL;
-	if ($mode ne "-conll") {
-	    while(my $line = <$input>){
-		my $list = Parser::parse(AdapterFreeling::adapter(Tagger::tagger(Ner::ner(Splitter::splitter(Tokens::tokens(Sentences::sentences([$line])))))),  $mode);
-		for my $result (@{$list}){
-			print "$result\n";
-		}
-	    }
-	}
-        else{
-	    while(my $line = <$input>){
-	       my $list =  CONLL::conll(Parser::parse(AdapterFreeling::adapter(Tagger::tagger(Ner::ner(Splitter::splitter(Tokens::tokens(Sentences::sentences([$line])))))), "-fa"));
-	       for my $result (@{$list}){
-		      	print "$result\n";
-	       }
-	    }
-	}
 
+	if ($mode ne "-conll") {
+		while(my $line = <$input>){
+			my $list = Parser::parse(AdapterFreeling::adapter(Tagger::tagger(Ner::ner(Splitter::splitter(Tokens::tokens(Sentences::sentences([$line])))))),  $mode);
+			for my $result (@{$list}){
+				print "$result\n";
+			}
+		}
+	} else{
+		do $CONLL;
+		while(my $line = <$input>){
+			my $list =  CONLL::conll(Parser::parse(AdapterFreeling::adapter(Tagger::tagger(Ner::ner(Splitter::splitter(Tokens::tokens(Sentences::sentences([$line])))))), "-fa"));
+			for my $result (@{$list}){
+				print "$result\n";
+			}
+		}
+	}
 
 }

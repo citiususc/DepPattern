@@ -15,16 +15,11 @@ Besides, the software provides the PoS tagger 'CitiusTools", also developed by o
 
 
 ## REQUIREMENTS
-GNU/LINUX
-Perl and Ruby (for the grammar compiler) 
+GNU/LINUX, Perl and Ruby (for the grammar compiler) 
 
 
 ## HOW TO INSTALL
-### Using Git
-
-```bash
-git clone https://github.com/citiususc/DepPattern.git
-```
+You only need to download the repository.
 
 ### ZIP Download
 
@@ -33,6 +28,14 @@ Download [Linguakit-master.zip](https://github.com/citiususc/DepPattern/archive/
 ```bash
 unzip DepPattern-master.zip
 ```
+
+### Using Git
+
+```bash
+git clone https://github.com/citiususc/DepPattern.git
+```
+
+
 
 
 ## HOW TO USE

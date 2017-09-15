@@ -1,4 +1,4 @@
-# DepPattern parsers (including MetaRomance) and grammar compiler
+# DepPattern parsers and grammar compiler
 
 Author: 
 Pablo Gamallo, Isaac González, Marcos Garcia, César Piñeiro 
@@ -66,18 +66,21 @@ The same syntax with `deppattern.bat` command.
 
 ## Examples
 
-Return an analysis for Portuguese in -a format:
+Return an syntactic analysis for Portuguese in -a format:
 ```
 ./deppattern pt -f test/pt.txt -a
 ```
 
-Return an analysis for English in -conll format:
+Return an syntactic analysis for English in -conll format:
 ```
 ./deppattern en -f test/en.txt -conll
 ```
 
-Return a parser (parser.perl) from the English grammar:
-`./deppattern en -g grammars/grammar-devel-en`
+Generate a parser (parser.perl) from the English grammar using the compiler:
+
+```
+./deppattern en -g grammars/grammar-devel-en`
+```
 
 ## MetaRomance
 One of the parsers provided by the package is MetaRomance, made of Universal Dependencies for Romance languages, and one of the systems that participated at CoNLL-2017 Shared Task on multilingual dependency parsing. If the input text is in Portuguese, the command to run MetaRomance would be the following:

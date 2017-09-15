@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Using a parser just compiled from an user grammar</TITLE>
+<META NAME="description" CONTENT="Using a parser just compiled from an user grammar">
+<META NAME="keywords" CONTENT="user_guide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="user_guide.css">
+
+<LINK REL="previous" HREF="node22.html">
+<LINK REL="up" HREF="node19.html">
+<LINK REL="next" HREF="node24.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html353"
+  HREF="node24.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html349"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html345"
+  HREF="node22.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html351"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html354"
+  HREF="node24.html">System Modules</A>
+<B> Up:</B> <A NAME="tex2html350"
+  HREF="node19.html">Test samples</A>
+<B> Previous:</B> <A NAME="tex2html346"
+  HREF="node22.html">Using a specific parser</A>
+ &nbsp; <B>  <A NAME="tex2html352"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00340000000000000000">
+Using a parser just compiled from an user grammar</A>
+</H1>
+<P>
+<TT>If we have defined an user grammar following the DepPattern requirements, the command 'dp.sh' could be the following: 
+</TT>
+<P><PRE>
+dp.sh  -a treetagger en mytext.txt new_parser user_grammar.txt &gt; mytext.dep
+</PRE>
+<P>
+<TT>Here 'new_parser' is the name of the parser just generated using both a DepPattern grammar ('user_grammar') and the DepPattern compiler (Compi-beta). 
+If you are not provided with a DepPattern grammar, you can find a testing one in the 'grammars' directory. This grammar can be compiled to generate a new parser, 'parser_test', which can be used to analyse the input file, 'mytext.txt' as follows:
+</TT>
+<P><PRE>
+dp.sh  -a treetagger en mytext.txt parser_test grammars/grammar_test.txt &gt; mytext.dep
+</PRE>
+<P>
+<BR><HR>
+<ADDRESS>
+Pablo Gamallo
+2009-10-02
+</ADDRESS>
+</BODY>
+</HTML>

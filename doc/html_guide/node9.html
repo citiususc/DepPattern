@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Grammar File</TITLE>
+<META NAME="description" CONTENT="Grammar File">
+<META NAME="keywords" CONTENT="user_guide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="user_guide.css">
+
+<LINK REL="next" HREF="node10.html">
+<LINK REL="previous" HREF="node8.html">
+<LINK REL="up" HREF="node2.html">
+<LINK REL="next" HREF="node10.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html183"
+  HREF="node10.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html179"
+  HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html173"
+  HREF="node8.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html181"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html184"
+  HREF="node10.html">Options for Different Output</A>
+<B> Up:</B> <A NAME="tex2html180"
+  HREF="node2.html">DepPattern: A Grammar Based</A>
+<B> Previous:</B> <A NAME="tex2html174"
+  HREF="node8.html">Input File</A>
+ &nbsp; <B>  <A NAME="tex2html182"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00270000000000000000">
+Grammar File</A>
+</H1><TT>
+The file containing the grammar must be in plain text format.
+Below, you'll find a toy example of a grammar with 4 dependency-based rules:
+</TT>
+<P>
+<TT>AdjnR:  NOUN  ADJ
+</TT>
+<P>
+<TT>Agr: number, genre
+</TT>
+<P>
+<TT>SpecL:  DT  NOUN
+</TT>
+<P>
+<TT>Agr: number, genre
+</TT>
+<P>
+<TT>SubjL:  NOUN  [ADV]* VERB
+</TT>
+<P>
+<TT>Agr: number
+</TT>
+<P>
+<TT>DobjR:  VERB [ADV]* NOUN
+</TT>
+<P>
+<TT>To learn more about DepPattern formalism, look up the tutorial in the doc directory.
+</TT>
+<P>
+<BR><HR>
+<ADDRESS>
+Pablo Gamallo
+2009-10-02
+</ADDRESS>
+</BODY>
+</HTML>

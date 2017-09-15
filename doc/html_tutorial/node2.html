@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>DepPattern: Description of the Formalism</TITLE>
+<META NAME="description" CONTENT="DepPattern: Description of the Formalism">
+<META NAME="keywords" CONTENT="tutorialGrammar">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tutorialGrammar.css">
+
+<LINK REL="next" HREF="node34.html">
+<LINK REL="previous" HREF="node1.html">
+<LINK REL="up" HREF="tutorialGrammar.html">
+<LINK REL="next" HREF="node3.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html115"
+  HREF="node3.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html111"
+  HREF="tutorialGrammar.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html105"
+  HREF="node1.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html113"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html116"
+  HREF="node3.html">Basic description</A>
+<B> Up:</B> <A NAME="tex2html112"
+  HREF="tutorialGrammar.html">tutorialGrammar</A>
+<B> Previous:</B> <A NAME="tex2html106"
+  HREF="node1.html">Contents</A>
+ &nbsp; <B>  <A NAME="tex2html114"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00200000000000000000">
+DepPattern: Description of the Formalism</A>
+</H1>
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html117"
+  HREF="node3.html">Basic description</A>
+<LI><A NAME="tex2html118"
+  HREF="node4.html">Types of dependencies</A>
+<UL>
+<LI><A NAME="tex2html119"
+  HREF="node5.html">Main Types</A>
+<LI><A NAME="tex2html120"
+  HREF="node6.html">Further types</A>
+<UL>
+<LI><A NAME="tex2html121"
+  HREF="node7.html">Dependencies containing a lexical relation</A>
+<LI><A NAME="tex2html122"
+  HREF="node8.html">Unary relationship</A>
+<LI><A NAME="tex2html123"
+  HREF="node9.html">Summary</A>
+</UL>
+<LI><A NAME="tex2html124"
+  HREF="node10.html">The configuration file: 'dependencies.conf'</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html125"
+  HREF="node11.html">List of PoS tags and list of morpho-syntactic features</A>
+<UL>
+<LI><A NAME="tex2html126"
+  HREF="node12.html">Tagset</A>
+<UL>
+<LI><A NAME="tex2html127"
+  HREF="node13.html">Tags of punctuation marks</A>
+</UL>
+<LI><A NAME="tex2html128"
+  HREF="node14.html">List of morpho-syntactic features</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html129"
+  HREF="node15.html">Description of Patterns</A>
+<UL>
+<LI><A NAME="tex2html130"
+  HREF="node16.html">Basic Patterns</A>
+<LI><A NAME="tex2html131"
+  HREF="node17.html">Patterns with features</A>
+<LI><A NAME="tex2html132"
+  HREF="node18.html">Patterns with boolean operators</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html133"
+  HREF="node19.html">How rules are applied</A>
+<UL>
+<LI><A NAME="tex2html134"
+  HREF="node20.html">Uniqueness Principle</A>
+<LI><A NAME="tex2html135"
+  HREF="node21.html">Uniqueness Principle and contextual tags</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html136"
+  HREF="node22.html">Environments without the Uniqueness Principle</A>
+<UL>
+<LI><A NAME="tex2html137"
+  HREF="node23.html">Blocks of rules</A>
+<LI><A NAME="tex2html138"
+  HREF="node24.html">NoUniq environment</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html139"
+  HREF="node25.html">More optional operators</A>
+<UL>
+<LI><A NAME="tex2html140"
+  HREF="node26.html">Recursivity</A>
+<LI><A NAME="tex2html141"
+  HREF="node27.html">Agreement</A>
+<LI><A NAME="tex2html142"
+  HREF="node28.html">Add</A>
+<LI><A NAME="tex2html143"
+  HREF="node29.html">Inherit</A>
+<LI><A NAME="tex2html144"
+  HREF="node30.html">Operators within blocks of rules</A>
+<LI><A NAME="tex2html145"
+  HREF="node31.html">Summary of operators</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html146"
+  HREF="node32.html">Lexical Classes</A>
+<LI><A NAME="tex2html147"
+  HREF="node33.html">Begin and end of sentences</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+gamallo
+2012-02-06
+</ADDRESS>
+</BODY>
+</HTML>

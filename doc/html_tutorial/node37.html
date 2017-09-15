@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Function Unicity</TITLE>
+<META NAME="description" CONTENT="Function Unicity">
+<META NAME="keywords" CONTENT="tutorialGrammar">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tutorialGrammar.css">
+
+<LINK REL="next" HREF="node38.html">
+<LINK REL="previous" HREF="node36.html">
+<LINK REL="up" HREF="node34.html">
+<LINK REL="next" HREF="node38.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html578"
+  HREF="node38.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html574"
+  HREF="node34.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html568"
+  HREF="node36.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html576"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html579"
+  HREF="node38.html">DepPattern and Pattern Grammar</A>
+<B> Up:</B> <A NAME="tex2html575"
+  HREF="node34.html">Examples of Use</A>
+<B> Previous:</B> <A NAME="tex2html569"
+  HREF="node36.html">Using DepPattern to Correct</A>
+ &nbsp; <B>  <A NAME="tex2html577"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00330000000000000000"></A>  <A NAME="sec:unicity"></A>
+<BR>
+Function Unicity
+</H1>
+
+<P>
+The type of dependency ``Head'' can also be used to take into account the principle of function unicity. This principle states that a verb only contains one main function: one Subject, one Direct Object, and one Indirect Object. So, the grammar should prevent of applying the corresponding rules more than once. To do it, we propose the following strategy. First, we define the following rule:
+
+<P>
+<BLOCKQUOTE>
+Single : VERB
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>Add: subj:0, dobj:0, iobj:0 
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>% 
+
+</BLOCKQUOTE>  
+
+<P>
+This means that every verb is provided with 3 new attribute-value pairs (subj:0, dobj:0, and iobj:0), which represent the fact that a verb these 3 functions have not been found yet. Then, all definitions of rules used to identify these functions should contain the following information:
+
+<P>
+<BLOCKQUOTE>
+SubjL : NOUN VERB&lt;subj:0&gt;
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>Add: subj:1 
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>% 
+
+</BLOCKQUOTE>  
+
+<P>
+This rule is applied only if the verb has not another subject. Then, the attribute 'subj' is assigned value 1. Then, this rule cannot be applied again. 
+
+<P>
+<BR><HR>
+<ADDRESS>
+gamallo
+2012-02-06
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Usage of default parsers</TITLE>
+<META NAME="description" CONTENT="Usage of default parsers">
+<META NAME="keywords" CONTENT="user_guide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="user_guide.css">
+
+<LINK REL="next" HREF="node22.html">
+<LINK REL="previous" HREF="node20.html">
+<LINK REL="up" HREF="node19.html">
+<LINK REL="next" HREF="node22.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html331"
+  HREF="node22.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html327"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html321"
+  HREF="node20.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html329"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html332"
+  HREF="node22.html">Using a specific parser</A>
+<B> Up:</B> <A NAME="tex2html328"
+  HREF="node19.html">Test samples</A>
+<B> Previous:</B> <A NAME="tex2html322"
+  HREF="node20.html">Usage example</A>
+ &nbsp; <B>  <A NAME="tex2html330"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00320000000000000000">
+Usage of default parsers</A>
+</H1>
+<P>
+<TT>If we want to use the default parsers included in the package, the command to be use is the following:
+</TT>
+<P><PRE>
+dp.sh  -a treetagger en mytext.txt &gt; mytext.dep
+</PRE>
+<P>
+<TT>This command generates a simple dependency-based representation (option -a), making use of the english (en) treetagger. 
+The expected result is:
+
+<BR>
+<BR></TT><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283><TT><SMALL CLASS="SMALL"><TT>
+SENT::&lt;I_PRO_0_&lt;number:0|lemma:I|possessor:0|case:0|genre:0|person:0|politeness:0|type:P|token:I|&gt; </TT></SMALL></TT></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283><TT><SMALL CLASS="SMALL"><TT> 
+have_VERB_1_&lt;number:0|mode:0|lemma:have|genre:0|tense:0|person:0|type:A|token:have|&gt;</TT></SMALL></TT></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283><TT><SMALL CLASS="SMALL"><TT> 
+a_DT_2_&lt;number:0|lemma:a|possessor:0|genre:0|person:0|type:0|token:a|&gt;</TT></SMALL></TT></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283><TT><SMALL CLASS="SMALL"><TT> 
+dream_NOUN_3_&lt;number:S|lemma:dream|genre:0|person:3|type:C|token:dream|&gt;._SENT&gt;</TT></SMALL></TT></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283><TT><SMALL CLASS="SMALL"><TT> 
+(SubjL;have_VERB_1;I_PRO_0)</TT></SMALL></TT></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283><TT><SMALL CLASS="SMALL"><TT> 
+(SpecL;dream_NOUN_3;a_DT_2)</TT></SMALL></TT></TD>
+</TR>
+<TR><TD ALIGN="LEFT" VALIGN="TOP" WIDTH=283><TT><SMALL CLASS="SMALL"><TT> 
+(DobjR;have_VERB_1;dream_NOUN_3)
+</TT></SMALL></TT></TD>
+</TR>
+</TABLE><TT>
+
+<BR>
+<BR>
+The output consists of 4 lines. The first one is the input of the parsing strategy. It starts by 'SENT::' and contains 5 columns separated by a space. Each column is provided with the morpho-syntactic information assigned to each token of the input text. The remaining 3 lines show the dependency-based analysis. For instance, the second line represents the Subject dependency between pronoun ``I'' and verb ``have''. 
+</TT>
+<P>
+<TT>If we would like to parse a spanish text, we should use the following command:
+</TT>
+<P><PRE>
+dp.sh  -a treetagger es mytext-es.txt &gt; mytext-es.dep
+</PRE>
+<P>
+<TT>where 'mytext-es' stands for the name of a file containing a text in Spanish. The remaining languages are called with ``fr'' (french), ``pt'' (portuguese), and ``gl'' (galician). 
+</TT>
+<P>
+<TT>Instead of treetagger, we can use freeling:
+</TT>
+<P><PRE>
+dp.sh  -a freeling en mytext.txt &gt; mytext.dep
+</PRE>
+<P>
+<TT>Freeling is not provided with the DepPattern package. It must be previously installed. The configuration files should be in '/usr/local/share/FreeLing/config/', which is the by default directory in the standard installation.
+</TT>
+<P>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html331"
+  HREF="node22.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html327"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html321"
+  HREF="node20.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html329"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html332"
+  HREF="node22.html">Using a specific parser</A>
+<B> Up:</B> <A NAME="tex2html328"
+  HREF="node19.html">Test samples</A>
+<B> Previous:</B> <A NAME="tex2html322"
+  HREF="node20.html">Usage example</A>
+ &nbsp; <B>  <A NAME="tex2html330"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Pablo Gamallo
+2009-10-02
+</ADDRESS>
+</BODY>
+</HTML>

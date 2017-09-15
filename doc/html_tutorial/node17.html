@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Patterns with features</TITLE>
+<META NAME="description" CONTENT="Patterns with features">
+<META NAME="keywords" CONTENT="tutorialGrammar">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tutorialGrammar.css">
+
+<LINK REL="next" HREF="node18.html">
+<LINK REL="previous" HREF="node16.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node18.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html334"
+  HREF="node18.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html330"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html324"
+  HREF="node16.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html332"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html335"
+  HREF="node18.html">Patterns with boolean operators</A>
+<B> Up:</B> <A NAME="tex2html331"
+  HREF="node15.html">Description of Patterns</A>
+<B> Previous:</B> <A NAME="tex2html325"
+  HREF="node16.html">Basic Patterns</A>
+ &nbsp; <B>  <A NAME="tex2html333"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00242000000000000000">
+Patterns with features</A>
+</H2>
+Each PoS tag in a pattern may contain morpho-syntactic and/or lexical information. This information is represented by a feature-value structure, noted as a pair &lt;feature:value&gt;. Let's see some examples:
+<BLOCKQUOTE>
+ADV&lt;lemma:very&gt; ADV
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>PRO&lt;type:R&gt; VERB
+
+</BLOCKQUOTE>
+
+<P>
+The first pattern represents a dependency between two adverbs, one of them is associated to the lemma ``very''. This is a lexical restriction. The second pattern represents a dependency between a pronoun and a verb. The pronoun is characterized by means of the type ``R(elative)''. This is a morpho-syntactic restriction. Both lexical and morpho-syntactic restrictions are represented by means of feature-value structures. In the example above, ``lemma'' and ``type'' are features, while ``very'' and ``R'' are their specific values.  
+
+<P>
+One of the main advantages of DepPattern is that features are only used when they are necessary. Given a PoS tag, all those features that are not specified in a pattern are considered to have value 0.   
+
+<P>
+<BR><HR>
+<ADDRESS>
+gamallo
+2012-02-06
+</ADDRESS>
+</BODY>
+</HTML>

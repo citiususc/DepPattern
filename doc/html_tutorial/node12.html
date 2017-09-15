@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Tagset</TITLE>
+<META NAME="description" CONTENT="Tagset">
+<META NAME="keywords" CONTENT="tutorialGrammar">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tutorialGrammar.css">
+
+<LINK REL="next" HREF="node14.html">
+<LINK REL="previous" HREF="node11.html">
+<LINK REL="up" HREF="node11.html">
+<LINK REL="next" HREF="node13.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html274"
+  HREF="node13.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html270"
+  HREF="node11.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html264"
+  HREF="node11.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html272"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html275"
+  HREF="node13.html">Tags of punctuation marks</A>
+<B> Up:</B> <A NAME="tex2html271"
+  HREF="node11.html">List of PoS tags</A>
+<B> Previous:</B> <A NAME="tex2html265"
+  HREF="node11.html">List of PoS tags</A>
+ &nbsp; <B>  <A NAME="tex2html273"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00231000000000000000">
+Tagset</A>
+</H2>
+The tagset depends on the system used to tag the input text. For instance, the tagset of the English Tree-Tagger is different from that of the Spanish Tree-Tagger, which is different from that of the Spanish Freeling, etc. However, the parser uses as input the output of a tool whose aim is to convert the main PoS tags of all those taggers into a shared list of tags. The shared list is the following: ADJ (adjective), ADV (adverb), NOUN (noun), PRP (preposition), CARD (cardinal number), CONJ (conjunction), DT (determiner), PRO (pronoun), VERB (verb), I (interjection), and 25 more tags for punctuation marks. In addition, there are still some PoS tags belonging to only one tagger. For instance, the English tree-tagger also contains specific tags such as: PoS ('s), PCLE (particle), EX (existential 'there'), etc. 
+
+<P>
+The configuration file where the names of tags are declared is called tagset.conf. Each line contains two columns. 
+ The second column contains the names of tags actually used by the system. These names correspond to both the list of PoS tags shared by all PoS taggers, and those PoS tags which are specific to each PoS tagger. 
+ The first column shows the names chosen by the user to build the grammar. The user is free to use whatever name. All regular PoS tags are written with upper-case letters. Let's see an example:     
+
+<BR>
+<BR><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">ADJECTIVE</TD>
+<TD ALIGN="LEFT">ADJ</TD>
+</TR>
+<TR><TD ALIGN="LEFT">ADVERB</TD>
+<TD ALIGN="LEFT">ADV</TD>
+</TR>
+<TR><TD ALIGN="LEFT">PREP</TD>
+<TD ALIGN="LEFT">PRP</TD>
+</TR>
+<TR><TD ALIGN="LEFT">C</TD>
+<TD ALIGN="LEFT">CONJ</TD>
+</TR>
+<TR><TD ALIGN="LEFT">NUMBER</TD>
+<TD ALIGN="LEFT">CARD</TD>
+</TR>
+<TR><TD ALIGN="LEFT">DET</TD>
+<TD ALIGN="LEFT">DT</TD>
+</TR>
+<TR><TD ALIGN="LEFT">NOUN</TD>
+<TD ALIGN="LEFT">NOUN</TD>
+</TR>
+<TR><TD ALIGN="LEFT">PRON</TD>
+<TD ALIGN="LEFT">PRO</TD>
+</TR>
+<TR><TD ALIGN="LEFT">V</TD>
+<TD ALIGN="LEFT">VERB</TD>
+</TR>
+<TR><TD ALIGN="LEFT">INT</TD>
+<TD ALIGN="LEFT">I</TD>
+</TR>
+<TR><TD ALIGN="LEFT">POS</TD>
+<TD ALIGN="LEFT">POS</TD>
+</TR>
+<TR><TD ALIGN="LEFT">PCLE</TD>
+<TD ALIGN="LEFT">PCLE</TD>
+</TR>
+</TABLE>
+
+<BR>
+<BR>
+It is also possible to create short-cuts using regular expressions, such as:
+
+<BR>
+<BR><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">X</TD>
+<TD ALIGN="LEFT">[A-Z]+</TD>
+</TR>
+<TR><TD ALIGN="LEFT">NOTVERB</TD>
+<TD ALIGN="LEFT">[^ V][^ E]+</TD>
+</TR>
+<TR><TD ALIGN="LEFT">PUNCT</TD>
+<TD ALIGN="LEFT">F[a-z]+</TD>
+</TR>
+</TABLE>
+
+<BR>
+<BR>
+Variable X stands for whichever tag name, NOTVERB for whatever tag except those containing the string VE (like VERB), and PUNCT all tags containing the string F followed by some lower-case letters (i.e., punctuation marks).
+ To define more specific shorcuts, we can also use the dysjunction operation ``|'':
+
+<BR>
+<BR><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">NOMINAL</TD>
+<TD ALIGN="LEFT">PRON|NOUN</TD>
+</TR>
+</TABLE>
+
+<BR>
+<BR>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html276"
+  HREF="node13.html">Tags of punctuation marks</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html274"
+  HREF="node13.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html270"
+  HREF="node11.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html264"
+  HREF="node11.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html272"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html275"
+  HREF="node13.html">Tags of punctuation marks</A>
+<B> Up:</B> <A NAME="tex2html271"
+  HREF="node11.html">List of PoS tags</A>
+<B> Previous:</B> <A NAME="tex2html265"
+  HREF="node11.html">List of PoS tags</A>
+ &nbsp; <B>  <A NAME="tex2html273"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+gamallo
+2012-02-06
+</ADDRESS>
+</BODY>
+</HTML>

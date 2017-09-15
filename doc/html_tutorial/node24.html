@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>NoUniq environment</TITLE>
+<META NAME="description" CONTENT="NoUniq environment">
+<META NAME="keywords" CONTENT="tutorialGrammar">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tutorialGrammar.css">
+
+<LINK REL="previous" HREF="node23.html">
+<LINK REL="up" HREF="node22.html">
+<LINK REL="next" HREF="node25.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html416"
+  HREF="node25.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html412"
+  HREF="node22.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html408"
+  HREF="node23.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html414"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html417"
+  HREF="node25.html">More optional operators</A>
+<B> Up:</B> <A NAME="tex2html413"
+  HREF="node22.html">Environments without the Uniqueness</A>
+<B> Previous:</B> <A NAME="tex2html409"
+  HREF="node23.html">Blocks of rules</A>
+ &nbsp; <B>  <A NAME="tex2html415"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00262000000000000000">
+NoUniq environment</A>
+</H2>
+If the linguist wishes to define a rule without removing the dependent node, he/she can use the NoUniq operator. For instance:
+
+<P>
+<BLOCKQUOTE>
+DirectObjectR : VERB NOUN
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>NoUniq
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>%
+
+</BLOCKQUOTE>  
+
+<P>
+This rule does not remove the NOUN tag from the search space.
+
+<P>
+It is also possible to define a rule where both ``head'' and ``dependent'' are removed. For this purpose, the ``Remove'' operator was defined:
+
+<P>
+<BLOCKQUOTE>
+DirectObjectR : VERB NOUN
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>Remove
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>%
+
+</BLOCKQUOTE>  
+
+<P>
+This rule removes both the VERB and NOUN tags from the search space.
+
+<P>
+<BR><HR>
+<ADDRESS>
+gamallo
+2012-02-06
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,300 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>A sample grammar</TITLE>
+<META NAME="description" CONTENT="A sample grammar">
+<META NAME="keywords" CONTENT="tutorialGrammar">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tutorialGrammar.css">
+
+<LINK REL="next" HREF="node36.html">
+<LINK REL="previous" HREF="node34.html">
+<LINK REL="up" HREF="node34.html">
+<LINK REL="next" HREF="node36.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html554"
+  HREF="node36.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html550"
+  HREF="node34.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html544"
+  HREF="node34.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html552"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html555"
+  HREF="node36.html">Using DepPattern to Correct</A>
+<B> Up:</B> <A NAME="tex2html551"
+  HREF="node34.html">Examples of Use</A>
+<B> Previous:</B> <A NAME="tex2html545"
+  HREF="node34.html">Examples of Use</A>
+ &nbsp; <B>  <A NAME="tex2html553"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00310000000000000000">
+A sample grammar</A>
+</H1>
+To give an idea of how a DepPattern grammar can be built, let's propose the following set of rules:
+
+<P>
+<BLOCKQUOTE>
+AdjunctRight : VERB ADV
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>Recursivity: 1
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>%
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>AdjunctLeft : ADV VERB
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>Recursivity: 1
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>%
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>AdjunctLeft : ADJ NOUN
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>Recursivity: 1
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>Agreement: number, gender
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>%
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>AdjunctLeft : DT NOUN
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>Recursivity: 1
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>Agreement: number, gender
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>%
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>SubjLeft : NOUN|PRO VERB
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>Agreement: number, person
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>%
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>DObjRight : VERB NOUN|PRO
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>%
+</BLOCKQUOTE>
+<P> 
+
+<P>
+This small grammar is able to correctly analyse expressions such as ``fast cars'', whose output analysis (with flag -a) is the following:
+
+<P>
+<PRE>
+SENT::&lt;fast_ADJ_0_&lt;number:0|function:0|degree:0|lemma:fast|gender:0|type:0|token:fast|&gt; 
+cars_NOUN_1_&lt;number:P|lemma:car|gender:0|person:3|type:C|token:cars|&gt; ._SENT&gt;
+
+(AdjnL;car_NOUN_1;fast_ADJ_0)
+---
+Fim do parsing...
+</PRE>
+
+<P>
+``a nice fast car'':
+
+<P>
+<PRE>
+SENT::&lt;a_DT_0_&lt;number:0|lemma:a|possessor:0|gender:0|person:0|type:0|token:a|&gt; 
+nice_ADJ_1_&lt;number:0|function:0|degree:0|lemma:nice|gender:0|type:0|token:nice|&gt; 
+fast_ADJ_2_&lt;number:0|function:0|degree:0|lemma:fast|gender:0|type:0|token:fast|&gt; 
+car_NOUN_3_&lt;number:S|lemma:car|gender:0|person:3|type:C|token:car|&gt; ._SENT&gt;
+
+(SpecL;car_NOUN_3;a_DT_0)
+(AdjnL;car_NOUN_3;nice_ADJ_1)
+(AdjnL;car_NOUN_3;fast_ADJ_2)
+---
+Fim do parsing...
+</PRE>
+
+<P>
+``all the nice fast cars'':
+
+<P>
+<PRE>
+SENT::&lt;all_DT_0_&lt;number:0|lemma:all|possessor:0|gender:0|person:0|type:0|token:all|&gt; 
+the_DT_1_&lt;number:0|lemma:the|possessor:0|gender:0|person:0|type:0|token:the|&gt; 
+nice_ADJ_2_&lt;number:0|function:0|degree:0|lemma:nice|gender:0|type:0|token:nice|&gt; 
+fast_ADJ_3_&lt;number:0|function:0|degree:0|lemma:fast|gender:0|type:0|token:fast|&gt; 
+cars_NOUN_4_&lt;number:P|lemma:car|gender:0|person:3|type:C|token:cars|&gt; ._SENT&gt;
+
+(SpecL;car_NOUN_4;all_DT_0)
+(SpecL;car_NOUN_4;the_DT_1)
+(AdjnL;car_NOUN_4;nice_ADJ_2)
+(AdjnL;car_NOUN_4;fast_ADJ_3)
+---
+Fim do parsing...
+</PRE>
+
+<P>
+``all the fast cars run fast'':
+
+<P>
+<PRE>
+SENT::&lt;all_DT_0_&lt;number:0|lemma:all|possessor:0|gender:0|person:0|type:0|token:all|&gt; 
+the_DT_1_&lt;number:0|lemma:the|possessor:0|gender:0|person:0|type:0|token:the|&gt; 
+nice_ADJ_2_&lt;number:0|function:0|degree:0|lemma:nice|gender:0|type:0|token:nice|&gt; 
+fast_ADJ_3_&lt;number:0|function:0|degree:0|lemma:fast|gender:0|type:0|token:fast|&gt; 
+cars_NOUN_4_&lt;number:P|lemma:car|gender:0|person:3|type:C|token:cars|&gt; 
+run_VERB_5_&lt;number:0|mode:0|lemma:run|gender:0|tense:0|person:0|type:0|token:run|&gt; 
+fast_ADV_6_&lt;degree:0|lemma:fast|token:fast|&gt; ._SENT&gt;
+
+(SpecL;car_NOUN_4;all_DT_0)
+(SpecL;car_NOUN_4;the_DT_1)
+(AdjnL;car_NOUN_4;nice_ADJ_2)
+(AdjnL;car_NOUN_4;fast_ADJ_3)
+(SubjL;run_VERB_5;car_NOUN_4)
+(AdjnR;run_VERB_5;fast_ADV_6)
+---
+Fim do parsing...
+</PRE>
+
+<P>
+``Bill bought a fast car'':
+
+<P>
+<PRE>
+SENT::&lt;Bill_NOUN_0_&lt;number:S|person:3|type:C|lemma:bill|token:Bill|gender:0|&gt; 
+bought_VERB_1_&lt;number:0|mode:0|lemma:buy|gender:0|tense:S|person:0|type:0|token:bought|&gt; 
+a_DT_2_&lt;number:0|lemma:a|possessor:0|gender:0|person:0|type:0|token:a|&gt; 
+fast_ADJ_3_&lt;number:0|function:0|degree:0|lemma:fast|gender:0|type:0|token:fast|&gt; 
+car_NOUN_4_&lt;number:S|lemma:car|gender:0|person:3|type:C|token:car|&gt; ._SENT&gt;
+
+(SubjL;buy_VERB_1;bill_NOUN_0)
+(SpecL;car_NOUN_4;a_DT_2)
+(AdjnL;car_NOUN_4;fast_ADJ_3)
+(DobjR;buy_VERB_1;car_NOUN_4)
+---
+Fim do parsing...
+</PRE>
+
+<P>
+``the rich man bought yesterday a nice fast car'':
+
+<P>
+<PRE>
+SENT::&lt;the_DT_0_&lt;number:0|lemma:the|possessor:0|gender:0|person:0|type:0|token:the|&gt; 
+rich_ADJ_1_&lt;number:0|function:0|degree:0|lemma:rich|gender:0|type:0|token:rich|&gt; 
+man_NOUN_2_&lt;number:S|lemma:man|gender:0|person:3|type:C|token:man|&gt; 
+bought_VERB_3_&lt;number:0|mode:0|lemma:buy|gender:0|tense:S|person:0|type:0|token:bought|&gt; 
+yesterday_ADV_4_&lt;degree:0|lemma:yesterday|token:yesterday|&gt; 
+a_DT_5_&lt;number:0|lemma:a|possessor:0|gender:0|person:0|type:0|token:a|&gt; 
+nice_ADJ_6_&lt;number:0|function:0|degree:0|lemma:nice|gender:0|type:0|token:nice|&gt; 
+fast_ADJ_7_&lt;number:0|function:0|degree:0|lemma:fast|gender:0|type:0|token:fast|&gt; 
+car_NOUN_8_&lt;number:S|lemma:car|gender:0|person:3|type:C|token:car|&gt; ._SENT&gt;
+
+(SpecL;man_NOUN_2;the_DT_0)
+(AdjnL;man_NOUN_2;rich_ADJ_1)
+(SubjL;buy_VERB_3;man_NOUN_2)
+(AdjnR;buy_VERB_3;yesterday_ADV_4)
+(SpecL;car_NOUN_8;a_DT_5)
+(AdjnL;car_NOUN_8;nice_ADJ_6)
+(AdjnL;car_NOUN_8;fast_ADJ_7)
+(DobjR;buy_VERB_3;car_NOUN_8)
+---
+Fim do parsing...
+</PRE>
+
+<P>
+``he really wants another car''.   
+
+<P>
+<PRE>
+SENT::&lt;he_PRO_0_&lt;number:0|lemma:he|possessor:0|case:0|gender:0|person:0|politeness:0
+|type:P|token:he|&gt; 
+really_ADV_1_&lt;degree:0|lemma:really|token:really|&gt; 
+wants_VERB_2_&lt;number:0|mode:0|lemma:want|gender:0|tense:P|person:3|type:0|token:wants|&gt; 
+another_DT_3_&lt;number:0|lemma:another|possessor:0|gender:0|person:0|type:0|token:another|&gt; 
+car_NOUN_4_&lt;number:S|lemma:car|gender:0|person:3|type:C|token:car|&gt; ._SENT&gt;
+
+(SubjL;want_VERB_2;he_PRO_0)
+(AdjnL;want_VERB_2;really_ADV_1)
+(SpecL;car_NOUN_4;another_DT_3)
+(DobjR;want_VERB_2;car_NOUN_4)
+---
+Fim do parsing...
+</PRE>
+
+<P>
+Rules can be ordered in different ways, since they fill the basic constraints stated berore in this tutorial.  However, to be efficient, a DepPattern grammar should be written by cascades of rules representing linguistic layers or modules. An optimal grammar should contain first rules concerning adverb phrases, then adjective phrases, then nominal phrases, and finally verb phrases.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html554"
+  HREF="node36.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html550"
+  HREF="node34.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html544"
+  HREF="node34.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html552"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html555"
+  HREF="node36.html">Using DepPattern to Correct</A>
+<B> Up:</B> <A NAME="tex2html551"
+  HREF="node34.html">Examples of Use</A>
+<B> Previous:</B> <A NAME="tex2html545"
+  HREF="node34.html">Examples of Use</A>
+ &nbsp; <B>  <A NAME="tex2html553"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+gamallo
+2012-02-06
+</ADDRESS>
+</BODY>
+</HTML>

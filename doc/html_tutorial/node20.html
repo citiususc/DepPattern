@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Uniqueness Principle</TITLE>
+<META NAME="description" CONTENT="Uniqueness Principle">
+<META NAME="keywords" CONTENT="tutorialGrammar">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tutorialGrammar.css">
+
+<LINK REL="next" HREF="node21.html">
+<LINK REL="previous" HREF="node19.html">
+<LINK REL="up" HREF="node19.html">
+<LINK REL="next" HREF="node21.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html370"
+  HREF="node21.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html366"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html360"
+  HREF="node19.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html368"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html371"
+  HREF="node21.html">Uniqueness Principle and contextual</A>
+<B> Up:</B> <A NAME="tex2html367"
+  HREF="node19.html">How rules are applied</A>
+<B> Previous:</B> <A NAME="tex2html361"
+  HREF="node19.html">How rules are applied</A>
+ &nbsp; <B>  <A NAME="tex2html369"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00251000000000000000">
+Uniqueness Principle</A>
+</H2>
+A rule not only identifies a dependency between two words, <SPAN  CLASS="textbf">it also removes the dependent word from the current expression that is being analysed.</SPAN> The modified expression will be the input of the following rule. So, rules are applied sequencially and modify the input of the next rule to be applied. Such a modification is justified by the Uniqueness principle of Dependency Grammar.
+
+<P>
+Let's suppose that we build a simple grammar with the following two rules:
+<BLOCKQUOTE>
+AdjunctLeft : ADJ NOUN
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>%
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>SpecLeft : DT NOUN
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>%
+
+</BLOCKQUOTE>
+
+<P>
+Let's analyse the expression ``a beautiful mountain''.  The input string of the parser would be like this:
+
+<P>
+<BLOCKQUOTE>
+a_DT_&lt;...&gt; beautiful_ADJ_&lt;...&gt; mountain_NOUN_&lt;...&gt;
+
+</BLOCKQUOTE>
+
+<P>
+The first rule is applied on this string and finds the ``ADJ NOUN'' pattern. This finding allows the rule to identify the adjunct dependency between ``beautiful'' and ``mountain''. But the rule also removes the adjective (which is the dependent expression) from the string that will be the input the following rule. So, the second rule will be applied on this new input:
+
+<P>
+<BLOCKQUOTE>
+a_DT_&lt;...&gt; mountain_NOUN_&lt;...&gt;
+
+</BLOCKQUOTE>
+
+<P>
+It finds the ``DT NOUN'' pattern and then the dependency between ``a'' and ``mountain''. In addition, it removes the determiner from the input string. The head ``mountain'' is the only expression to be analysed in further applications of rules. 
+
+<P>
+According to the ``Uniqueness principle'', a dependent word only has one head. So, if we identify a dependency relation containing a dependent word which is no more the head of any word, then it means that we have alredy found all dependencies associated to that word and it can be removed from the search space.     
+The fact of removing one by one the dependents from the input string allows us to reduce in a systematic way the search space, which consists of a huge variety of possible patterns of tags.  
+
+<P>
+Considering Uniqueness, the following constraint is required to write well-formed DepPattern grammars:
+<DL>
+<DT></DT>
+<DD><SPAN  CLASS="textbf">Constraint 1:</SPAN> The dependent tag of a rule musn't be involved in further rules. In other words, before writing a rule, we must write before all those rules containing heads instanciated by the dependent tag of the current rule.
+</DD>
+</DL>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html370"
+  HREF="node21.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html366"
+  HREF="node19.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html360"
+  HREF="node19.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html368"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html371"
+  HREF="node21.html">Uniqueness Principle and contextual</A>
+<B> Up:</B> <A NAME="tex2html367"
+  HREF="node19.html">How rules are applied</A>
+<B> Previous:</B> <A NAME="tex2html361"
+  HREF="node19.html">How rules are applied</A>
+ &nbsp; <B>  <A NAME="tex2html369"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+gamallo
+2012-02-06
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Recursivity</TITLE>
+<META NAME="description" CONTENT="Recursivity">
+<META NAME="keywords" CONTENT="tutorialGrammar">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tutorialGrammar.css">
+
+<LINK REL="next" HREF="node27.html">
+<LINK REL="previous" HREF="node25.html">
+<LINK REL="up" HREF="node25.html">
+<LINK REL="next" HREF="node27.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html446"
+  HREF="node27.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html442"
+  HREF="node25.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html436"
+  HREF="node25.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html444"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html447"
+  HREF="node27.html">Agreement</A>
+<B> Up:</B> <A NAME="tex2html443"
+  HREF="node25.html">More optional operators</A>
+<B> Previous:</B> <A NAME="tex2html437"
+  HREF="node25.html">More optional operators</A>
+ &nbsp; <B>  <A NAME="tex2html445"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00271000000000000000">
+Recursivity</A>
+</H2>
+In some cases, a rule or grammatical structure requires to be applied several times to deal with with recursive expressions such as, for instance, ``nice red car''. In this expressions the noun ``car'' is modified by two adjectives in the same way. DepPattern can deal with this phenomenon in several ways: using a block of rules, applying twice the same rule, or using the operator ``Recursivity''. The 3 possible representations are the following:  
+
+<P>
+Block of rules:
+<BLOCKQUOTE>
+AdjunctLeft : [ADJ] ADJ NOUN
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>NEXT
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>AdjunctLeft : ADJ [ADJ] NOUN
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>%
+
+</BLOCKQUOTE>  
+
+<P>
+Repetition of the same rule:
+<BLOCKQUOTE>
+AdjunctLeft : ADJ NOUN
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>%
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>AdjunctLeft : ADJ NOUN
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>%
+
+</BLOCKQUOTE> 
+
+<P>
+Recursivity operator:
+<BLOCKQUOTE>
+AdjunctLeft : ADJ NOUN
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>Recursivity: 1
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>%
+
+</BLOCKQUOTE> 
+
+<P>
+``Recursivity'' is specified by numeric values: ``1'' means that the rule must be applied twice. By default, the value is 0, that is a rule is applied only once. This operator permits to specifiy the number of times a rule can be applied. It allows both a more compact representation and an easier control of rule recursivity.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html446"
+  HREF="node27.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html442"
+  HREF="node25.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html436"
+  HREF="node25.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html444"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html447"
+  HREF="node27.html">Agreement</A>
+<B> Up:</B> <A NAME="tex2html443"
+  HREF="node25.html">More optional operators</A>
+<B> Previous:</B> <A NAME="tex2html437"
+  HREF="node25.html">More optional operators</A>
+ &nbsp; <B>  <A NAME="tex2html445"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+gamallo
+2012-02-06
+</ADDRESS>
+</BODY>
+</HTML>

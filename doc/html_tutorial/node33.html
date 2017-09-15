@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Begin and end of sentences</TITLE>
+<META NAME="description" CONTENT="Begin and end of sentences">
+<META NAME="keywords" CONTENT="tutorialGrammar">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tutorialGrammar.css">
+
+<LINK REL="previous" HREF="node32.html">
+<LINK REL="up" HREF="node2.html">
+<LINK REL="next" HREF="node34.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html526"
+  HREF="node34.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html522"
+  HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html518"
+  HREF="node32.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html524"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html527"
+  HREF="node34.html">Examples of Use</A>
+<B> Up:</B> <A NAME="tex2html523"
+  HREF="node2.html">DepPattern: Description of the</A>
+<B> Previous:</B> <A NAME="tex2html519"
+  HREF="node32.html">Lexical Classes</A>
+ &nbsp; <B>  <A NAME="tex2html525"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00290000000000000000">
+Begin and end of sentences</A>
+</H1>
+
+<P>
+To describe patterns taking into account the first tag of sentences, it will be possible to use the restriction &lt;pos:0&gt;. For instance:
+
+<P>
+<BLOCKQUOTE>
+SubjL : PRO&lt;pos:0&gt; VERB
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>%
+
+</BLOCKQUOTE>
+
+<P>
+This rule is applied when the subject pronoun is the first element of the sentence (position = 0). 
+
+<P>
+It is also possible to use symbol `` ^  '' to represent a head that has no dependent elements to its left (apart from the dependents inserted in the pattern). For instance:
+
+<P>
+<BLOCKQUOTE>
+SubjL :  ^   NOUN|PRO VERB
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>%
+
+</BLOCKQUOTE>
+
+<P>
+That means there is only a NOUN or a PRO linked to the verb as a left dependent. There are not other complements or modifiers linked to the verb in the sentence appearing to the left of the nominal subject. 
+
+<P>
+It is also possible to use the attribute ``pos'' to represent any position of a tag. For instance, &lt;pos:3&gt; represents the forth position of a tag.
+
+<P>
+Finally, the end of a sentence can be represented by tag SENT. For instance:
+
+<P>
+<BLOCKQUOTE>
+SubjR :  [PRO&lt;lemma:how&gt;] [ADJ&lt;lemma:old&gt;] VERB&lt;lemma:be&gt; NOUN|PRO SENT&lt;lemma:?&gt;
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>%
+
+</BLOCKQUOTE>
+
+<P>
+This rule represents the reverted subject relation within a interrogative sentence such as ``how old are you?''. 
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html526"
+  HREF="node34.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html522"
+  HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html518"
+  HREF="node32.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html524"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html527"
+  HREF="node34.html">Examples of Use</A>
+<B> Up:</B> <A NAME="tex2html523"
+  HREF="node2.html">DepPattern: Description of the</A>
+<B> Previous:</B> <A NAME="tex2html519"
+  HREF="node32.html">Lexical Classes</A>
+ &nbsp; <B>  <A NAME="tex2html525"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+gamallo
+2012-02-06
+</ADDRESS>
+</BODY>
+</HTML>

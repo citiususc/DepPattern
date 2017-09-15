@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>tutorialGrammar</TITLE>
+<META NAME="description" CONTENT="tutorialGrammar">
+<META NAME="keywords" CONTENT="tutorialGrammar">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tutorialGrammar.css">
+
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html17"
+  HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up_g.png"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev_g.png"> 
+<A NAME="tex2html15"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html18"
+  HREF="node1.html">Contents</A>
+ &nbsp; <B>  <A NAME="tex2html16"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<P>
+
+<BR>
+<BR>
+<BR>
+<DIV ALIGN="CENTER">
+<BIG CLASS="HUGE">Tutorial of DepPattern</BIG>
+<BR>
+<BR><BIG CLASS="LARGE">How to write a grammar with DepPattern</BIG>
+<BR>
+<BR>
+<BR>
+<BR>
+January 2009
+<BR>
+</DIV>
+
+<P>
+
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html19"
+  HREF="node1.html">Contents</A>
+<LI><A NAME="tex2html20"
+  HREF="node2.html">DepPattern: Description of the Formalism</A>
+<UL>
+<LI><A NAME="tex2html21"
+  HREF="node3.html">Basic description</A>
+<LI><A NAME="tex2html22"
+  HREF="node4.html">Types of dependencies</A>
+<UL>
+<LI><A NAME="tex2html23"
+  HREF="node5.html">Main Types</A>
+<LI><A NAME="tex2html24"
+  HREF="node6.html">Further types</A>
+<UL>
+<LI><A NAME="tex2html25"
+  HREF="node7.html">Dependencies containing a lexical relation</A>
+<LI><A NAME="tex2html26"
+  HREF="node8.html">Unary relationship</A>
+<LI><A NAME="tex2html27"
+  HREF="node9.html">Summary</A>
+</UL>
+<LI><A NAME="tex2html28"
+  HREF="node10.html">The configuration file: 'dependencies.conf'</A>
+</UL>
+<LI><A NAME="tex2html29"
+  HREF="node11.html">List of PoS tags and list of morpho-syntactic features</A>
+<UL>
+<LI><A NAME="tex2html30"
+  HREF="node12.html">Tagset</A>
+<UL>
+<LI><A NAME="tex2html31"
+  HREF="node13.html">Tags of punctuation marks</A>
+</UL>
+<LI><A NAME="tex2html32"
+  HREF="node14.html">List of morpho-syntactic features</A>
+</UL>
+<LI><A NAME="tex2html33"
+  HREF="node15.html">Description of Patterns</A>
+<UL>
+<LI><A NAME="tex2html34"
+  HREF="node16.html">Basic Patterns</A>
+<LI><A NAME="tex2html35"
+  HREF="node17.html">Patterns with features</A>
+<LI><A NAME="tex2html36"
+  HREF="node18.html">Patterns with boolean operators</A>
+</UL>
+<LI><A NAME="tex2html37"
+  HREF="node19.html">How rules are applied</A>
+<UL>
+<LI><A NAME="tex2html38"
+  HREF="node20.html">Uniqueness Principle</A>
+<LI><A NAME="tex2html39"
+  HREF="node21.html">Uniqueness Principle and contextual tags</A>
+</UL>
+<LI><A NAME="tex2html40"
+  HREF="node22.html">Environments without the Uniqueness Principle</A>
+<UL>
+<LI><A NAME="tex2html41"
+  HREF="node23.html">Blocks of rules</A>
+<LI><A NAME="tex2html42"
+  HREF="node24.html">NoUniq environment</A>
+</UL>
+<LI><A NAME="tex2html43"
+  HREF="node25.html">More optional operators</A>
+<UL>
+<LI><A NAME="tex2html44"
+  HREF="node26.html">Recursivity</A>
+<LI><A NAME="tex2html45"
+  HREF="node27.html">Agreement</A>
+<LI><A NAME="tex2html46"
+  HREF="node28.html">Add</A>
+<LI><A NAME="tex2html47"
+  HREF="node29.html">Inherit</A>
+<LI><A NAME="tex2html48"
+  HREF="node30.html">Operators within blocks of rules</A>
+<LI><A NAME="tex2html49"
+  HREF="node31.html">Summary of operators</A>
+</UL>
+<LI><A NAME="tex2html50"
+  HREF="node32.html">Lexical Classes</A>
+<LI><A NAME="tex2html51"
+  HREF="node33.html">Begin and end of sentences</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html52"
+  HREF="node34.html">Examples of Use</A>
+<UL>
+<LI><A NAME="tex2html53"
+  HREF="node35.html">A sample grammar</A>
+<LI><A NAME="tex2html54"
+  HREF="node36.html">Using DepPattern to Correct the PoS Tagged Input Text</A>
+<LI><A NAME="tex2html55"
+  HREF="node37.html">Function Unicity</A>
+<LI><A NAME="tex2html56"
+  HREF="node38.html">DepPattern and Pattern Grammar</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html57"
+  HREF="node39.html">Further Information</A>
+<UL>
+<LI><A NAME="tex2html58"
+  HREF="node40.html">Contributions</A>
+</UL>
+<BR>
+<LI><A NAME="tex2html59"
+  HREF="node41.html">About this document ...</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+gamallo
+2012-02-06
+</ADDRESS>
+</BODY>
+</HTML>

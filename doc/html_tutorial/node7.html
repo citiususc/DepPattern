@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Dependencies containing a lexical relation</TITLE>
+<META NAME="description" CONTENT="Dependencies containing a lexical relation">
+<META NAME="keywords" CONTENT="tutorialGrammar">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tutorialGrammar.css">
+
+<LINK REL="next" HREF="node8.html">
+<LINK REL="previous" HREF="node6.html">
+<LINK REL="up" HREF="node6.html">
+<LINK REL="next" HREF="node8.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html215"
+  HREF="node8.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html211"
+  HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html205"
+  HREF="node6.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html213"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html216"
+  HREF="node8.html">Unary relationship</A>
+<B> Up:</B> <A NAME="tex2html212"
+  HREF="node6.html">Further types</A>
+<B> Previous:</B> <A NAME="tex2html206"
+  HREF="node6.html">Further types</A>
+ &nbsp; <B>  <A NAME="tex2html214"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00222100000000000000">
+Dependencies containing a lexical relation</A>
+</H3>
+To symplify some linguistic analyses, DepPattern also allows to define dependencies between two words (a head and a dependent) where the syntactic relation between them is lexicalized. In this cases, there is a third gramatical word used as dependency relator. For instance, we can consider that the expression "man with glasses" contains a open-choice dependency between "man" and "glasses" marked by prepostion "with", which is here a kind of binary relator.  Obviously, such an expression can also be represented in a more standard way, by means of two basic dependencies (``with'' and ``glasses'', ``man'' and ``with''). Likewise, the expression ``if it rains, I go'' can contain an open-choice dependency between ``rains'' and ``go'', linked by the conjunction ``if''. These are called <SPAN  CLASS="textit">complex open-choice dependencies</SPAN>. 
+
+<P>
+It would be possible to also find examples of <SPAN  CLASS="textit">complex lexical dependencies</SPAN>. For instance, ``have to eat'' could be analysed as an idiomatic dependency between ``have'' and ``eat'', related by means of particle ``to''. However, these dependency types are not implemented in the current version of the DepPattern compiler.
+
+<P>
+The types implemented are the following complex open-choice dependencies:
+
+<P>
+
+<UL>
+<LI>DepRelHead 
+</LI>
+<LI>HeadRelDep
+</LI>
+<LI>DepHeadRel
+</LI>
+<LI>HeadDepRel
+</LI>
+<LI>RelDepHead
+</LI>
+<LI>RelHeadDep
+</LI>
+</UL>
+
+<P>
+Complex dependencies are, in fact, constituted by single binary dependencies. They can be used as syntactic-semantic short-cuts in order to simplify the analysis. 
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html215"
+  HREF="node8.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html211"
+  HREF="node6.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html205"
+  HREF="node6.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html213"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html216"
+  HREF="node8.html">Unary relationship</A>
+<B> Up:</B> <A NAME="tex2html212"
+  HREF="node6.html">Further types</A>
+<B> Previous:</B> <A NAME="tex2html206"
+  HREF="node6.html">Further types</A>
+ &nbsp; <B>  <A NAME="tex2html214"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+gamallo
+2012-02-06
+</ADDRESS>
+</BODY>
+</HTML>

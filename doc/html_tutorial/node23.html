@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Blocks of rules</TITLE>
+<META NAME="description" CONTENT="Blocks of rules">
+<META NAME="keywords" CONTENT="tutorialGrammar">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tutorialGrammar.css">
+
+<LINK REL="next" HREF="node24.html">
+<LINK REL="previous" HREF="node22.html">
+<LINK REL="up" HREF="node22.html">
+<LINK REL="next" HREF="node24.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html406"
+  HREF="node24.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html402"
+  HREF="node22.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html396"
+  HREF="node22.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html404"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html407"
+  HREF="node24.html">NoUniq environment</A>
+<B> Up:</B> <A NAME="tex2html403"
+  HREF="node22.html">Environments without the Uniqueness</A>
+<B> Previous:</B> <A NAME="tex2html397"
+  HREF="node22.html">Environments without the Uniqueness</A>
+ &nbsp; <B>  <A NAME="tex2html405"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00261000000000000000">
+Blocks of rules</A>
+</H2>
+The first environment without Uniqueness Principle is called a ``Block of rules'' (or ``Block''). Dependent nodes are only removed at the end of the Block.
+
+<P>
+The syntax of a Block is the following:
+
+<P>
+<BLOCKQUOTE>
+Rule-1
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>NEXT
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>Rule-2
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>NEXT
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>.
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>.
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>.
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>Rule-N
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>%
+
+</BLOCKQUOTE>
+
+<P>
+A Block allows two different tasks:  on the one hand, it identifies as many dependencies as rules it contains, and on the other, it removes the dependent tags only after having applied all rules of the Block. So, it identifies the main head of the Block, i.e., the only tag that does not play the role of dependent in any rule. Let's see an example. Take the expression ``movie that I see'', transformed in the following string:
+
+<P>
+<BLOCKQUOTE>
+movie_NOUN_&lt;...&gt; that_PRO_&lt;...&gt; I_PRO_&lt;...&gt; see_VERB_&lt;...&gt;
+
+</BLOCKQUOTE>
+
+<P>
+To analyze this expression, we propose the following Block of 3 rules: 
+
+<P>
+<BLOCKQUOTE>
+DObjectLeft : [NOUN] PRO&lt;type:R&gt; [PRO&lt;type:P&gt;] VERB
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>NEXT
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>SubjectLeft : [NOUN] [PRO&lt;type:R&gt;] PRO&lt;type:P&gt; VERB
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>NEXT
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>AdjunctRight : NOUN [PRO&lt;type:R&gt;] [PRO&lt;type:P&gt;] VERB
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>%
+
+</BLOCKQUOTE>      
+
+<P>
+Each rule identifies a specific dependency. The first one identifies the direct object relation between the relative pronoun ``that'' and the verb ``see''. The second rule identifies the personal pronoun ``I'' as being the subject of the verb. And the third rule links the nominal antecedent (``movie'') with the verb of the relative clause (``see''), which is its right adjunct. As the noun is the main head of the Block, the other dependent constituents are removed. The removal of all dependents is only performed at the end of the Bloc. So, there is no kind of removal when processing the previous rules. 
+
+<P>
+The rule where the main head of the Block actually plays the role of head (so, it is not a context tag) must be the last one of the bloc. Otherwise, it would be difficult to identify the main head.   
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html406"
+  HREF="node24.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html402"
+  HREF="node22.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html396"
+  HREF="node22.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html404"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html407"
+  HREF="node24.html">NoUniq environment</A>
+<B> Up:</B> <A NAME="tex2html403"
+  HREF="node22.html">Environments without the Uniqueness</A>
+<B> Previous:</B> <A NAME="tex2html397"
+  HREF="node22.html">Environments without the Uniqueness</A>
+ &nbsp; <B>  <A NAME="tex2html405"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+gamallo
+2012-02-06
+</ADDRESS>
+</BODY>
+</HTML>

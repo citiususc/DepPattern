@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Precluding Iteration</TITLE>
+<META NAME="description" CONTENT="Precluding Iteration">
+<META NAME="keywords" CONTENT="user_guide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="user_guide.css">
+
+<LINK REL="previous" HREF="node16.html">
+<LINK REL="up" HREF="node14.html">
+<LINK REL="next" HREF="node18.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html281"
+  HREF="node18.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html277"
+  HREF="node14.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html273"
+  HREF="node16.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html279"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html282"
+  HREF="node18.html">Porting to other platforms</A>
+<B> Up:</B> <A NAME="tex2html278"
+  HREF="node14.html">Extensions</A>
+<B> Previous:</B> <A NAME="tex2html274"
+  HREF="node16.html">Cooccurrences file</A>
+ &nbsp; <B>  <A NAME="tex2html280"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00293000000000000000"></A> <A NAME="sec:iteration"></A>
+<BR>
+Precluding Iteration
+</H2><TT>
+The by-default parsing algorithm consists of the following iterative process: rules are applied sequencially in an iterative process. The process stops when no rule can be applied. However, the linguist can choose an algorithm where iteration is precluded. The parsing algorithm without iteration consists in applying rules sequencially; the process stops when the parser achieves the last rule to be applied. In order to set up the restrictive algorithm without iteration, copy the files within 'src/iterationOFF' into the 'src' folder:
+</TT>
+<P><PRE>
+ cp  src/iterationOFF/*  src/.
+</PRE>
+<P>
+<BR><HR>
+<ADDRESS>
+Pablo Gamallo
+2009-10-02
+</ADDRESS>
+</BODY>
+</HTML>

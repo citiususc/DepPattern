@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Patterns with boolean operators</TITLE>
+<META NAME="description" CONTENT="Patterns with boolean operators">
+<META NAME="keywords" CONTENT="tutorialGrammar">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tutorialGrammar.css">
+
+<LINK REL="previous" HREF="node17.html">
+<LINK REL="up" HREF="node15.html">
+<LINK REL="next" HREF="node19.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html344"
+  HREF="node19.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html340"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html336"
+  HREF="node17.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html342"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html345"
+  HREF="node19.html">How rules are applied</A>
+<B> Up:</B> <A NAME="tex2html341"
+  HREF="node15.html">Description of Patterns</A>
+<B> Previous:</B> <A NAME="tex2html337"
+  HREF="node17.html">Patterns with features</A>
+ &nbsp; <B>  <A NAME="tex2html343"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00243000000000000000">
+Patterns with boolean operators</A>
+</H2>
+It is possible to define more complex patterns using boolean operators: |means disjunction (OR), and &amp; means conjunction (AND). Operator | can be used for tags, for features, and for values of features. However, for practical reasons, operator &amp; is only used for features. It cannot be used for feature values because, by definition, two different values of a feature are mutually exclusive. In addition, patterns are not required to use it since they alredy presuppose the meaning of tag conjunction. Let's see some examples:
+
+<P>
+<BLOCKQUOTE>
+ADV&lt;lemma:very|quite|rather&gt; ADV|ADJ
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>PRO&lt;lemma:that&amp;type:Q&gt; VERB
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>VERB&lt;(mode:S)|(tense:P)&gt; NOUN
+
+</BLOCKQUOTE>
+
+<P>
+The first pattern introduces two ``|'' operators. The first one represents a disjunction among three possible values (``very'', ``quite'', and ``more'') of the feature ``lemma''. The second one is an operator on tags: it allows to choose between either an adverb or an adjective. The second pattern introduces the ``SPMamp;'' operator between two features that must be filled simultaneously: to be a relative pronoun (R), and to be lexicalized by means of  ``that''. Finally, in the third pattern, there is a disjunction between two different verbal features. Let's note that disjunctions on features by means of the operator | requires the use of brackets: ``(feature1:value1)|(feature2:value2)''. 
+
+<P>
+The number of arguments of both | and &amp; is unlimited. When combining the two operators (only with features), &amp; must be always within the scope of |. Below, we show some well formed expressions in DepPattern:  
+<BLOCKQUOTE>
+Tag1&lt;(feature1:value1)|(feature2:value2&amp;feature3:value3)&gt;
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>Tag1&lt;(feature1:value1&amp;feature2:value2)|(feature3:value3)&gt;
+
+</BLOCKQUOTE>
+
+<P>
+Let <SPAN CLASS="MATH"><IMG
+ WIDTH="13" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img8.png"
+ ALT="$a$"></SPAN>, <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="14" ALIGN="BOTTOM" BORDER="0"
+ SRC="img9.png"
+ ALT="$b$"></SPAN>, and <SPAN CLASS="MATH"><IMG
+ WIDTH="11" HEIGHT="13" ALIGN="BOTTOM" BORDER="0"
+ SRC="img10.png"
+ ALT="$c$"></SPAN> be 3 features. All possible combination of these 3 features with the 2 boolean operators are represented as follows:
+
+<BR>
+<BR><TABLE CELLPADDING=3>
+<TR><TH ALIGN="LEFT"><SPAN  CLASS="textbf">DepPattern representation</SPAN></TH>
+<TH ALIGN="LEFT"><SPAN  CLASS="textbf">Standard bracketed representation</SPAN></TH>
+</TR>
+<TR><TD ALIGN="LEFT"><SPAN CLASS="MATH"><IMG
+ WIDTH="68" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img11.png"
+ ALT="$(a)\vert(b\&amp;c)$"></SPAN></TD>
+<TD ALIGN="LEFT"><SPAN CLASS="MATH"><IMG
+ WIDTH="68" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img12.png"
+ ALT="$(a\vert(b\&amp;c))$"></SPAN></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SPAN CLASS="MATH"><IMG
+ WIDTH="68" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img13.png"
+ ALT="$(a\&amp;b)\vert(c)$"></SPAN></TD>
+<TD ALIGN="LEFT"><SPAN CLASS="MATH"><IMG
+ WIDTH="68" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img14.png"
+ ALT="$((a\&amp;b)\vert c)$"></SPAN></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SPAN CLASS="MATH"><IMG
+ WIDTH="87" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$(a\&amp;c)\vert(b\&amp;c)$"></SPAN></TD>
+<TD ALIGN="LEFT"><SPAN CLASS="MATH"><IMG
+ WIDTH="68" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img16.png"
+ ALT="$((a\vert b)\&amp;c)$"></SPAN></TD>
+</TR>
+<TR><TD ALIGN="LEFT"><SPAN CLASS="MATH"><IMG
+ WIDTH="89" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img17.png"
+ ALT="$(a\&amp;b)\vert(a\&amp;c)$"></SPAN></TD>
+<TD ALIGN="LEFT"><SPAN CLASS="MATH"><IMG
+ WIDTH="68" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img18.png"
+ ALT="$(a\&amp;(b\vert c))$"></SPAN></TD>
+</TR>
+</TABLE>
+
+<BR>
+<BR>
+The first column shows well-formed DepGrammar expressions while the second one depicts the corresponding expressions using a more compact representation. In the standard representation, brackets are used to delimit the scope of the operator. DepPattern representation is not so compact but is easy to read.     
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html344"
+  HREF="node19.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html340"
+  HREF="node15.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html336"
+  HREF="node17.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html342"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html345"
+  HREF="node19.html">How rules are applied</A>
+<B> Up:</B> <A NAME="tex2html341"
+  HREF="node15.html">Description of Patterns</A>
+<B> Previous:</B> <A NAME="tex2html337"
+  HREF="node17.html">Patterns with features</A>
+ &nbsp; <B>  <A NAME="tex2html343"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+gamallo
+2012-02-06
+</ADDRESS>
+</BODY>
+</HTML>

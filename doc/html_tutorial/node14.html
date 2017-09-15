@@ -1,0 +1,707 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>List of morpho-syntactic features</TITLE>
+<META NAME="description" CONTENT="List of morpho-syntactic features">
+<META NAME="keywords" CONTENT="tutorialGrammar">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tutorialGrammar.css">
+
+<LINK REL="previous" HREF="node12.html">
+<LINK REL="up" HREF="node11.html">
+<LINK REL="next" HREF="node15.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html295"
+  HREF="node15.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html291"
+  HREF="node11.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html287"
+  HREF="node13.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html293"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html296"
+  HREF="node15.html">Description of Patterns</A>
+<B> Up:</B> <A NAME="tex2html292"
+  HREF="node11.html">List of PoS tags</A>
+<B> Previous:</B> <A NAME="tex2html288"
+  HREF="node13.html">Tags of punctuation marks</A>
+ &nbsp; <B>  <A NAME="tex2html294"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00232000000000000000">
+List of morpho-syntactic features</A>
+</H2>
+
+<P>
+PoS tags are enriched by means of a closed set of morpho-syntactic features. All PoS tags have, at least, three features: ``token'', ``lemma'', and ``pos'' (position). The values of these two features are provided by the PoS tagger given a particular word. For instance, if the word ``eggs'' was tagged as NOUN in the third position of the sentence, the features ``token'', ``lemma'', and ``pos'' will be assigned the values ``eggs'', ``egg'', and ``2'', respectively (note that the first position is ``0'').  In addition, each PoS tag has its own set of features. Tables  <A HREF="#tab:adj">1.2</A>, <A HREF="#tab:adv">1.3</A>, <A HREF="#tab:dt">1.4</A>, <A HREF="#tab:noun">1.5</A>, <A HREF="#tab:verb">1.6</A>, <A HREF="#tab:pro">1.7</A>,  <A HREF="#tab:conj">1.8</A>,  <A HREF="#tab:i">1.9</A>, <A HREF="#tab:prp">1.10</A>, and  <A HREF="#tab:card">1.11</A>, show the specific features (first column) for each tag, including the possible values for each feature (second column). The meaning of each value is described in the third column. To symplify the description, the tables below do not show the null value or ``0'', which is automatically assigned to a feature when the current PoS tagger does not provide such a specific information.    
+
+<P>
+Unfortunately, many PoS taggers used by the parser provide non-zero values for many features. The exception is Freeling for Spanish, Galician, and Portuguese, which contains all morpho-syntactic information required by the parser.
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="384"></A>
+<TABLE>
+<CAPTION><STRONG>Table 1.2:</STRONG>
+List of features and values for tag ADJ (adjectives). </CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
+<TR><TH ALIGN="LEFT"><SPAN  CLASS="textbf">features</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">values</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">description</SPAN></TH>
+</TR>
+<TR><TD ALIGN="LEFT">type</TD>
+<TD ALIGN="CENTER">Q</TD>
+<TD ALIGN="CENTER">qualifying</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">O</TD>
+<TD ALIGN="CENTER">ordinal</TD>
+</TR>
+<TR><TD ALIGN="LEFT">degree</TD>
+<TD ALIGN="CENTER">A</TD>
+<TD ALIGN="CENTER">Aumentative</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">S</TD>
+<TD ALIGN="CENTER">Superlative</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gender</TD>
+<TD ALIGN="CENTER">M</TD>
+<TD ALIGN="CENTER">masculine</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">F</TD>
+<TD ALIGN="CENTER">feminine</TD>
+</TR>
+<TR><TD ALIGN="LEFT">number</TD>
+<TD ALIGN="CENTER">S</TD>
+<TD ALIGN="CENTER">singular</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">P</TD>
+<TD ALIGN="CENTER">plural</TD>
+</TR>
+<TR><TD ALIGN="LEFT">function</TD>
+<TD ALIGN="CENTER">P</TD>
+<TD ALIGN="CENTER">participle</TD>
+</TR>
+</TABLE>
+</DIV>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="385"></A>
+<TABLE>
+<CAPTION><STRONG>Table 1.3:</STRONG>
+List of features and values for tag ADV (adverbs). </CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
+<TR><TH ALIGN="LEFT"><SPAN  CLASS="textbf">features</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">values</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">description</SPAN></TH>
+</TR>
+<TR><TD ALIGN="LEFT">type</TD>
+<TD ALIGN="CENTER">G</TD>
+<TD ALIGN="CENTER">general</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">N</TD>
+<TD ALIGN="CENTER">negative</TD>
+</TR>
+</TABLE>
+</DIV>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="386"></A>
+<TABLE>
+<CAPTION><STRONG>Table 1.4:</STRONG>
+List of features and values for tag DT (determinants). </CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
+<TR><TH ALIGN="LEFT"><SPAN  CLASS="textbf">features</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">values</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">description</SPAN></TH>
+</TR>
+<TR><TD ALIGN="LEFT">type</TD>
+<TD ALIGN="CENTER">D</TD>
+<TD ALIGN="CENTER">demonstrative</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">P</TD>
+<TD ALIGN="CENTER">possessive</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">T</TD>
+<TD ALIGN="CENTER">interrogative</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">E</TD>
+<TD ALIGN="CENTER">exclamative</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">I</TD>
+<TD ALIGN="CENTER">indefinite</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">A</TD>
+<TD ALIGN="CENTER">article</TD>
+</TR>
+<TR><TD ALIGN="LEFT">person</TD>
+<TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">first</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">second</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">3</TD>
+<TD ALIGN="CENTER">third</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gender</TD>
+<TD ALIGN="CENTER">M</TD>
+<TD ALIGN="CENTER">masculine</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">F</TD>
+<TD ALIGN="CENTER">feminine</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">N</TD>
+<TD ALIGN="CENTER">neutral</TD>
+</TR>
+<TR><TD ALIGN="LEFT">number</TD>
+<TD ALIGN="CENTER">S</TD>
+<TD ALIGN="CENTER">singular</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">P</TD>
+<TD ALIGN="CENTER">plural</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">N</TD>
+<TD ALIGN="CENTER">invariable</TD>
+</TR>
+<TR><TD ALIGN="LEFT">possessor</TD>
+<TD ALIGN="CENTER">S</TD>
+<TD ALIGN="CENTER">singular</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">P</TD>
+<TD ALIGN="CENTER">plural</TD>
+</TR>
+</TABLE>
+</DIV>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="387"></A>
+<TABLE>
+<CAPTION><STRONG>Table 1.5:</STRONG>
+List of features and values for tag NOUN (nouns). </CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
+<TR><TH ALIGN="LEFT"><SPAN  CLASS="textbf">features</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">values</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">description</SPAN></TH>
+</TR>
+<TR><TD ALIGN="LEFT">type</TD>
+<TD ALIGN="CENTER">C</TD>
+<TD ALIGN="CENTER">common</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">P</TD>
+<TD ALIGN="CENTER">proper name</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gender</TD>
+<TD ALIGN="CENTER">M</TD>
+<TD ALIGN="CENTER">masculine</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">F</TD>
+<TD ALIGN="CENTER">feminine</TD>
+</TR>
+<TR><TD ALIGN="LEFT">number</TD>
+<TD ALIGN="CENTER">S</TD>
+<TD ALIGN="CENTER">singular</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">P</TD>
+<TD ALIGN="CENTER">plural</TD>
+</TR>
+<TR><TD ALIGN="LEFT">person</TD>
+<TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">first</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">second</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">3</TD>
+<TD ALIGN="CENTER">third</TD>
+</TR>
+</TABLE>
+</DIV>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="388"></A>
+<TABLE>
+<CAPTION><STRONG>Table 1.6:</STRONG>
+List of features and values for tag VERB (verbs). </CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
+<TR><TH ALIGN="LEFT"><SPAN  CLASS="textbf">features</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">values</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">description</SPAN></TH>
+</TR>
+<TR><TD ALIGN="LEFT">type</TD>
+<TD ALIGN="CENTER">M</TD>
+<TD ALIGN="CENTER">main</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">A</TD>
+<TD ALIGN="CENTER">auxiliary</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">S</TD>
+<TD ALIGN="CENTER">semiauxiliary</TD>
+</TR>
+<TR><TD ALIGN="LEFT">mode</TD>
+<TD ALIGN="CENTER">I</TD>
+<TD ALIGN="CENTER">indicative</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">S</TD>
+<TD ALIGN="CENTER">subjunctive</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">M</TD>
+<TD ALIGN="CENTER">imperative</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">N</TD>
+<TD ALIGN="CENTER">infinitive</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">G</TD>
+<TD ALIGN="CENTER">gerund</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">P</TD>
+<TD ALIGN="CENTER">participle</TD>
+</TR>
+<TR><TD ALIGN="LEFT">tense</TD>
+<TD ALIGN="CENTER">P</TD>
+<TD ALIGN="CENTER">present</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">I</TD>
+<TD ALIGN="CENTER">imperfect</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">F</TD>
+<TD ALIGN="CENTER">future</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">S</TD>
+<TD ALIGN="CENTER">past</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">C</TD>
+<TD ALIGN="CENTER">conditional</TD>
+</TR>
+<TR><TD ALIGN="LEFT">person</TD>
+<TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">first</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">second</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">3</TD>
+<TD ALIGN="CENTER">third</TD>
+</TR>
+<TR><TD ALIGN="LEFT">number</TD>
+<TD ALIGN="CENTER">S</TD>
+<TD ALIGN="CENTER">singular</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">P</TD>
+<TD ALIGN="CENTER">plural</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">N</TD>
+<TD ALIGN="CENTER">invariable</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gender</TD>
+<TD ALIGN="CENTER">M</TD>
+<TD ALIGN="CENTER">masculine</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">F</TD>
+<TD ALIGN="CENTER">feminine</TD>
+</TR>
+</TABLE>
+</DIV>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="389"></A>
+<TABLE>
+<CAPTION><STRONG>Table 1.7:</STRONG>
+List of features and values for tag PRO (pronouns). </CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
+<TR><TH ALIGN="LEFT"><SPAN  CLASS="textbf">features</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">values</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">description</SPAN></TH>
+</TR>
+<TR><TD ALIGN="LEFT">type</TD>
+<TD ALIGN="CENTER">D</TD>
+<TD ALIGN="CENTER">demonstrative</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">P</TD>
+<TD ALIGN="CENTER">personal</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">T</TD>
+<TD ALIGN="CENTER">interrogative</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">E</TD>
+<TD ALIGN="CENTER">exclamative</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">I</TD>
+<TD ALIGN="CENTER">indefinite</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">X</TD>
+<TD ALIGN="CENTER">possessive</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">R</TD>
+<TD ALIGN="CENTER">relative</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">W</TD>
+<TD ALIGN="CENTER">wh-word</TD>
+</TR>
+<TR><TD ALIGN="LEFT">person</TD>
+<TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">first</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">second</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">3</TD>
+<TD ALIGN="CENTER">third</TD>
+</TR>
+<TR><TD ALIGN="LEFT">gender</TD>
+<TD ALIGN="CENTER">M</TD>
+<TD ALIGN="CENTER">masculine</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">F</TD>
+<TD ALIGN="CENTER">feminine</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">N</TD>
+<TD ALIGN="CENTER">neutral</TD>
+</TR>
+<TR><TD ALIGN="LEFT">number</TD>
+<TD ALIGN="CENTER">S</TD>
+<TD ALIGN="CENTER">singular</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">P</TD>
+<TD ALIGN="CENTER">plural</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">N</TD>
+<TD ALIGN="CENTER">invariable</TD>
+</TR>
+<TR><TD ALIGN="LEFT">possessor</TD>
+<TD ALIGN="CENTER">S</TD>
+<TD ALIGN="CENTER">singular</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">P</TD>
+<TD ALIGN="CENTER">plural</TD>
+</TR>
+<TR><TD ALIGN="LEFT">case</TD>
+<TD ALIGN="CENTER">N</TD>
+<TD ALIGN="CENTER">nominative</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">A</TD>
+<TD ALIGN="CENTER">accusative</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">D</TD>
+<TD ALIGN="CENTER">dative</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">O</TD>
+<TD ALIGN="CENTER">oblique</TD>
+</TR>
+<TR><TD ALIGN="LEFT">politeness</TD>
+<TD ALIGN="CENTER">P</TD>
+<TD ALIGN="CENTER">polite</TD>
+</TR>
+</TABLE>
+</DIV>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="390"></A>
+<TABLE>
+<CAPTION><STRONG>Table 1.8:</STRONG>
+List of features and values for tag CONJ (conjunctions). </CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
+<TR><TH ALIGN="LEFT"><SPAN  CLASS="textbf">features</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">values</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">description</SPAN></TH>
+</TR>
+<TR><TD ALIGN="LEFT">type</TD>
+<TD ALIGN="CENTER">C</TD>
+<TD ALIGN="CENTER">coordinating</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">S</TD>
+<TD ALIGN="CENTER">subordinating</TD>
+</TR>
+</TABLE>
+</DIV>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="391"></A>
+<TABLE>
+<CAPTION><STRONG>Table 1.9:</STRONG>
+List of features and values for tag I (interjections). </CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
+<TR><TH ALIGN="LEFT"><SPAN  CLASS="textbf">features</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">values</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">description</SPAN></TH>
+</TR>
+<TR><TD ALIGN="LEFT">(no features)</TD>
+<TD ALIGN="CENTER">(no values)</TD>
+<TD ALIGN="CENTER">&nbsp;</TD>
+</TR>
+</TABLE>
+</DIV>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="392"></A>
+<TABLE>
+<CAPTION><STRONG>Table 1.10:</STRONG>
+List of features and values for tag PRP (prepositions). </CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
+<TR><TH ALIGN="LEFT"><SPAN  CLASS="textbf">features</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">values</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">description</SPAN></TH>
+</TR>
+<TR><TD ALIGN="LEFT">type</TD>
+<TD ALIGN="CENTER">P</TD>
+<TD ALIGN="CENTER">preposition</TD>
+</TR>
+</TABLE>
+</DIV>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="393"></A>
+<TABLE>
+<CAPTION><STRONG>Table 1.11:</STRONG>
+List of features and values for tag CARD (cardinals). </CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
+<TR><TH ALIGN="LEFT"><SPAN  CLASS="textbf">features</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">values</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">description</SPAN></TH>
+</TR>
+<TR><TD ALIGN="LEFT">gender</TD>
+<TD ALIGN="CENTER">M</TD>
+<TD ALIGN="CENTER">masculine</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">F</TD>
+<TD ALIGN="CENTER">feminine</TD>
+</TR>
+<TR><TD ALIGN="LEFT">number</TD>
+<TD ALIGN="CENTER">S</TD>
+<TD ALIGN="CENTER">singular</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">P</TD>
+<TD ALIGN="CENTER">plural</TD>
+</TR>
+<TR><TD ALIGN="LEFT">person</TD>
+<TD ALIGN="CENTER">1</TD>
+<TD ALIGN="CENTER">first</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">2</TD>
+<TD ALIGN="CENTER">second</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">3</TD>
+<TD ALIGN="CENTER">third</TD>
+</TR>
+</TABLE>
+</DIV>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+<BR><P></P>
+<DIV ALIGN="CENTER"><A NAME="394"></A>
+<TABLE>
+<CAPTION><STRONG>Table 1.12:</STRONG>
+List of features and values for tag DATE (date and hour). </CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<TABLE CELLPADDING=3 BORDER="1" ALIGN="CENTER">
+<TR><TH ALIGN="LEFT"><SPAN  CLASS="textbf">features</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">values</SPAN></TH>
+<TH ALIGN="CENTER"><SPAN  CLASS="textbf">description</SPAN></TH>
+</TR>
+<TR><TD ALIGN="LEFT">number</TD>
+<TD ALIGN="CENTER">S</TD>
+<TD ALIGN="CENTER">singular</TD>
+</TR>
+<TR><TD ALIGN="LEFT">&nbsp;</TD>
+<TD ALIGN="CENTER">P</TD>
+<TD ALIGN="CENTER">plural</TD>
+</TR>
+</TABLE>
+</DIV>
+</TD></TR>
+</TABLE>
+</DIV><P></P>
+<BR>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html295"
+  HREF="node15.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html291"
+  HREF="node11.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html287"
+  HREF="node13.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html293"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html296"
+  HREF="node15.html">Description of Patterns</A>
+<B> Up:</B> <A NAME="tex2html292"
+  HREF="node11.html">List of PoS tags</A>
+<B> Previous:</B> <A NAME="tex2html288"
+  HREF="node13.html">Tags of punctuation marks</A>
+ &nbsp; <B>  <A NAME="tex2html294"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+gamallo
+2012-02-06
+</ADDRESS>
+</BODY>
+</HTML>

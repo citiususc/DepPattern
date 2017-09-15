@@ -1,2 +1,145 @@
-# DepPattern
-Dependency syntactic parser and formal grammar for Natural Languages
+# DepPattern parsers (including MetaRomance) and grammar compiler
+
+Author: 
+Pablo Gamallo, Isaac González, Marcos Garcia, César Piñeiro 
+Grupo ProLNat@GE, CiTIUS, 
+University of Santiago de Compostela, 
+Galiza
+
+
+## DESCRIPTION
+This software contains 4 default parsers for 4 languages (English, Spanish, Galician, and Portuguese), as well as MetaRomance, a multilingual parser suited for Romance languages. The parsers were implemented in PERL and are stored in the 'parsers' file. They were generated from test grammars, stored in the folder 'grammars'. 
+
+The software also contains a compiler (compi-beta.rb), implemented in Ruby, which generate parsers in PERL from DepPattern grammars. To write formal grammars using the formalism "DepPattern", please, look up the tutorial (docs/tutorialDepPattern.pdf).
+Besides, the software provides the PoS tagger 'CitiusTools", also developed by our group.
+
+
+## REQUIREMENTS
+GNU/LINUX
+Perl and Ruby (for the grammar compiler) 
+
+
+## HOW TO INSTALL
+### Using Git
+
+```bash
+git clone https://github.com/citiususc/DepPattern.git
+```
+
+### ZIP Download
+
+Download [Linguakit-master.zip](https://github.com/citiususc/DepPattern/archive/master.zip) and then: 
+
+```bash
+unzip DepPattern-master.zip
+```
+
+
+
+## HOW TO USE
+Run `./deppattern --help` to see the modules:
+
+```
+usage: deppattern <lang> [--help|-h] [-m|--meta-romance] [-g|--grammar] 
+       		  	 [-ng|--no-iteration-grammar] [-p|--parser] [-f|--file] [-a] [-fa] [-c]
+
+required positional arguments:
+  <lang>          Choose the language 
+		  Choices: [en, es, gl, pt, fr], case insensitive
+
+optional named arguments:
+  --help, -h                               ? show this help message and exit
+  -m, --meta-romance                       ? MetaRomance Parser
+  -g, --grammar <grammar>                  ? Path of the file grammar (with iterations)
+  -ng, --no-iteration-grammar <grammar>    ? Path of the file grammar (without iterations)
+  -p, --parser <parser>                    ? Path of the parser, or name of the parser generated from grammar (i.e. metaromance)
+  -f, --file <file>                        ? Path of the file input (default stdin)
+  -a                                       ? Simple dependency analysis
+  -fa                                      ? Full dependency analysis
+  -c                                       ? Tagged text with syntactic information (for correction rules)
+```
+
+
+## MetaRomance
+One of the parsers provided by the package is MetaRomance, made of Universal Dependencies for Romance languages, and one of the systems that participated at CoNLL-2017 Shared Task on multilingual dependency parsing. If the input text is in Portuguese, the command to run MetaRomance would be the following:
+
+```
+    ./deppattern pt -m -f tests/test-pt -a
+```
+More information in:
+
+Garcia, Marcos and Pablo Gamallo (2017) "A rule-based system for cross-lingual parsing of Romance languages with Universal Dependencies", ConLL-2017, Vancouver, Canada.
+
+
+## INPUT FILE
+The input file must be in plain text format, and codified in UTF8.
+
+
+## GRAMMAR FILE
+The file containing the grammar must be in plain text format. 
+Below, you'll find a toy example of a grammar with 4 dependency-based rules:
+
+
+###### GRAMMAR #########
+```
+AdjnR:  NOUN  ADJ
+Agr: number, genre
+%
+
+SpecL:  DT  NOUN 
+Agr: number, genre
+%
+
+SubjL:  NOUN  [ADV]* VERB
+Agr: number
+%
+
+DobjR:  VERB [ADV]* NOUN
+%
+```
+
+
+Look up the tutorial stored in the doc directory.
+
+
+## OUTPUT FORMAT (flag -a):
+Option -a means that the dp.sh generates a file with a dependency-based analysis. Each analysed sentence consists of two elements:
+
+1. a line containing the POS tagged lemmas of the sentence. This line begins with the tag SENT. The set of tags used here are listed in file TagSet.txt. All lemmas are identified by means of a position number from 1 to N, where N is the size of the sentence.
+
+2. All dependency triplets identified by the grammar. A triplet consists of:
+
+(relation;head_lemma;dependent_lemma)
+
+For instance, the sentence "I am a man." generates the following output:
+
+```
+SENT::<I_PRO_0_<number:0|lemma:I|possessor:0|case:0|genre:0|person:0|politeness:0|type:P|token:I|> am_VERB_1_<number:0|mode:0|lemma:be|genre:0|tense:0|person:0|type:S|token:am|> a_DT_2_<number:0|lemma:a|possessor:0|genre:0|person:0|type:0|token:a|> man_NOUN_3_<number:S|lemma:man|genre:0|person:3|type:C|token:man|> ._SENT>
+
+(Lobj;be_VERBF_1;I_PN_0)
+(Spec;man_NOM_3;a_DT_2)
+(Robj;be_VERBF_1;man_NOM_3)
+```
+
+The set of dependency relationships used by the 5 grammars can be consulted and modified in the corresponding configuration file: src/dependencies.conf.
+
+Morpho-syntactic information is provided by a POS tagger, in CitiusTools. 
+
+## OUTPUT FORMAT (flag -fa):
+Option -fa gives rise to a full represention of the depedency-based analysis. Each triplet is associated with two pieces of information: morpho-syntactic features of both the head and the dependent. 
+
+
+## OUTPUT FORMAT (flag -c):
+Option -c allows us to generate a file with the same input (a tagged text) but with some corrections proposed by the grammar. This option is useful to identify and correct regular errors of PoS taggers using grammatical rules. 
+
+
+## CoNLL OUTPUT FILE FORMAT
+It is also possible to get an output file with the format defined by CoNLL-X. This format was adopted by the evaluation tasks defined in CoNLL.
+
+To get this ouput format file, you have to run ./scripts/saidaCoNLL-fa.perl taking as input the output of 'deppattern -fa', for instance:
+
+```
+./deppattern pt  -f tests/test-pt -fa |./scripts/saidaCoNLL-fa.perl
+```
+
+	

@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>The configuration file: 'dependencies.conf'</TITLE>
+<META NAME="description" CONTENT="The configuration file: 'dependencies.conf'">
+<META NAME="keywords" CONTENT="tutorialGrammar">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tutorialGrammar.css">
+
+<LINK REL="previous" HREF="node6.html">
+<LINK REL="up" HREF="node4.html">
+<LINK REL="next" HREF="node11.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html247"
+  HREF="node11.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html243"
+  HREF="node4.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html239"
+  HREF="node9.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html245"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html248"
+  HREF="node11.html">List of PoS tags</A>
+<B> Up:</B> <A NAME="tex2html244"
+  HREF="node4.html">Types of dependencies</A>
+<B> Previous:</B> <A NAME="tex2html240"
+  HREF="node9.html">Summary</A>
+ &nbsp; <B>  <A NAME="tex2html246"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00223000000000000000">
+The configuration file: 'dependencies.conf'</A>
+</H2>
+Dependency names and their types are declared in the configuration file "dependencies.conf". The number of specific dependencies is open, that is, the user is free to declare the number of dependencies he/she consider being appropriate to define the grammar. Every dependency  must belong to one of the 10 types defined above. Each line of the configuration file consists of two columns: the first column contains the name of a dependency, whereas the second column contains its type. Let's see an example:
+
+<BR>
+<BR><TABLE CELLPADDING=3>
+<TR><TD ALIGN="LEFT">AdjunctLeft</TD>
+<TD ALIGN="LEFT">DepHead</TD>
+</TR>
+<TR><TD ALIGN="LEFT">AdjunctRight</TD>
+<TD ALIGN="LEFT">HeadDep</TD>
+</TR>
+<TR><TD ALIGN="LEFT">SpecifierLeft</TD>
+<TD ALIGN="LEFT">DepHead</TD>
+</TR>
+<TR><TD ALIGN="LEFT">SpecifierRight</TD>
+<TD ALIGN="LEFT">HeadLeft</TD>
+</TR>
+<TR><TD ALIGN="LEFT">SubjectLeft</TD>
+<TD ALIGN="LEFT">DepHead</TD>
+</TR>
+<TR><TD ALIGN="LEFT">SubjectRight</TD>
+<TD ALIGN="LEFT">HeadDep</TD>
+</TR>
+<TR><TD ALIGN="LEFT">DObjectLeft</TD>
+<TD ALIGN="LEFT">DepHead</TD>
+</TR>
+<TR><TD ALIGN="LEFT">DObjectRight</TD>
+<TD ALIGN="LEFT">HeadDep</TD>
+</TR>
+<TR><TD ALIGN="LEFT">PrepComplLeft</TD>
+<TD ALIGN="LEFT">DepRelHead</TD>
+</TR>
+<TR><TD ALIGN="LEFT">PrepComplRight</TD>
+<TD ALIGN="LEFT">HeadRelDep</TD>
+</TR>
+</TABLE>
+
+<BR>
+<BR>
+As word order is involved in the defintion of dependency types, we need to take into account the relative position of the two words (dependent and head) when we associate a name to a specific dependency. In the example above, we do not use simple names such as Adjuncts, Specifiers, Subjects, etc. Each dependency is assigned two complementary names. On the one hand,  AdjunctLeft, SpecifierLeft, Subjectleft,...stand for dependencies in which the dependent word occurs at the left position with regard to the head. On the other hand, AdjunctRight, SpecifierRight, SubjectRight,...represent dependencies where the dependent is at the right. However the user is free to choose whatever name for his/her dependencies. The example above is just a proposal. The only requirement the user must fill is to assign only one particular type to each dependency name. 
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html247"
+  HREF="node11.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html243"
+  HREF="node4.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html239"
+  HREF="node9.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html245"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html248"
+  HREF="node11.html">List of PoS tags</A>
+<B> Up:</B> <A NAME="tex2html244"
+  HREF="node4.html">Types of dependencies</A>
+<B> Previous:</B> <A NAME="tex2html240"
+  HREF="node9.html">Summary</A>
+ &nbsp; <B>  <A NAME="tex2html246"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+gamallo
+2012-02-06
+</ADDRESS>
+</BODY>
+</HTML>

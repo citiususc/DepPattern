@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2008 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>How rules are applied</TITLE>
+<META NAME="description" CONTENT="How rules are applied">
+<META NAME="keywords" CONTENT="tutorialGrammar">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="tutorialGrammar.css">
+
+<LINK REL="next" HREF="node22.html">
+<LINK REL="previous" HREF="node15.html">
+<LINK REL="up" HREF="node2.html">
+<LINK REL="next" HREF="node20.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html356"
+  HREF="node20.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html352"
+  HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html346"
+  HREF="node18.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html354"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html357"
+  HREF="node20.html">Uniqueness Principle</A>
+<B> Up:</B> <A NAME="tex2html353"
+  HREF="node2.html">DepPattern: Description of the</A>
+<B> Previous:</B> <A NAME="tex2html347"
+  HREF="node18.html">Patterns with boolean operators</A>
+ &nbsp; <B>  <A NAME="tex2html355"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00250000000000000000">
+How rules are applied</A>
+</H1>
+
+<P>
+As we have said before, a rule must contain, at least, the following elements:
+
+<P>
+<BLOCKQUOTE>
+dependency_name : PATTERN
+</BLOCKQUOTE>
+<P>
+<BLOCKQUOTE>%
+
+</BLOCKQUOTE>
+
+<P>
+A grammar is a list of rules. A rule is applied on a tagged expression (input) if the PATTERN provided by the rule matches a sequence of tags within the expression. The application of a rule consistis in identifying a specific syntactic dependency between two tags (boht the head and dependent) belonging to the pattern.  
+
+<P>
+Rules are applied sequencially in an iterative process. Most rules change the input of the next rules to be applied (this will be described in the following subsections). The process stops when no rule can be applied. However, the linguist can choose an algorithm where iteration is precluded. The parsing algorithm without iteration consists in applying rules sequencially; the process stops when the parser achieves the last rule to be applied. In order to set up the restrictive algorithm without iteration, see the <A NAME="tex2html14"
+  HREF="http://gramatica.usc.es/pln/tools/user_guide.pdf">user guide</A>
+(Section 'Extensions', Subsection 'Precluding Iteration').  
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL CLASS="ChildLinks">
+<LI><A NAME="tex2html358"
+  HREF="node20.html">Uniqueness Principle</A>
+<LI><A NAME="tex2html359"
+  HREF="node21.html">Uniqueness Principle and contextual tags</A>
+</UL>
+<!--End of Table of Child-Links-->
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html356"
+  HREF="node20.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html352"
+  HREF="node2.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html346"
+  HREF="node18.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html354"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html357"
+  HREF="node20.html">Uniqueness Principle</A>
+<B> Up:</B> <A NAME="tex2html353"
+  HREF="node2.html">DepPattern: Description of the</A>
+<B> Previous:</B> <A NAME="tex2html347"
+  HREF="node18.html">Patterns with boolean operators</A>
+ &nbsp; <B>  <A NAME="tex2html355"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+gamallo
+2012-02-06
+</ADDRESS>
+</BODY>
+</HTML>

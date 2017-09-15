@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Pipeline architecture</TITLE>
+<META NAME="description" CONTENT="Pipeline architecture">
+<META NAME="keywords" CONTENT="user_guide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="user_guide.css">
+
+<LINK REL="next" HREF="node26.html">
+<LINK REL="previous" HREF="node24.html">
+<LINK REL="up" HREF="node24.html">
+<LINK REL="next" HREF="node26.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html380"
+  HREF="node26.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html376"
+  HREF="node24.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html370"
+  HREF="node24.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html378"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html381"
+  HREF="node26.html">PoS taggers</A>
+<B> Up:</B> <A NAME="tex2html377"
+  HREF="node24.html">System Modules</A>
+<B> Previous:</B> <A NAME="tex2html371"
+  HREF="node24.html">System Modules</A>
+ &nbsp; <B>  <A NAME="tex2html379"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00410000000000000000">
+Pipeline architecture</A>
+</H1><TT>
+A DepPattern parser file is a Perl script taking as input the result of translating the output of either Treetagger or Freeling into a new file with a shared layout. 
+</TT>
+<P>
+<TT>In order to analyse an English text stored in the input file 'mytext.txt', we need the following scripts:
+</TT>
+<P>
+<UL>
+<LI>a Perl script containing the DepPattern parser (for instance, 'parser-en'. 
+</LI>
+<LI>the command required to run a PoS tagger, for instance 'tree-tagger-english', which use the English parameters trained with Treetagger. 
+</LI>
+<LI>the script 'ChangeTreetagger-en.perl', which is used to change the output of 'tree-tagger-english' into a new file likely to be read by 'parser-en'.
+</LI>
+</UL>
+<P>
+<TT>In fact, the following command:
+</TT>
+<P><PRE>
+dp.sh  -a treetagger en mytext.txt parser-en &gt; mytext.dep
+</PRE>
+<P>
+<TT>generates the following pipeline:
+</TT>
+<P><PRE>
+cat  mytext.txt | tree-tagger-english | scripts/AdapterTreetagger-en.perl | parser-en.perl -a &gt; mytext.dep
+</PRE>
+<P>
+<TT>So, to analyse a plain text, we'll need to organise 3 processes in a pipeline, i.e., a chain of processing elements, arranged so that the output of each element is the input of the next. 
+</TT>
+<P>
+<TT>When no parser is available, we can generate it from a DepPattern grammar (e.g., 'user_grammar.txt'). So the following command:
+</TT>
+<P><PRE>
+dp.sh  -a treetagger en mytext.txt parser-en user_grammar.txt &gt; mytext.dep
+</PRE>
+<P>
+<TT>generates the following pipeline:
+</TT>
+<P><PRE>
+ruby compi-beta.rb user_grammar.txt parser-en
+cat  mytext.txt | tree-tagger-english | scripts/AdapterTreetagger-en.perl | parser-en.perl -a &gt; mytext.dep
+</PRE>
+<P>
+<TT>The grammar compiler 'compi-beta.rb' was developped, in Ruby, by Isaac Gonz&#225;lez. To build well-formed DepPattern grammars, look up the corresponding tutorial in 'doc'. 
+</TT>
+<P>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html380"
+  HREF="node26.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html376"
+  HREF="node24.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html370"
+  HREF="node24.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html378"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html381"
+  HREF="node26.html">PoS taggers</A>
+<B> Up:</B> <A NAME="tex2html377"
+  HREF="node24.html">System Modules</A>
+<B> Previous:</B> <A NAME="tex2html371"
+  HREF="node24.html">System Modules</A>
+ &nbsp; <B>  <A NAME="tex2html379"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Pablo Gamallo
+2009-10-02
+</ADDRESS>
+</BODY>
+</HTML>

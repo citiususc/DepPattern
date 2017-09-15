@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Changing Treetagger and Freeling PoS tags into a common tagset</TITLE>
+<META NAME="description" CONTENT="Changing Treetagger and Freeling PoS tags into a common tagset">
+<META NAME="keywords" CONTENT="user_guide">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="user_guide.css">
+
+<LINK REL="previous" HREF="node26.html">
+<LINK REL="up" HREF="node24.html">
+<LINK REL="next" HREF="node28.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<A NAME="tex2html402"
+  HREF="node28.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html398"
+  HREF="node24.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html394"
+  HREF="node26.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html400"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html403"
+  HREF="node28.html">About this document ...</A>
+<B> Up:</B> <A NAME="tex2html399"
+  HREF="node24.html">System Modules</A>
+<B> Previous:</B> <A NAME="tex2html395"
+  HREF="node26.html">PoS taggers</A>
+ &nbsp; <B>  <A NAME="tex2html401"
+  HREF="node1.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00430000000000000000">
+Changing Treetagger and Freeling PoS tags into a common tagset</A>
+</H1>
+<P>
+<TT>The second process of the pipeline is to translate the PoS tags of Treetagger and Freeling into a new tagset interpretable by DepPattern parsers. As we used 8 PoS taggers, we need 8 'adapters':
+</TT>
+<P>
+<UL>
+<LI>AdapterTreetagger-en.perl (= 'treetagger en') 
+</LI>
+<LI>AdapterTreetagger-es.perl(= 'treetagger es')
+</LI>
+<LI>AdapterTreetagger-fr.perl (= 'treetagger fr')  
+</LI>
+<LI>AdapterTreetagger-pt.perl (= 'treetagger pt') 
+</LI>
+<LI>AdapterTreetagger-gl.perl (= 'treetagger gl') 
+</LI>
+<LI>AdapterFreeling-en.perl (= 'freeling en')
+</LI>
+<LI>AdapterFreeling-es.perl (= 'freeling es')
+</LI>
+<LI>AdapterFreeling-gl.perl (= 'freeling gl')
+</LI>
+</UL>
+<P>
+<TT>To process a new language supported by either Treetagger or Freeling, we only need to create a new 'Adapter'. This is a very easy task provided that the tagset of the input PoS tagger is available. In addition, we also need the tagset required by DepPattern, which is available at 'docs/tutorialDepPattern.pdf'. 
+</TT>
+<P>
+<TT>Le't see an example. The sentence 'I have a dream' is PoS tagged by 'tree-tagger-english' as follows:
+</TT>
+<P><PRE>
+I       PP      I
+have    VBP     have
+a       DT      a
+dream   NN      dream
+.       SENT    .
+</PRE>
+<P>
+<TT>This tagged text is translated by AdapterTreetagger-en.perl into:
+</TT>
+<P><PRE>
+I       genre:0|lemma:I|number:0|person:0|politeness:0|possessor:0|tag:PRO|token:I|type:P|
+have    genre:0|lemma:have|mode:0|number:0|person:0|tag:VERB|tense:0|token:have|type:A|
+a       genre:0|lemma:a|number:0|person:0|possessor:0|tag:DT|token:a|type:0|
+dream   genre:0|lemma:dream|number:S|person:3|tag:NOUN|token:dream|type:C|
+</PRE>
+<P>
+<TT>This is the input format expected by any DepPattern parser.
+</TT>
+<P>
+<TT>On the other hand, if the sentence is tagged with freeling-en ('analyzer -f en.cfg'), then we obtain: 
+</TT>
+<P><PRE>
+I i NN
+have have VBP
+a a DT
+dream dream NN
+. . Fp
+</PRE>
+<P>
+<TT>This tagged text is translated by AdapterFreeling-en.perl into:
+</TT>
+<P><PRE>
+I       genre:0|lemma:i|number:S|person:3|tag:NOUN|token:I|type:C|
+have    genre:0|lemma:have|mode:0|number:0|person:0|tag:VERB|tense:0|token:have|type:A|
+a       genre:0|lemma:a|number:0|person:0|possessor:0|tag:DT|token:a|type:0|
+dream   genre:0|lemma:dream|number:S|person:3|tag:NOUN|token:dream|type:C|
+</PRE>
+<P>
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+<A NAME="tex2html402"
+  HREF="node28.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="/usr/share/latex2html/icons/next.png"></A> 
+<A NAME="tex2html398"
+  HREF="node24.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="/usr/share/latex2html/icons/up.png"></A> 
+<A NAME="tex2html394"
+  HREF="node26.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="/usr/share/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html400"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<BR>
+<B> Next:</B> <A NAME="tex2html403"
+  HREF="node28.html">About this document ...</A>
+<B> Up:</B> <A NAME="tex2html399"
+  HREF="node24.html">System Modules</A>
+<B> Previous:</B> <A NAME="tex2html395"
+  HREF="node26.html">PoS taggers</A>
+ &nbsp; <B>  <A NAME="tex2html401"
+  HREF="node1.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+<ADDRESS>
+Pablo Gamallo
+2009-10-02
+</ADDRESS>
+</BODY>
+</HTML>

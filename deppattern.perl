@@ -44,18 +44,16 @@ my $errorPrint = "$name: ";
 my $parser = Getopt::ArgParse -> new_parser( prog => $name, help => $shortDescription, description => $longDescription, epilog => $foot, error_prefix  => $errorPrint);
 
 #Arguments
-$parser->add_argument('lang', type => 'Scalar', dest => 'lang', required => 1, metavar => "<lang>", help => "Choose the language", choices_i => ["en", "es", "gl", "pt", "fr"]);
+$parser->add_argument('lang', type => 'Scalar', dest => 'lang', required => 1, metavar => "<lang>", help => "Choose the language", choices_i => ["en", "es", "gl", "pt"]);
 $parser->add_argument('-c', type => 'Bool', dest => 'c', help => "Tagged text with syntactic information (for correction rules)");
 $parser->add_argument('-fa', type => 'Bool', dest => 'fa', help => "Full dependency analysis");
+$parser->add_argument('-conll', type => 'Bool', dest => 'conll', help => "Full dependency analysis with CoNLL format");
 $parser->add_argument('-a', type => 'Bool', dest => 'a', help => "Simple dependency analysis");
 $parser->add_argument('-f', '--file', type => 'Scalar',  dest => 'file', metavar => "<file>", help => "Path of the file input (default stdin)");
 $parser->add_argument('-p', '--parser', type => 'Scalar',  dest => 'parser', metavar => "<parser>", help => "Path of the parser, or name of the parser generated from grammar (i.e. metaromance)");
 $parser->add_argument('-ng', '--no-iteration-grammar', type => 'Scalar',  dest => 'ngrammar', metavar => "<grammar>", help => "Path of the file grammar (without iterations)");
 $parser->add_argument('-g', '--grammar', type => 'Scalar',  dest => 'grammar', metavar => "<grammar>", help => "Path of the file grammar (with iterations)");
 $parser->add_argument('-m', '--meta-romance', type => 'Bool', dest => 'meta', help => "MetaRomance Parser");
-
-
-
 
 my $args = $parser->parse_args();
 
@@ -87,6 +85,8 @@ my $NER    = "${LING}/ner-${LING}_exe.perl";
 my $TAGGER = "${LING}/tagger-${LING}_exe.perl";
 
 my $FILTER = "AdapterFreeling-${LING}.perl";
+my $CONLL  = "saidaCoNLL-fa.perl";
+
 
 #######################
 #      EXECUTION      #
@@ -125,9 +125,7 @@ elsif (!defined $PARSER){
 $PARSER .= ".perl" if $PARSER !~ /\.perl$/;
 
 
-
-
-my $mode = ($args->fa ? "-fa" : ($args->c ? "-c" : ($args->a ? "-a" : "")));
+my $mode = ($args->conll ? "-conll" : ($args->fa ? "-fa" : ($args->c ? "-c" : ($args->a ? "-a" : ""))));
 
 if($mode){
 	if(! -e $PARSER){
@@ -141,12 +139,23 @@ if($mode){
 	do $TAGGER;
 	do $FILTER;
 	do $PARSER;
-	
-	while(my $line = <$input>){
+	do $CONLL;
+	if ($mode ne "-conll") {
+	    while(my $line = <$input>){
 		my $list = Parser::parse(AdapterFreeling::adapter(Tagger::tagger(Ner::ner(Splitter::splitter(Tokens::tokens(Sentences::sentences([$line])))))),  $mode);
 		for my $result (@{$list}){
 			print "$result\n";
 		}
+	    }
 	}
+        else{
+	    while(my $line = <$input>){
+	       my $list =  CONLL::conll(Parser::parse(AdapterFreeling::adapter(Tagger::tagger(Ner::ner(Splitter::splitter(Tokens::tokens(Sentences::sentences([$line])))))), "-fa"));
+	       for my $result (@{$list}){
+		      	print "$result\n";
+	       }
+	    }
+	}
+
 
 }

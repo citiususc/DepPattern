@@ -8,9 +8,9 @@ Galiza
 
 
 ## DESCRIPTION
-This software contains 4 default parsers for 4 languages (English, Spanish, Galician, and Portuguese), as well as MetaRomance, a multilingual parser suited for Romance languages. The parsers were implemented in PERL and are stored in the 'parsers' file. They were generated from test grammars, stored in the folder 'grammars'. 
+This software contains 4 default syntactic parsers for 4 languages (English, Spanish, Galician, and Portuguese), as well as MetaRomance, a multilingual parser suited for Romance languages. The parsers were implemented in PERL and are stored in the 'parsers' file. They were generated from test grammars, stored in the folder 'grammars'. 
 
-The software also contains a compiler (compi-beta.rb), implemented in Ruby, which generate parsers in PERL from DepPattern grammars. To write formal grammars using the formalism "DepPattern", please, look up the tutorial (docs/tutorialDepPattern.pdf).
+The software also contains a compiler (compi-beta.rb), implemented in Ruby, which generate parsers in PERL from DepPattern grammars. To write formal grammars using the formalism "DepPattern", please, look up the tutorial (`docs/tutorialDepPattern.pdf`). 
 Besides, the software provides the PoS tagger 'CitiusTools", also developed by our group.
 
 
@@ -35,7 +35,6 @@ unzip DepPattern-master.zip
 ```
 
 
-
 ## HOW TO USE
 Run `./deppattern --help` to see the modules:
 
@@ -45,7 +44,7 @@ usage: deppattern <lang> [--help|-h] [-m|--meta-romance] [-g|--grammar]
 
 required positional arguments:
   <lang>          Choose the language 
-		  Choices: [en, es, gl, pt, fr], case insensitive
+		  Choices: [en, es, gl, pt], case insensitive
 
 optional named arguments:
   --help, -h                               ? show this help message and exit
@@ -56,9 +55,29 @@ optional named arguments:
   -f, --file <file>                        ? Path of the file input (default stdin)
   -a                                       ? Simple dependency analysis
   -fa                                      ? Full dependency analysis
+  -conll                                   ? Full dependency analysis with CoNLL format
   -c                                       ? Tagged text with syntactic information (for correction rules)
 ```
 
+## Usage in Windows
+
+The same syntax with `deppattern.bat` command.
+
+
+## Examples
+
+Return an analysis for Portuguese in -a format:
+```
+./deppattern pt -f test/pt.txt -a
+```
+
+Return an analysis for English in -conll format:
+```
+./deppattern en -f test/en.txt -conll
+```
+
+Return a parser (parser.perl) from the English grammar:
+`./deppattern en -g grammars/grammar-devel-en`
 
 ## MetaRomance
 One of the parsers provided by the package is MetaRomance, made of Universal Dependencies for Romance languages, and one of the systems that participated at CoNLL-2017 Shared Task on multilingual dependency parsing. If the input text is in Portuguese, the command to run MetaRomance would be the following:
@@ -102,12 +121,13 @@ DobjR:  VERB [ADV]* NOUN
 Look up the tutorial stored in the doc directory.
 
 
-## OUTPUT FORMAT (flag -a):
-Option -a means that the dp.sh generates a file with a dependency-based analysis. Each analysed sentence consists of two elements:
+## OUTPUT FORMAT 
+### BASIC ANALYSIS (flag -a):
+Option -a means that deppattern generates a specific output based on triples. Each analysed sentence consists of two elements:
 
-1. a line containing the POS tagged lemmas of the sentence. This line begins with the tag SENT. The set of tags used here are listed in file TagSet.txt. All lemmas are identified by means of a position number from 1 to N, where N is the size of the sentence.
+1. A line containing the POS tagged lemmas of the sentence. This line begins with the tag SENT. The set of tags used here are listed in file TagSet.txt. All lemmas are identified by means of a position number from 1 to N, where N is the size of the sentence.
 
-2. All dependency triplets identified by the grammar. A triplet consists of:
+2. All dependency triples identified by the grammar. A triple consists of:
 
 (relation;head_lemma;dependent_lemma)
 
@@ -125,21 +145,23 @@ The set of dependency relationships used by the 5 grammars can be consulted and 
 
 Morpho-syntactic information is provided by a POS tagger, in CitiusTools. 
 
-## OUTPUT FORMAT (flag -fa):
-Option -fa gives rise to a full represention of the depedency-based analysis. Each triplet is associated with two pieces of information: morpho-syntactic features of both the head and the dependent. 
+### FULL ANALYSIS (flag -fa):
+Option -fa gives rise to a full represention of the output triples. Each triple is associated with two pieces of information: morpho-syntactic features of both the head and the dependent. 
 
 
-## OUTPUT FORMAT (flag -c):
+### TAGGED TEXT (flag -c):
 Option -c allows us to generate a file with the same input (a tagged text) but with some corrections proposed by the grammar. This option is useful to identify and correct regular errors of PoS taggers using grammatical rules. 
 
+### CONLL FORMAT (flag -conll):
+It is also possible to get an output file with the format defined by CoNLL-X, inspired by Lin (1998). This format was adopted by the evaluation tasks defined in CoNLL.
 
-## CoNLL OUTPUT FILE FORMAT
-It is also possible to get an output file with the format defined by CoNLL-X. This format was adopted by the evaluation tasks defined in CoNLL.
+## REFERENCES
+>Gamallo P. , González I. (2011) A Grammatical Formalism Based on Patterns of Part-of-Speech Tags , International Journal of Corpus Linguistics , 16(1), 45-71. ISNN:1384-6655 
 
-To get this ouput format file, you have to run ./scripts/saidaCoNLL-fa.perl taking as input the output of 'deppattern -fa', for instance:
+>Gamallo, P. 2015. Dependency Parsing with Compression Rules, The 14th International Conference on Parsing Technologies (IWPT-2015) p. 107-117, Bilbao. ISBN 978-1-941643-98-3 
 
-```
-./deppattern pt  -f tests/test-pt -fa |./scripts/saidaCoNLL-fa.perl
-```
+>Gamallo, P., González, I. 2012. DepPattern: A Multilingual Dependency Parser, Demo Session of the International Conference on Computational Processing of the Portuguese Language (PROPOR 2012) , April 17-20, Coimbra, Portugal. 
+
+
 
 	

@@ -510,6 +510,34 @@ sub parse{
 					Inherit("HeadDep","gender,number",\@temp);
 					Add("HeadDep","coord:adj",\@temp);
 
+					# AdjnL: ADJ|CONJ<coord:adj> [ADV]? NOUN
+					# Agreement: gender, number
+					# Recursivity: 1
+					@temp = ($listTags =~ /($ADJ$a2|$CONJ${l}coord:adj\|${r})(?:$ADV$a2)?($NOUN$a2)/g);
+					$Rel =  "AdjnL";
+					DepHead($Rel,"gender,number",\@temp);
+					$listTags =~ s/($ADJ${l}concord:1${r}|$CONJ${l}concord:1${b2}coord:adj\|${r})($ADV$a2)?($NOUN${l}concord:1${r})/$2$3/g;
+					$listTags =~ s/concord:[01]\|//g;
+					@temp = ($listTags =~ /($ADJ$a2|$CONJ${l}coord:adj\|${r})(?:$ADV$a2)?($NOUN$a2)/g);
+					$Rel =  "AdjnL";
+					DepHead($Rel,"gender,number",\@temp);
+					$listTags =~ s/($ADJ${l}concord:1${r}|$CONJ${l}concord:1${b2}coord:adj\|${r})($ADV$a2)?($NOUN${l}concord:1${r})/$2$3/g;
+					$listTags =~ s/concord:[01]\|//g;
+
+					# AdjnR: NOUN [ADV]? ADJ|CONJ<coord:adj>
+					# Agreement: gender, number
+					# Recursivity: 1
+					@temp = ($listTags =~ /($NOUN$a2)(?:$ADV$a2)?($ADJ$a2|$CONJ${l}coord:adj\|${r})/g);
+					$Rel =  "AdjnR";
+					HeadDep($Rel,"gender,number",\@temp);
+					$listTags =~ s/($NOUN${l}concord:1${r})($ADV$a2)?($ADJ${l}concord:1${r}|$CONJ${l}concord:1${b2}coord:adj\|${r})/$1$2/g;
+					$listTags =~ s/concord:[01]\|//g;
+					@temp = ($listTags =~ /($NOUN$a2)(?:$ADV$a2)?($ADJ$a2|$CONJ${l}coord:adj\|${r})/g);
+					$Rel =  "AdjnR";
+					HeadDep($Rel,"gender,number",\@temp);
+					$listTags =~ s/($NOUN${l}concord:1${r})($ADV$a2)?($ADJ${l}concord:1${r}|$CONJ${l}concord:1${b2}coord:adj\|${r})/$1$2/g;
+					$listTags =~ s/concord:[01]\|//g;
+
 					# AdjnL: NOUN NOUN
 					# Recursivity: 1
 					@temp = ($listTags =~ /($NOUN$a2)($NOUN$a2)/g);
@@ -1042,6 +1070,8 @@ sub parse{
 					HeadDep($Rel,"",\@temp);
 					$listTags =~ s/($NOUNCOORD)($PRO${l}type:(?:R|W)\|${r})($VERB$a2|$CONJ${l}coord:verb\|${r})/$1$2$3/g;
 
+					}
+{#<function>
 					# DobjL: [NOUNCOORD] PRO<type:R|W> [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb>
 					# NEXT
 					# AdjnR: NOUNCOORD [PRO<type:R|W>] [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb>
@@ -1066,8 +1096,6 @@ sub parse{
 					HeadDep($Rel,"",\@temp);
 					$listTags =~ s/($NOUNCOORD|$PRO${l}type:(?:D|P|I|X)\|${r})($PRP$a2)($PRO${l}type:(?:R|W)\|${r})($VERB$a2|$CONJ${l}coord:verb\|${r})/$1$2$3$4/g;
 
-					}
-{#<function>
 					# AdjnR: NOUNCOORD|PRO<type:D|P|I|X>  VERB<mode:[GP]>|CONJ<coord:verb>
 					# NoUniq
 					@temp = ($listTags =~ /($NOUNCOORD|$PRO${l}type:(?:D|P|I|X)\|${r})($VERB${l}mode:[GP]\|${r}|$CONJ${l}coord:verb\|${r})/g);

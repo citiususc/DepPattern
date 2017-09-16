@@ -399,6 +399,34 @@ sub parse{
 					HeadDep($Rel,"",\@temp);
 					$listTags =~ s/($NOUN${l}type:P\|${r})($NOUN${l}type:P\|${r})/$1/g;
 
+					# amodL: ADJ [ADV]? NOUN<type:C>
+					# Agreement: gender, number
+					# Recursivity: 1
+					@temp = ($listTags =~ /($ADJ$a2)(?:$ADV$a2)?($NOUN${l}type:C\|${r})/g);
+					$Rel =  "amodL";
+					DepHead($Rel,"gender,number",\@temp);
+					$listTags =~ s/($ADJ${l}concord:1${r})($ADV$a2)?($NOUN${l}concord:1${b2}type:C\|${r})/$2$3/g;
+					$listTags =~ s/concord:[01]\|//g;
+					@temp = ($listTags =~ /($ADJ$a2)(?:$ADV$a2)?($NOUN${l}type:C\|${r})/g);
+					$Rel =  "amodL";
+					DepHead($Rel,"gender,number",\@temp);
+					$listTags =~ s/($ADJ${l}concord:1${r})($ADV$a2)?($NOUN${l}concord:1${b2}type:C\|${r})/$2$3/g;
+					$listTags =~ s/concord:[01]\|//g;
+
+					# amodR: NOUN<type:C> [ADV]? ADJ
+					# Agreement: gender, number
+					# Recursivity: 1
+					@temp = ($listTags =~ /($NOUN${l}type:C\|${r})(?:$ADV$a2)?($ADJ$a2)/g);
+					$Rel =  "amodR";
+					HeadDep($Rel,"gender,number",\@temp);
+					$listTags =~ s/($NOUN${l}concord:1${b2}type:C\|${r})($ADV$a2)?($ADJ${l}concord:1${r})/$1$2/g;
+					$listTags =~ s/concord:[01]\|//g;
+					@temp = ($listTags =~ /($NOUN${l}type:C\|${r})(?:$ADV$a2)?($ADJ$a2)/g);
+					$Rel =  "amodR";
+					HeadDep($Rel,"gender,number",\@temp);
+					$listTags =~ s/($NOUN${l}concord:1${b2}type:C\|${r})($ADV$a2)?($ADJ${l}concord:1${r})/$1$2/g;
+					$listTags =~ s/concord:[01]\|//g;
+
 					# amodL: ADV<lemma:no|nÃ£o|non> NOUN
 					@temp = ($listTags =~ /($ADV${l}lemma:(?:no|nÃ£o|non)\|${r})($NOUN$a2)/g);
 					$Rel =  "amodL";
@@ -836,6 +864,8 @@ sub parse{
 					HeadRelDep($Rel,"",\@temp);
 					$listTags =~ s/($NOUN${l}type:C\|${r})($PRP${l}lemma:$PrepRA\|${r})($NOUNS$a2|$PRO${l}type:(?:D|P|I|X)\|${r})/$1/g;
 
+					}
+{#<function>
 					# nmodR: [NOUNS] [PRP] [NOUNS] [PRP] [NOUNS] [PRP] [NOUNS] [PRP] NOUNS PRP<lemma:de> NOUNS|PRO<type:D|P|I|X>
 					@temp = ($listTags =~ /(?:$NOUNS$a2)(?:$PRP$a2)(?:$NOUNS$a2)(?:$PRP$a2)(?:$NOUNS$a2)(?:$PRP$a2)(?:$NOUNS$a2)(?:$PRP$a2)($NOUNS$a2)($PRP${l}lemma:de\|${r})($NOUNS$a2|$PRO${l}type:(?:D|P|I|X)\|${r})/g);
 					$Rel =  "nmodR";
@@ -848,8 +878,6 @@ sub parse{
 					HeadRelDep($Rel,"",\@temp);
 					$listTags =~ s/($NOUNS$a2)($PRP$a2)($NOUNS$a2)($PRP$a2)($NOUNS$a2)($PRP$a2)($NOUNS$a2)($PRP${l}lemma:de\|${r})($NOUNS$a2|$PRO${l}type:(?:D|P|I|X)\|${r})/$1$2$3$4$5$6$7/g;
 
-					}
-{#<function>
 					# nmodR: [NOUNS] [PRP] [NOUNS] [PRP] NOUNS PRP<lemma:de> NOUNS|PRO<type:D|P|I|X>
 					@temp = ($listTags =~ /(?:$NOUNS$a2)(?:$PRP$a2)(?:$NOUNS$a2)(?:$PRP$a2)($NOUNS$a2)($PRP${l}lemma:de\|${r})($NOUNS$a2|$PRO${l}type:(?:D|P|I|X)\|${r})/g);
 					$Rel =  "nmodR";
@@ -1135,6 +1163,30 @@ sub parse{
 					$Rel =  "oblR";
 					HeadRelDep($Rel,"",\@temp);
 					$listTags =~ s/($VERB$a2)($Fc$a2)?($PRP$a2)?($NOUNS$a2|$PRO${l}type:(?:D|P|I|X)\|${r})($PRP${l}lemma:$PrepMA\|${r})($CARD$a2|$DATE$a2)/$1$3$4/g;
+
+					# nsubjR: VERB<lemma:$VS> NOUNS|PRO<type:D|P|I|X>
+					# Agr: number, person
+					@temp = ($listTags =~ /($VERB${l}lemma:$VS\|${r})($NOUNS$a2|$PRO${l}type:(?:D|P|I|X)\|${r})/g);
+					$Rel =  "nsubjR";
+					HeadDep($Rel,"number,person",\@temp);
+					$listTags =~ s/($VERB${l}concord:1${b2}lemma:$VS\|${r})($NOUNS${l}concord:1${r}|$PRO${l}concord:1${b2}type:(?:D|P|I|X)\|${r})/$1/g;
+					$listTags =~ s/concord:[01]\|//g;
+
+					# nsubjR: VERB<se:yes&lemma:$VSrefleja> NOUNS|PRO<type:D|P|I|X>
+					# Agr: number, person
+					@temp = ($listTags =~ /($VERB${l}lemma:$VSrefleja\|${b2}se:yes\|${r})($NOUNS$a2|$PRO${l}type:(?:D|P|I|X)\|${r})/g);
+					$Rel =  "nsubjR";
+					HeadDep($Rel,"number,person",\@temp);
+					$listTags =~ s/($VERB${l}concord:1${b2}lemma:$VSrefleja\|${b2}se:yes\|${r})($NOUNS${l}concord:1${r}|$PRO${l}concord:1${b2}type:(?:D|P|I|X)\|${r})/$1/g;
+					$listTags =~ s/concord:[01]\|//g;
+
+					# nsubjR: VERB<ind:yes&lemma:$VSind> NOUNS|PRO<type:D|P|I|X>
+					# Agr: number, person
+					@temp = ($listTags =~ /($VERB${l}ind:yes\|${b2}lemma:$VSind\|${r})($NOUNS$a2|$PRO${l}type:(?:D|P|I|X)\|${r})/g);
+					$Rel =  "nsubjR";
+					HeadDep($Rel,"number,person",\@temp);
+					$listTags =~ s/($VERB${l}concord:1${b2}ind:yes\|${b2}lemma:$VSind\|${r})($NOUNS${l}concord:1${r}|$PRO${l}concord:1${b2}type:(?:D|P|I|X)\|${r})/$1/g;
+					$listTags =~ s/concord:[01]\|//g;
 
 					# nsubjR: NOUN<number:S> [VERB<number:P&lemma:ser|estar>] NOUN<number:P>
 					# NEXT
@@ -1542,6 +1594,8 @@ sub parse{
 					DepHead($Rel,"",\@temp);
 					$listTags =~ s/($Fc$a2)($VERB${l}mode:P\|${r})($Fc$a2)($VERB$a2)/$4/g;
 
+					}
+{#<function>
 					# cc: [NP] [Fc] [NP] [Fc] [NP] CONJ<lemma:$CCoord> NP
 					# NEXT
 					# conj: NP [Fc] [NP] [Fc] [NP]  [CONJ<lemma:$CCoord>] NP
@@ -1657,8 +1711,6 @@ sub parse{
 					HeadDep($Rel,"",\@temp);
 					$listTags =~ s/($VERB${l}nomin:no\|${r})($Fc$a2)($VERB${l}nomin:no\|${r})($CONJ${l}lemma:$CCoord\|${r})($VERB${l}nomin:no\|${r})/$1/g;
 
-					}
-{#<function>
 					# cc: [VERB<nomin:no>] CONJ<lemma:$CCoord> VERB<nomin:no>
 					# NEXT
 					# conj: VERB<nomin:no> [CONJ<lemma:$CCoord>] VERB<nomin:no>
@@ -1680,6 +1732,16 @@ sub parse{
 					$Rel =  "xcompR";
 					HeadRelDep($Rel,"",\@temp);
 					$listTags =~ s/($VERB$a2)($ADV$a2)?($PRP${l}lemma:$PrepLocs\|${r})?($ADV$a2)?($VERB${l}mode:N\|${r})/$1$2$4/g;
+
+					# nsubjL: NOUNS X<cop:yes>
+					# Agr: number, person
+					# Add: subj:yes
+					@temp = ($listTags =~ /($NOUNS$a2)($X${l}cop:yes\|${r})/g);
+					$Rel =  "nsubjL";
+					DepHead($Rel,"number,person",\@temp);
+					$listTags =~ s/($NOUNS${l}concord:1${r})($X${l}concord:1${b2}cop:yes\|${r})/$2/g;
+					$listTags =~ s/concord:[01]\|//g;
+					Add("DepHead","subj:yes",\@temp);
 
 					# nsubjL: NOUN<type:P> VERB<mode:[^PG]>
 					# Add: subj:yes
@@ -1704,6 +1766,36 @@ sub parse{
 					DepHead($Rel,"",\@temp);
 					$listTags =~ s/($VERB${l}nomin:yes\|${r})($VERB${l}mode:[^PG]\|${r})/$2/g;
 					Add("DepHead","subj:yes",\@temp);
+
+					# csubjR: VERB<lemma:$VS> VERB<nomin:yes>
+					# Agr: number, person
+					# Add: subj:yes
+					@temp = ($listTags =~ /($VERB${l}lemma:$VS\|${r})($VERB${l}nomin:yes\|${r})/g);
+					$Rel =  "csubjR";
+					HeadDep($Rel,"number,person",\@temp);
+					$listTags =~ s/($VERB${l}concord:1${b2}lemma:$VS\|${r})($VERB${l}concord:1${b2}nomin:yes\|${r})/$1/g;
+					$listTags =~ s/concord:[01]\|//g;
+					Add("HeadDep","subj:yes",\@temp);
+
+					# csubjR: VERB<se:yes&lemma:$VSrefleja>  VERB<nomin:yes>
+					# Agr: number, person
+					# Add: subj:yes
+					@temp = ($listTags =~ /($VERB${l}lemma:$VSrefleja\|${b2}se:yes\|${r})($VERB${l}nomin:yes\|${r})/g);
+					$Rel =  "csubjR";
+					HeadDep($Rel,"number,person",\@temp);
+					$listTags =~ s/($VERB${l}concord:1${b2}lemma:$VSrefleja\|${b2}se:yes\|${r})($VERB${l}concord:1${b2}nomin:yes\|${r})/$1/g;
+					$listTags =~ s/concord:[01]\|//g;
+					Add("HeadDep","subj:yes",\@temp);
+
+					# csubjR: VERB<ind:yes&lemma:$VSind> VERB<nomin:yes>
+					# Agr: number, person
+					# Add: subj:yes
+					@temp = ($listTags =~ /($VERB${l}ind:yes\|${b2}lemma:$VSind\|${r})($VERB${l}nomin:yes\|${r})/g);
+					$Rel =  "csubjR";
+					HeadDep($Rel,"number,person",\@temp);
+					$listTags =~ s/($VERB${l}concord:1${b2}ind:yes\|${b2}lemma:$VSind\|${r})($VERB${l}concord:1${b2}nomin:yes\|${r})/$1/g;
+					$listTags =~ s/concord:[01]\|//g;
+					Add("HeadDep","subj:yes",\@temp);
 
 					# punctL: [NOUN|PRO<type:D|P|I|X>] Fc [PRO<type:R|W>] VERB<subj:yes>   [Fc]?
 					# NEXT

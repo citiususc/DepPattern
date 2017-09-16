@@ -165,7 +165,9 @@ class Definition
 				end
 				if ((/[Aa]gr/ =~ line) != nil || (/[Aa]greement/ =~ line) != nil) && line.split(':')[1] != nil
 					@agr = limpa_brancos(line.split(':')[1]).gsub(/,[\s]*/," ").gsub(" ",",").gsub("@",'\@') # @ subs its for two words relationship
-					@agr.collect { |c| limpa_brancos(c)}
+                                  	# @agr.collect { |c| limpa_brancos(c)}
+                                        @agr.split("\n").collect { |c| limpa_brancos(c)}.join("\n")
+					#@agr.collect { |c| limpa_brancos(c)}
 				end
 				if (/[Ii]nherit/ =~ line) != nil && line.split(':')[1] != nil
 					@inherit = limpa_brancos(line.split(':')[1]).gsub(/,[\s]*/," ").gsub(" ",",").gsub("@",'\@') # @ subs its for two words relationship

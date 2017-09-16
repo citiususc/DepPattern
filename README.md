@@ -8,10 +8,10 @@ Galiza
 
 
 ## DESCRIPTION
-This software contains 4 default syntactic parsers for 4 languages (English, Spanish, Galician, and Portuguese), as well as MetaRomance, a multilingual parser suited for Romance languages. The parsers were implemented in PERL and are stored in the 'parsers' file. They were generated from test grammars, stored in the folder 'grammars'. 
+This software contains 4 default syntactic parsers for 4 languages (English, Spanish, Galician, and Portuguese), as well as MetaRomance, a multilingual parser suited for Romance languages. The parsers were implemented in PERL and are stored in the `parsers` file. They were generated from test grammars, stored in the folder 'grammars'. 
 
-The software also contains a compiler (compi-beta.rb), implemented in Ruby, which generate parsers in PERL from DepPattern grammars. To write formal grammars using the formalism "DepPattern", please, look up the tutorial (`docs/tutorialDepPattern.pdf`). 
-Besides, the software provides the PoS tagger 'CitiusTools", also developed by our group.
+The software also contains a compiler (compi-beta.rb), implemented in Ruby, which generate parsers in PERL from DepPattern grammars. To write formal grammars using DepPattern, please, look up the [tutorial of the formal grammar](http://gramatica.usc.es/pln/tools/deppattern/html_tutorial/tutorialGrammar.html). 
+Besides, the software provides the PoS tagger of [Linguakit](https://github.com/citiususc/Linguakit), also developed by our group.
 
 
 ## REQUIREMENTS
@@ -34,9 +34,6 @@ unzip DepPattern-master.zip
 ```bash
 git clone https://github.com/citiususc/DepPattern.git
 ```
-
-
-
 
 ## HOW TO USE
 Run `./deppattern --help` to see the modules:

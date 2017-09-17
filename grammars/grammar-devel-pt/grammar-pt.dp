@@ -47,6 +47,11 @@ NEXT
 >: VERB<lemma:ser|tornar|converter|be|become>  [ADV<lemma:$Quant>] [ADJ] CONJ|PRO<lemma:que|como>
 %
 
+>: [ADV<lemma:antes>] PRP<lemma:de> ADV<lemma:ontem>
+NEXT
+>: ADV<lemma:antes> PRP<lemma:de> [ADV<lemma:ontem>]
+%
+
 ##falta transformarse/convertirse en menos popular que...
 
 
@@ -259,17 +264,22 @@ Inherit: mode, person, tense, number
 
 #######PERIFRASES
 #verbos modais
-VSpecL: VERB<lemma:$VModalES> [ADV]* VERB<mode:N>
+VSpecL: VERB<lemma:$VModalES> [ADV]? VERB<mode:N>
 #NoUniq
 Inherit: mode, person, tense, number
 %
 ##conj+que 'há que/de, tes que/de'
-VSpecLocL: VERB<lemma:ter|haver> [ADV]* PRP<lemma:de>|CONJ<lemma:que&type:S> [ADV]* VERB<mode:N>
+VSpecLocL: VERB<lemma:ter|haver> [ADV]? PRP<lemma:de>|CONJ<lemma:que&type:S> [ADV]* VERB<mode:N>
 Inherit: mode, person, tense, number
 %
 
-##incoativos 'voy a'
-VSpecLocL: VERB<lemma:ir|vir|comezar|acabar|finalizar|terminar|passar|estar> [ADV]* PRP<lemma:$PrepLocs> [ADV]* VERB<mode:N>
+##incoativos 'começar a'
+VSpecLocL: VERB<lemma:comezar|acabar|finalizar|terminar|passar|estar> [ADV]* PRP<lemma:$PrepLocs> [ADV]* VERB<mode:N>
+Inherit: mode, person, tense, number
+%
+
+##incoativos 'ir+inf'
+VSpecL: VERB<lemma:ir|vir> [ADV]?  VERB<mode:N>
 Inherit: mode, person, tense, number
 %
 

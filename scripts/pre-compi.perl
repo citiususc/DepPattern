@@ -9,6 +9,7 @@ binmode STDIN, ':utf8';
 binmode STDOUT, ':utf8';
 binmode STDERR, ':utf8';
 use utf8;
+use open qw(:std :utf8);
 
 my $file = shift(@ARGV);
 open (my $FILE, $file) or die "The file '$file' cannot be open: $!\n";

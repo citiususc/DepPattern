@@ -1162,7 +1162,7 @@ sub Add {
 				##change the PoS tag:
 				if ($atr =~ /^tag/) {
 					$ATTR[$n1]{$atr} = $value;
-					$listTags =~ s/$Tag[$n1]/$value/;
+					$listTags =~ s/$Tag[$n1]_${n1}/${value}_${n1}/;
 					$Tag[$n1] = $value;
 				} elsif ($listTags =~ /$Tag[$n1]_${n1}${l}$atr:/) {
 					$ATTR[$n1]{$atr} = $value;
@@ -1201,7 +1201,7 @@ sub Add {
 				##change the PoS tag:
 				if ($atr =~ /^tag/) {
 					$ATTR[$n1]{$atr} = $value;
-					$listTags =~ s/$Tag[$n1]/$value/;
+					$listTags =~ s/$Tag[$n1]_${n1}/${value}_${n1}/;
 					$Tag[$n1] = $value;
 				} elsif ($listTags =~ /$Tag[$n1]_${n1}${l}$atr:/) {
 					$ATTR[$n1]{$atr} = $value;
@@ -1238,7 +1238,7 @@ sub Add {
 				##change the PoS tag:
 				if ($atr =~ /^tag/) {
 					$ATTR[$n1]{$atr} = $value;
-					$listTags =~ s/$Tag[$n1]/$value/;
+					$listTags =~ s/$Tag[$n1]_${n1}/${value}_${n1}/;
 					$Tag[$n1] = $value;
 				} elsif ($listTags =~ /($Tag[$n1]_${n1}${l})$atr:/) {
 					$ATTR[$n1]{$atr} = $value;
@@ -1275,7 +1275,7 @@ sub Add {
 				##change the PoS tag:
 				if ($atr =~ /^tag/) {
 				$ATTR[$n1]{$atr} = $value;
-				$listTags =~ s/$Tag[$n1]/$value/;
+				$listTags =~ s/$Tag[$n1]_${n1}/${value}_${n1}/;
 				$Tag[$n1] = $value;
 				} elsif ($listTags =~ /($Tag[$n1]_${n1}${l})$atr:/) {
 					$ATTR[$n1]{$atr} = $value;
@@ -1313,7 +1313,7 @@ sub Add {
 				##change the PoS tag:
 				if ($atr =~ /^tag/) {
 					$ATTR[$n1]{$atr} = $value;
-					$listTags =~ s/$Tag[$n1]/$value/;
+					$listTags =~ s/$Tag[$n1]_${n1}/${value}_${n1}/;
 					$Tag[$n1] = $value;
 				} elsif ($listTags =~ /($Tag[$n1]_${n1}${l})$atr:/) {
 					$ATTR[$n1]{$atr} = $value;
@@ -1351,7 +1351,7 @@ sub Add {
 				##change the PoS tag:
 				if ($atr =~ /^tag/) {
 					$ATTR[$n1]{$atr} = $value;
-					$listTags =~ s/$Tag[$n1]/$value/;
+					$listTags =~ s/$Tag[$n1]_${n1}/${value}_${n1}/;
 					$Tag[$n1] = $value;
 				} elsif ($listTags =~ /($Tag[$n1]_${n1}${l})$atr:/) {
 					$ATTR[$n1]{$atr} = $value;
@@ -1388,7 +1388,7 @@ sub Add {
 				##change the PoS tag:
 				if ($atr =~ /^tag/) {
 					$ATTR[$n1]{$atr} = $value;
-					$listTags =~ s/$Tag[$n1]/$value/;
+					$listTags =~ s/$Tag[$n1]_${n1}/${value}_${n1}/;
 					$Tag[$n1] = $value;
 				} elsif ($listTags  =~ /($Tag[$n1]_${n1}${l})$atr:/) {
 					$ATTR[$n1]{$atr} = $value;
@@ -1425,7 +1425,7 @@ sub Add {
 				##change the PoS tag:
 				if ($atr =~ /^tag/) {
 					$ATTR[$n1]{$atr} = $value;
-					$listTags =~ s/$Tag[$n1]/$value/;
+					$listTags =~ s/$Tag[$n1]_${n1}/${value}_${n1}/;
 					$Tag[$n1] = $value;
 				} elsif ($listTags =~ /($Tag[$n1]_${n1}${l})$atr:/) {
 					$ATTR[$n1]{$atr} = $value;
@@ -1462,7 +1462,7 @@ sub Add {
 				##change the PoS tag:
 				if ($atr =~ /^tag/) {
 					$ATTR[$n1]{$atr} = $value;
-					$listTags =~ s/$Tag[$n1]/$value/;
+					$listTags =~ s/$Tag[$n1]_${n1}/${value}_${n1}/;
 					$Tag[$n1] = $value;
 				} elsif ($listTags =~ /$Tag[$n1]_${n1}${l}$atr:/) {
 					$ATTR[$n1]{$atr} = $value;
@@ -1501,7 +1501,7 @@ sub Add {
 				##change the PoS tag:
 				if ($atr =~ /^tag/) {
 					$ATTR[$n1]{$atr} = $value;
-					$listTags =~ s/$Tag[$n1]/$value/;
+				        $listTags =~ s/$Tag[$n1]_${n1}/${value}_${n1}/;
 					$Tag[$n1] = $value;
 				} elsif ($listTags =~ /$Tag[$n1]_${n1}${l}$atr:/) {
 					$ATTR[$n1]{$atr} = $value;

@@ -70,6 +70,7 @@ my $ITERATIONS = $args->get_attr("grammar");
 my $META = $args->get_attr("meta");
 
 my $MAIN_DIR = dirname(__FILE__);
+
 my $TOOLS = "$MAIN_DIR/CitiusTools";
 my $PROGS = "$MAIN_DIR/scripts";
 my $DIRPARSER="$MAIN_DIR/parsers";
@@ -101,7 +102,7 @@ if($FILE){
 
 
 ##Compilar si hay gramática
-if (defined $GRAMMAR){
+if ($GRAMMAR){
 	use File::Spec;
 	use Cwd 'abs_path';
 	my $path_ruby = File::Spec->catfile(abs_path($MAIN_DIR), "compi-beta.rb");
@@ -118,14 +119,13 @@ if (defined $GRAMMAR){
 	system("ruby \"$path_ruby\" \"$dependencies\" \"$GRAMMAR\" $it \"$PARSER\"");
 }
 #Cogemos el parser correspondiente al idioma
-elsif (!defined $PARSER && !defined $META){
+elsif (!$PARSER && !$META){
 	$PARSER = "$DIRPARSER/parserDefault-${LING}.perl";
 }
-elsif (defined $META){
+elsif ($META){
     $PARSER = "$DIRPARSER/parserDefault-metaromance.perl";
 }
 $PARSER .= ".perl" if $PARSER !~ /\.perl$/;
-
 
 my $mode = ($args->conll ? "-conll" : ($args->fa ? "-fa" : ($args->c ? "-c" : ($args->a ? "-a" : ""))));
 

@@ -46,14 +46,17 @@ NEXT
 NEXT
 >: VERB<lemma:ser|tornar|converter|be|become>  [ADV<lemma:$Quant>] [ADJ] CONJ|PRO<lemma:que|como>
 %
-
->: [ADV<lemma:antes>] PRP<lemma:de> ADV<lemma:ontem>
-NEXT
->: ADV<lemma:antes> PRP<lemma:de> [ADV<lemma:ontem>]
-%
-
 ##falta transformarse/convertirse en menos popular que...
 
+##adverbios de tempo compostos:
+<: ADV<lemma:antes|depois> PRP<lemma:de> [ADV<lemma:ontem|amanhã>]
+NEXT
+<: [ADV<lemma:antes|depois>] PRP<lemma:de> ADV<lemma:ontem|amanhã>
+%
+
+<: PRP<lemma:de> X<lemma:manhã|tarde|noite>
+Add: tag:ADV
+%
 
 
 #####################FRASE ADVERBIAL E ADJECTIVAL####################
@@ -269,12 +272,12 @@ VSpecL: VERB<lemma:$VModalES> [ADV]? VERB<mode:N>
 Inherit: mode, person, tense, number
 %
 ##conj+que 'há que/de, tes que/de'
-VSpecLocL: VERB<lemma:ter|haver> [ADV]? PRP<lemma:de>|CONJ<lemma:que&type:S> [ADV]* VERB<mode:N>
+VSpecLocL: VERB<lemma:ter|haver> [ADV]? PRP<lemma:de>|CONJ<lemma:que&type:S> [ADV]? VERB<mode:N>
 Inherit: mode, person, tense, number
 %
 
 ##incoativos 'começar a'
-VSpecLocL: VERB<lemma:comezar|acabar|finalizar|terminar|passar|estar> [ADV]* PRP<lemma:$PrepLocs> [ADV]* VERB<mode:N>
+VSpecLocL: VERB<lemma:comezar|acabar|finalizar|terminar|passar|estar> [ADV]? PRP<lemma:$PrepLocs> [ADV]? VERB<mode:N>
 Inherit: mode, person, tense, number
 %
 
@@ -284,14 +287,14 @@ Inherit: mode, person, tense, number
 %
 
 ##outras modalidades (entre obj. direito e perífrase): suele comer, quiere comer...
-#VSpecL: VERB<lemma:querer|desejar|pensar|soer|acostumar|saber> [ADV]* VERB<mode:N>
+#VSpecL: VERB<lemma:querer|desejar|pensar|soer|acostumar|saber> [ADV]? VERB<mode:N>
 #NoUniq
 #Inherit: mode, person, tense, number
 #%
 
 
 ##estoy comiendo
-VSpecL: VERB<lemma:estar> [ADV]* VERB<mode:G>
+VSpecL: VERB<lemma:estar> [ADV]? VERB<mode:G>
 Inherit: mode, person, tense, number
 %
 

@@ -109,11 +109,13 @@ if ($GRAMMAR){
 	my $dependencies;
 	my $it = $ITERATIONS ? "ON" : "OFF";
 	$PARSER = $PARSER ? $PARSER : "parser.perl";
-	
+
 	if($META){
-		$dependencies = "grammars/MetaRomance";
+	    $dependencies = "grammars/MetaRomance";
 	}else{
-		$dependencies = "grammars/grammar-devel-".$LING;
+	     #$dependencies = "grammars/grammar-devel-".$LING;
+	    ($dependencies) = ($GRAMMAR =~ /^(.+)\/.+$/);
+	    #print STDERR "dep: #$dependencies#\n";
 	}
 
 	system("ruby \"$path_ruby\" \"$dependencies\" \"$GRAMMAR\" $it \"$PARSER\"");

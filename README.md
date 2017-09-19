@@ -1,7 +1,7 @@
 # DepPattern parsers and grammar compiler
 
 ## DESCRIPTION
-This software contains four rule-based and dependency-based syntactic parsers for 4 languages (English, Spanish, Galician, and Portuguese), as well as MetaRomance, a multilingual parser suited for Romance languages. The parsers were implemented in PERL and are stored in the `parsers` file. They were generated from dependency grammars, stored in the folder 'grammars'. 
+This software contains four rule-based, dependency-based syntactic parsers for 4 languages (English, Spanish, Galician, and Portuguese), as well as MetaRomance, a multilingual parser suited for Romance languages. The parsers were implemented in PERL and are stored in the `parsers` folder. They were generated from dependency grammars, stored in the `grammars` folder. 
 
 The software also contains a compiler (compi-beta.rb), implemented in Ruby, which generate parsers in PERL from DepPattern grammars. To write formal grammars using DepPattern, please, look up the [tutorial of the formal grammar](http://gramatica.usc.es/pln/tools/deppattern/html_tutorial/tutorialGrammar.html). 
 Besides, the software provides the PoS tagger of [Linguakit](https://github.com/citiususc/Linguakit), also developed by our group.

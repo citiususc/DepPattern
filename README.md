@@ -129,7 +129,6 @@ DobjR:  VERB [ADV]* NOUN
 %
 ```
 
-
 Look up the tutorial stored in the doc directory.
 
 
@@ -155,7 +154,7 @@ SENT::<I_PRO_0_<number:0|lemma:I|possessor:0|case:0|genre:0|person:0|politeness:
 
 The set of dependency relationships used by the 5 grammars can be consulted and modified in the corresponding configuration file: `grammars/grammar-devel-LING/dependencies.conf`.
 
-Morpho-syntactic information is provided by a POS tagger, in CitiusTools. 
+Morpho-syntactic information is provided by the POS tagger, also included in [Linguakit](https://github.com/citiususc/Linguakit) . 
 
 ### FULL ANALYSIS (flag -fa):
 Option -fa gives rise to a full represention of the output triples. Each triple is associated with two pieces of information: morpho-syntactic features of both the head and the dependent. 

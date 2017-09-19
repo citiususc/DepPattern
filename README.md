@@ -139,12 +139,12 @@ For instance, the sentence "I am a man." generates the following output:
 ```
 SENT::<I_PRO_0_<number:0|lemma:I|possessor:0|case:0|genre:0|person:0|politeness:0|type:P|token:I|> am_VERB_1_<number:0|mode:0|lemma:be|genre:0|tense:0|person:0|type:S|token:am|> a_DT_2_<number:0|lemma:a|possessor:0|genre:0|person:0|type:0|token:a|> man_NOUN_3_<number:S|lemma:man|genre:0|person:3|type:C|token:man|> ._SENT>
 
-(Lobj;be_VERBF_1;I_PN_0)
+(Subj;be_VERB_1;I_PN_0)
 (Spec;man_NOM_3;a_DT_2)
-(Robj;be_VERBF_1;man_NOM_3)
+(Dobj;be_VERB_1;man_NOM_3)
 ```
 
-The set of dependency relationships used by the 5 grammars can be consulted and modified in the corresponding configuration file: src/dependencies.conf.
+The set of dependency relationships used by the 5 grammars can be consulted and modified in the corresponding configuration file: `grammars/grammar-devel-LING/dependencies.conf`.
 
 Morpho-syntactic information is provided by a POS tagger, in CitiusTools. 
 

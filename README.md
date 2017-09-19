@@ -1,14 +1,7 @@
 # DepPattern parsers and grammar compiler
 
-Author: 
-Pablo Gamallo, Isaac González, Marcos Garcia, César Piñeiro 
-Grupo ProLNat@GE, CiTIUS, 
-University of Santiago de Compostela, 
-Galiza
-
-
 ## DESCRIPTION
-This software contains 4 default syntactic parsers for 4 languages (English, Spanish, Galician, and Portuguese), as well as MetaRomance, a multilingual parser suited for Romance languages. The parsers were implemented in PERL and are stored in the `parsers` file. They were generated from test grammars, stored in the folder 'grammars'. 
+This software contains four rule-based and dependency-based syntactic parsers for 4 languages (English, Spanish, Galician, and Portuguese), as well as MetaRomance, a multilingual parser suited for Romance languages. The parsers were implemented in PERL and are stored in the `parsers` file. They were generated from dependency grammars, stored in the folder 'grammars'. 
 
 The software also contains a compiler (compi-beta.rb), implemented in Ruby, which generate parsers in PERL from DepPattern grammars. To write formal grammars using DepPattern, please, look up the [tutorial of the formal grammar](http://gramatica.usc.es/pln/tools/deppattern/html_tutorial/tutorialGrammar.html). 
 Besides, the software provides the PoS tagger of [Linguakit](https://github.com/citiususc/Linguakit), also developed by our group.
@@ -59,28 +52,44 @@ optional named arguments:
   -c                                       ? Tagged text with syntactic information (for correction rules)
 ```
 
-## Usage in Windows
+## HOW TO USE IN WINDOWS
 
 The same syntax with `deppattern.bat` command.
 
 
-## Examples
+## EXAMPLES
 
-Return an syntactic analysis for Portuguese in -a format:
+Return a syntactic analysis for Portuguese in -a format:
 ```
-./deppattern pt -f test/pt.txt -a
+./deppattern pt -f test/test-pt -a
 ```
 
-Return an syntactic analysis for English in -conll format:
+Return a syntactic analysis for English in -conll format:
 ```
-./deppattern en -f test/en.txt -conll
+./deppattern en -f test/test-en -conll
 ```
 
 Generate a parser (parser.perl) from the English grammar using the compiler:
 
 ```
-./deppattern en -g grammars/grammar-devel-en`
+./deppattern en -g grammars/grammar-devel-en/grammar-en.dp`
 ```
+
+Return a syntactic analysis using the Spanish grammar, with -conll format:
+
+```
+./deppattern en -f test/test-es -g grammars/grammar-devel-es/grammar-es.dp -conll`
+```
+
+## Configuration files
+Each grammar directory must contain the following files: 
+
+* the grammar (the name of the file is chosen by the user)
+* tagset.conf
+* dependencies.conf
+* lexical_classes.conf
+ 
+For more details, look up the  [tutorial of DepPattern](http://gramatica.usc.es/pln/tools/deppattern/html_tutorial/tutorialGrammar.html)
 
 ## MetaRomance
 One of the parsers provided by the package is MetaRomance, made of Universal Dependencies for Romance languages, and one of the systems that participated at CoNLL-2017 Shared Task on multilingual dependency parsing. If the input text is in Portuguese, the command to run MetaRomance would be the following:
@@ -157,6 +166,9 @@ Option -c allows us to generate a file with the same input (a tagged text) but w
 
 ### CONLL FORMAT (flag -conll):
 It is also possible to get an output file with the format defined by CoNLL-X, inspired by Lin (1998). This format was adopted by the evaluation tasks defined in CoNLL.
+
+## AUTHORS
+Pablo Gamallo, Isaac González, Marcos Garcia, César Piñeiro, Grupo ProLNat@GE, CiTIUS,  University of Santiago de Compostela, Galiza.
 
 ## REFERENCES
 >Gamallo P. , González I. (2011) A Grammatical Formalism Based on Patterns of Part-of-Speech Tags , International Journal of Corpus Linguistics , 16(1), 45-71. ISNN:1384-6655 

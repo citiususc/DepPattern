@@ -115,7 +115,6 @@ if ($GRAMMAR){
 	}else{
 	     #$dependencies = "grammars/grammar-devel-".$LING;
 	    ($dependencies) = ($GRAMMAR =~ /^(.+)\/.+$/);
-	    #print STDERR "dep: #$dependencies#\n";
 	}
 
 	system("ruby \"$path_ruby\" \"$dependencies\" \"$GRAMMAR\" $it \"$PARSER\"");

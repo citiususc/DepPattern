@@ -24,11 +24,23 @@ Single: VERB<lemma:determinar|dar&mode:P> [NOUN<type:C>]
 Corr: tag:ADJ
 %
 
+###corrections of ir/ser
+Single: VERB<token:[Ff]ui|[Ff]oi|[Ff]omos|[Ff]oram|[Ff]oste|[Ff]osse|[Ff]ossem> [X<token:a>] [NOUN<type:P>]
+Corr: lemma:ir
+%
+Single: VERB<token:[Ff]ui|[Ff]oi|[Ff]omos|[Ff]oram|[Ff]oste|[Ff]osse|[Ff]ossem> [PRP<lemma:a>]
+Corr: lemma:ir
+%
+Single: VERB<token:[Ff]ui|[Ff]oi|[Ff]omos|[Ff]oram|[Ff]oste|[Ff]osse|[Ff]ossem> [PRO<lemma:se>]
+Corr: lemma:ir
+%
+
+
 ##########tirar aspas de uma palavra#############
 
-PunctR: X Fz|Fe
+PunctR: X Fz|Fe|Frc
 % 
-PunctL: Fz|Fe X
+PunctL: Fz|Fe|Fra X
 %
 
 ##########FIM tirar aspas#############
@@ -59,6 +71,7 @@ Add: tag:ADV
 %
 
 <: X<lemma:momento|minuto|segundo|hora|dia|mês|ano|semana|século> X<lemma:antes|depois>
+Add: tag:DATE
 %
 
 
@@ -249,7 +262,7 @@ Recursivity: 1
 %
 
 ###########AUXILIARES
-VSpecL: VERB<type:S> [ADV]* VERB<mode:P>
+VSpecL: VERB<lemma:ser> [ADV]* VERB<mode:P>
 Add: voice:passive
 Inherit: mode, person, tense, number
 %
@@ -335,8 +348,6 @@ Recursivity: 1
 %
 
 
-
-
 #####################FIM FRASE VERBAL####################
 
 
@@ -420,7 +431,12 @@ PunctL: Fc CONJ<coord:noun>
 %
 
 ###talvez colocar aqui todos Cpreps???
-CprepR: ADJ|ADV PRP NOUNCOORD|PRO<type:D|P|I|X>|VERB
+CprepR: ADJ|ADV|DATE PRP NOUNCOORD|PRO<type:D|P|I|X|>
+%
+CprepR: NOUN|CONJ<coord:noun> PRP VERB<mode:N>
+%
+CprepR: ADJ|ADV|NOUN|DATE PRP VERB<mode:N>
+NoUniq
 %
 
 #######Aposicao-1 com virgulas ou paranteses 
@@ -554,7 +570,7 @@ SubjR: VERB<lemma:$VS> NOUNCOORD|PRO<type:D|P|I|X>
 Agr: number, person
 Add: adsubj:yes
 %
-##com pasiva reflea
+##com pasiva reflexa
 SubjR: VERB<se:yes&lemma:$VSrefleja> NOUNCOORD|PRO<type:D|P|I|X>
 Agr: number, person
 Add: adsubj:yes
@@ -581,10 +597,8 @@ AtrR: VERB ADJ|CONJ<coord:adj>
 
 
 ############# OBJ DIRECTO (so nominal)
-DobjR: VERB NOUNCOORD|PRO<type:D|P|I|X>
+DobjR: VERB CARD|NOUN|CONJ<coord:noun>|PRO<type:D|P|I|X>
 %
-
-
 
 
 ###Complementos Preposicionais argumentais (Iobj)
@@ -651,7 +665,13 @@ PunctL: Fc CONJ<coord:verb>
 %
 
 
+
+
 ############# CIRCUNSTANCIAIS
+
+###passiva + por
+CircR: VERB<voice:passive> [X]? [X]? [X]? [X]? PRP<lemma:por> NOUNCOORD|PRO<type:D|P|I|X>
+%
 
 ##comer peixe para estar no parque em Madrid
 CircR: [VERB|CONJ<coord:verb>] [PRP] VERB|CONJ<coord:verb> [PRP] [CARD|NOUNCOORD|PRO<type:D|P|I|X>] PRP CARD|NOUNCOORD|PRO<type:D|P|I|X>
@@ -912,6 +932,11 @@ CregR: VERB<lemma:$SubcatSOBRE>  [NOMINAL|PRO<type:D|P|I|X>]? PRP<lemma:sobre> N
 %
 
 ###############FIM #############COMPLEMENTOS VERBAIS COM NOMINALIZAÇOES (NOMINAL)#############################
+
+
+###Tirar o NoUniq
+CprepR: ADJ|ADV|DATE|NOUN PRP VERB<mode:N>
+%
 
 
 

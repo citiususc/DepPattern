@@ -511,7 +511,7 @@ class Definition
 
             a1 = a1.gsub(/([^:]\(\?:|[(])([A-Z]\w*)/,"\\1$\\2$a2") ##colocar  $X$a depois de "(" ou depois de "(?:X", mas não depois de ":(?:X"
             a1 = a1.gsub(/(^\(\?:|[(])([A-Z]\w*)/,"\\1$\\2$a2") ## colocar  $X$a  depois de "(" ou depois de "(?:X" só em principio de linha. 
-           a1 = a1.gsub(/([$a2>]\|)([A-Z]\w*)/,"\\1$\\2$a2").gsub(/([$a>]\|)([A-Z]\w*)/,"\\1$\\2$a2") # colocar recursivamente $X$a depois "$a|" ou depois de ">|"
+           a1 = a1.gsub(/([$a2>]\|)([A-Z]\w*)/,"\\1$\\2$a2").gsub(/([$a2>]\|)([A-Z]\w*)/,"\\1$\\2$a2") # colocar recursivamente $X$a depois "$a|" ou depois de ">|"
           
 #print a1
 #print "\n"
@@ -527,7 +527,7 @@ class Definition
                 a1 = a1.gsub('(^)', '^')  ###CAMBIO DE PABLO: parche para mudar o (^) por ^ nas regras que começan por principio de frase
      
                 a1 = a1.gsub("$a2$a2","$a2") # Corrige o duplo $a que poderia produzir-se com os super-atalhos
-                a1 = a1.gsub("${r}${a}","${r}") #CAMBIO DE PABLO Corrige o duplo ${r}$a que poderia produzir-se com os super-atalhos
+                a1 = a1.gsub("${r}${a2}","${r}") #CAMBIO DE PABLO Corrige o duplo ${r}$a que poderia produzir-se com os super-atalhos
                 #print a1 
                 #print "\n"
 =begin

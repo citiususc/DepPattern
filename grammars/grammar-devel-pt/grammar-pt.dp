@@ -58,6 +58,9 @@ NEXT
 Add: tag:ADV
 %
 
+<: X<lemma:momento|minuto|segundo|hora|dia|mês|ano|semana|século> X<lemma:antes|depois>
+%
+
 
 #####################FRASE ADVERBIAL E ADJECTIVAL####################
 
@@ -414,6 +417,10 @@ Add: coord:noun
 %
 
 PunctL: Fc CONJ<coord:noun>
+%
+
+###talvez colocar aqui todos Cpreps???
+CprepR: ADJ|ADV PRP NOUNCOORD|PRO<type:D|P|I|X>|VERB
 %
 
 #######Aposicao-1 com virgulas ou paranteses 

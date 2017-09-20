@@ -81,6 +81,11 @@ Return a syntactic analysis using the Spanish grammar, with -conll format:
 ./deppattern en -f test/test-es -g grammars/grammar-devel-es/grammar-es.dp -conll`
 ```
 
+You also may enter the input text in pipeline:
+```
+echo "Mary is eating fish." |./deppattern en -a
+```
+
 ## Configuration files
 Each grammar directory must contain the following files: 
 
@@ -129,7 +134,9 @@ DobjR:  VERB [ADV]* NOUN
 %
 ```
 
-Look up the tutorial stored in the doc directory.
+Look up the tutorial stored in the doc directory. 
+
+There is a bug in the grammar compiler: it is not possible to make a disjunction of more than 3 PoS tags: NOUN|VERB|ADJ|ADV (only three are allowed).
 
 
 ## OUTPUT FORMAT 

@@ -136,7 +136,6 @@ DobjR:  VERB [ADV]* NOUN
 
 Look up the tutorial stored in the doc directory. 
 
-There is a bug in the grammar compiler: it is not possible to make a disjunction of more than 3 PoS tags: NOUN|VERB|ADJ|ADV (only three at most are allowed).
 
 
 ## OUTPUT FORMAT 

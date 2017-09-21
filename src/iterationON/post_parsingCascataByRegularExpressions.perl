@@ -1138,7 +1138,18 @@ sub Add {
 					}
 					$listTags =~ s/($Tag[$n1]_${n1}${l})${atr}:[^|]*\|/${1}$info\|/;
 				} else {
-					$listTags =~ s/($Tag[$n1]_${n1}_<)/${1}$info\|/;
+                                        my ($feat) = $listTags =~/$Tag[$n1]_${n1}_<([^>]+)>/;
+					my $feat2 = $feat;
+					$feat2 =~ s/\|/\\|/g;
+					$listTags =~ s/($Tag[$n1]_${n1}_<)$feat2/${1}/;
+					   
+					my @feat = split ('\|', $feat); 
+					push (@feat,$info);
+					@feat = sort (@feat); 
+					$feat = join("|",@feat);
+					   # $listTags =~ s/($Tag[$n1]_${n1}_<)/${1}$info\|/;
+					$listTags =~ s/($Tag[$n1]_${n1}_<)/${1}${feat}\|/;    
+
 					$ATTR[$n1]{$atr} = $value;
 					if ($atr eq "lemma") {
 						$Lemma[$n1] = $ATTR[$n1]{"lemma"};
@@ -1175,9 +1186,20 @@ sub Add {
 					$listTags =~ s/($Tag[$n1]_${n1}${l})${atr}:[^|]*\|/${1}$info\|/;
 					#print STDERR "$atr - $value : #$l# - #$r#";
 					} else {
-						$listTags =~ s/($Tag[$n1]_${n1}_<)/${1}$info\|/;
-						$ATTR[$n1]{$atr} = $value;
-						if ($atr eq "lemma") {
+					    my ($feat) = $listTags =~/$Tag[$n1]_${n1}_<([^>]+)>/;
+					    my $feat2 = $feat;
+					    $feat2 =~ s/\|/\\|/g;
+					    $listTags =~ s/($Tag[$n1]_${n1}_<)$feat2/${1}/;
+					   
+					    my @feat = split ('\|', $feat); 
+					    push (@feat,$info);
+					    @feat = sort (@feat); 
+					    $feat = join("|",@feat);
+					    #$listTags =~ s/($Tag[$n1]_${n1}_<)/${1}$info\|/;
+					    $listTags =~ s/($Tag[$n1]_${n1}_<)/${1}${feat}\|/;
+
+					     $ATTR[$n1]{$atr} = $value;
+					     if ($atr eq "lemma") {
 							$Lemma[$n1] = $ATTR[$n1]{"lemma"};
 				}
 				if ($atr eq "token") {
@@ -1213,14 +1235,25 @@ sub Add {
 					}
 					$listTags =~ s/($Tag[$n1]_${n1}${l})${atr}:[^|]*\|/${1}$info\|/;
 				} else {
-					$listTags =~ s/($Tag[$n1]_${n1}_<)/${1}$info\|/;
-					$ATTR[$n1]{$atr} = $value; 
-					if ($atr eq "lemma") {
+					    my ($feat) = $listTags =~/$Tag[$n1]_${n1}_<([^>]+)>/;
+					    my $feat2 = $feat;
+					    $feat2 =~ s/\|/\\|/g;
+					    $listTags =~ s/($Tag[$n1]_${n1}_<)$feat2/${1}/;
+					   
+					    my @feat = split ('\|', $feat); 
+					    push (@feat,$info);
+					    @feat = sort (@feat); 
+					    $feat = join("|",@feat);
+					   # $listTags =~ s/($Tag[$n1]_${n1}_<)/${1}$info\|/;
+					    $listTags =~ s/($Tag[$n1]_${n1}_<)/${1}${feat}\|/;
+					
+					    $ATTR[$n1]{$atr} = $value; 
+					    if ($atr eq "lemma") {
 						$Lemma[$n1] = $ATTR[$n1]{"lemma"};
-					}
-					if ($atr eq "token") {
+				            }
+					    if ($atr eq "token") {
 						$Token[$n1] = $ATTR[$n1]{"token"};
-					}
+					    }
 				}
 			}
 		}
@@ -1250,14 +1283,25 @@ sub Add {
 					}
 					$listTags =~ s/($Tag[$n1]_${n1}${l})${atr}:[^|]*\|/${1}$info\|/;
 				} else {
-					$listTags =~ s/($Tag[$n1]_${n1}_<)/${1}$info\|/;
-					$ATTR[$n1]{$atr} = $value;
-					if ($atr eq "lemma") {
+					 my ($feat) = $listTags =~/$Tag[$n1]_${n1}_<([^>]+)>/;
+					    my $feat2 = $feat;
+					    $feat2 =~ s/\|/\\|/g;
+					    $listTags =~ s/($Tag[$n1]_${n1}_<)$feat2/${1}/;
+					   
+					    my @feat = split ('\|', $feat); 
+					    push (@feat,$info);
+					    @feat = sort (@feat); 
+					    $feat = join("|",@feat);
+					   # $listTags =~ s/($Tag[$n1]_${n1}_<)/${1}$info\|/;
+					    $listTags =~ s/($Tag[$n1]_${n1}_<)/${1}${feat}\|/;
+
+					    $ATTR[$n1]{$atr} = $value;
+					    if ($atr eq "lemma") {
 						$Lemma[$n1] = $ATTR[$n1]{"lemma"};
-					}
-					if ($atr eq "token") {
+					    }
+					    if ($atr eq "token") {
 						$Token[$n1] = $ATTR[$n1]{"token"};
-					}
+					    }
 				}
 			}
 		}
@@ -1287,14 +1331,25 @@ sub Add {
 					}
 					$listTags =~ s/($Tag[$n1]_${n1}${l})${atr}:[^|]*\|/${1}$info\|/;
 				} else {
-					$listTags =~ s/($Tag[$n1]_${n1}_<)/${1}$info\|/;
-					$ATTR[$n1]{$atr} = $value;
-					if ($atr eq "lemma") {
+					 my ($feat) = $listTags =~/$Tag[$n1]_${n1}_<([^>]+)>/;
+					    my $feat2 = $feat;
+					    $feat2 =~ s/\|/\\|/g;
+					    $listTags =~ s/($Tag[$n1]_${n1}_<)$feat2/${1}/;
+					   
+					    my @feat = split ('\|', $feat); 
+					    push (@feat,$info);
+					    @feat = sort (@feat); 
+					    $feat = join("|",@feat);
+					   # $listTags =~ s/($Tag[$n1]_${n1}_<)/${1}$info\|/;
+					    $listTags =~ s/($Tag[$n1]_${n1}_<)/${1}${feat}\|/;
+					
+					    $ATTR[$n1]{$atr} = $value;
+					    if ($atr eq "lemma") {
 						$Lemma[$n1] = $ATTR[$n1]{"lemma"};
-					}
-					if ($atr eq "token") {
+					    }
+					    if ($atr eq "token") {
 						$Token[$n1] = $ATTR[$n1]{"token"};
-					}
+					    }
 				}
 			}
 		}
@@ -1325,14 +1380,25 @@ sub Add {
 					}
 					$listTags =~ s/($Tag[$n1]_${n1}${l})${atr}:[^|]*\|/${1}$info\|/;
 				} else {
-					$listTags =~ s/($Tag[$n1]_${n1}_<)/${1}$info\|/;
-					$ATTR[$n1]{$atr} = $value;
-					if ($atr eq "lemma") {
+					 my ($feat) = $listTags =~/$Tag[$n1]_${n1}_<([^>]+)>/;
+					    my $feat2 = $feat;
+					    $feat2 =~ s/\|/\\|/g;
+					    $listTags =~ s/($Tag[$n1]_${n1}_<)$feat2/${1}/;
+					   
+					    my @feat = split ('\|', $feat); 
+					    push (@feat,$info);
+					    @feat = sort (@feat); 
+					    $feat = join("|",@feat);
+					   # $listTags =~ s/($Tag[$n1]_${n1}_<)/${1}$info\|/;
+					    $listTags =~ s/($Tag[$n1]_${n1}_<)/${1}${feat}\|/;
+					 
+					    $ATTR[$n1]{$atr} = $value;
+					    if ($atr eq "lemma") {
 						$Lemma[$n1] = $ATTR[$n1]{"lemma"};
-					}
-					if ($atr eq "token") {
+					    }
+					    if ($atr eq "token") {
 						$Token[$n1] = $ATTR[$n1]{"token"};
-					}
+					    }
 				}
 			}
 		}
@@ -1363,14 +1429,25 @@ sub Add {
 					}
 					$listTags =~ s/($Tag[$n1]_${n1}${l})${atr}:[^|]*\|/${1}$info\|/;
 				} else {
-					$listTags =~ s/($Tag[$n1]_${n1}_<)/${1}$info\|/;
-					$ATTR[$n1]{$atr} = $value;
-					if ($atr eq "lemma") {
+					 my ($feat) = $listTags =~/$Tag[$n1]_${n1}_<([^>]+)>/;
+					    my $feat2 = $feat;
+					    $feat2 =~ s/\|/\\|/g;
+					    $listTags =~ s/($Tag[$n1]_${n1}_<)$feat2/${1}/;
+					   
+					    my @feat = split ('\|', $feat); 
+					    push (@feat,$info);
+					    @feat = sort (@feat); 
+					    $feat = join("|",@feat);
+					   # $listTags =~ s/($Tag[$n1]_${n1}_<)/${1}$info\|/;
+					    $listTags =~ s/($Tag[$n1]_${n1}_<)/${1}${feat}\|/;
+					
+					    $ATTR[$n1]{$atr} = $value;
+					    if ($atr eq "lemma") {
 						$Lemma[$n1] = $ATTR[$n1]{"lemma"};
-					}
-					if ($atr eq "token") {
+					    }
+					    if ($atr eq "token") {
 						$Token[$n1] = $ATTR[$n1]{"token"};
-					}
+					    }
 				}
 			}
 		}
@@ -1400,14 +1477,25 @@ sub Add {
 					}
 					$listTags =~ s/($Tag[$n1]_${n1}${l})${atr}:[^|]*\|/${1}$info\|/;
 				} else {
-					$listTags =~ s/($Tag[$n1]_${n1}_<)/${1}$info\|/;
-					$ATTR[$n1]{$atr} = $value;
-					if ($atr eq "lemma") {
+				            my ($feat) = $listTags =~/$Tag[$n1]_${n1}_<([^>]+)>/;
+					    my $feat2 = $feat;
+					    $feat2 =~ s/\|/\\|/g;
+					    $listTags =~ s/($Tag[$n1]_${n1}_<)$feat2/${1}/;
+					   
+					    my @feat = split ('\|', $feat); 
+					    push (@feat,$info);
+					    @feat = sort (@feat); 
+					    $feat = join("|",@feat);
+					   # $listTags =~ s/($Tag[$n1]_${n1}_<)/${1}$info\|/;
+					    $listTags =~ s/($Tag[$n1]_${n1}_<)/${1}${feat}\|/;
+					
+					    $ATTR[$n1]{$atr} = $value;
+					    if ($atr eq "lemma") {
 						$Lemma[$n1] = $ATTR[$n1]{"lemma"};
-					}
-					if ($atr eq "token") {
+					    }
+					    if ($atr eq "token") {
 						$Token[$n1] = $ATTR[$n1]{"token"};
-					}
+					    }
 				}
 			}
 		}
@@ -1437,14 +1525,25 @@ sub Add {
 				}
 				$listTags =~ s/($Tag[$n1]_${n1}${l})${atr}:[^|]*\|/${1}$info\|/;
 				} else {
-					$listTags =~ s/($Tag[$n1]_${n1}_<)/${1}$info\|/;
-					$ATTR[$n1]{$atr} = $value;
-					if ($atr eq "lemma") {
+				            my ($feat) = $listTags =~/$Tag[$n1]_${n1}_<([^>]+)>/;
+					    my $feat2 = $feat;
+					    $feat2 =~ s/\|/\\|/g;
+					    $listTags =~ s/($Tag[$n1]_${n1}_<)$feat2/${1}/;
+					   
+					    my @feat = split ('\|', $feat); 
+					    push (@feat,$info);
+					    @feat = sort (@feat); 
+					    $feat = join("|",@feat);
+					   # $listTags =~ s/($Tag[$n1]_${n1}_<)/${1}$info\|/;
+					    $listTags =~ s/($Tag[$n1]_${n1}_<)/${1}${feat}\|/;
+					
+					    $ATTR[$n1]{$atr} = $value;
+					    if ($atr eq "lemma") {
 						$Lemma[$n1] = $ATTR[$n1]{"lemma"};
-					}
-					if ($atr eq "token") {
+					    }
+					    if ($atr eq "token") {
 						$Token[$n1] = $ATTR[$n1]{"token"};
-					}
+					    }
 				}
 			}
 		}
@@ -1474,14 +1573,25 @@ sub Add {
 					}
 					$listTags =~ s/($Tag[$n1]_${n1}${l})${atr}:[^|]*\|/${1}$info\|/;
 				} else {
-					$listTags =~ s/($Tag[$n1]_${n1}_<)/${1}$info\|/;
-					$ATTR[$n1]{$atr} = $value;
-					if ($atr eq "lemma") {
+				            my ($feat) = $listTags =~/$Tag[$n1]_${n1}_<([^>]+)>/;
+					    my $feat2 = $feat;
+					    $feat2 =~ s/\|/\\|/g;
+					    $listTags =~ s/($Tag[$n1]_${n1}_<)$feat2/${1}/;
+					   
+					    my @feat = split ('\|', $feat); 
+					    push (@feat,$info);
+					    @feat = sort (@feat); 
+					    $feat = join("|",@feat);
+					   # $listTags =~ s/($Tag[$n1]_${n1}_<)/${1}$info\|/;
+					    $listTags =~ s/($Tag[$n1]_${n1}_<)/${1}${feat}\|/;
+					
+					    $ATTR[$n1]{$atr} = $value;
+					    if ($atr eq "lemma") {
 						$Lemma[$n1] = $ATTR[$n1]{"lemma"};
-					}
-					if ($atr eq "token") {
+					    }
+					    if ($atr eq "token") {
 						$Token[$n1] = $ATTR[$n1]{"token"};
-					}
+					    }
 				}
 			}
 		}
@@ -1513,14 +1623,25 @@ sub Add {
 					}
 					$listTags =~ s/($Tag[$n1]_${n1}${l})${atr}:[^|]*\|/${1}${info}\|/;
 				} else {
-					$listTags =~ s/($Tag[$n1]_${n1}_<)/${1}$info\|/;
-					$ATTR[$n1]{$atr} = $value;
-					if ($atr eq "lemma") {
+				            my ($feat) = $listTags =~/$Tag[$n1]_${n1}_<([^>]+)>/;
+					    my $feat2 = $feat;
+					    $feat2 =~ s/\|/\\|/g;
+					    $listTags =~ s/($Tag[$n1]_${n1}_<)$feat2/${1}/;
+					   
+					    my @feat = split ('\|', $feat); 
+					    push (@feat,$info);
+					    @feat = sort (@feat); 
+					    $feat = join("|",@feat);
+					   # $listTags =~ s/($Tag[$n1]_${n1}_<)/${1}$info\|/;
+					    $listTags =~ s/($Tag[$n1]_${n1}_<)/${1}${feat}\|/;
+					
+					    $ATTR[$n1]{$atr} = $value;
+					    if ($atr eq "lemma") {
 						$Lemma[$n1] = $ATTR[$n1]{"lemma"};
-					}
-					if ($atr eq "token") {
+					    }
+					    if ($atr eq "token") {
 						$Token[$n1] = $ATTR[$n1]{"token"};
-					}
+					    }
 					#print STDERR "$atr - $value ::: #$l# - #$r#";
 				}
 			}

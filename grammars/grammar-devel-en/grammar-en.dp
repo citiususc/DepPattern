@@ -48,11 +48,14 @@ Single: X<token:a|an> [NOUN|ADJ|ADV]
 Corr: tag:DT, type:I, lemma:=token
 %
 
+Single: X<token:–> [X]
+Corr: tag:Fe
+%
 ##########tirar aspas de uma palavra#############
 
-PunctR: X Fz|Fe
+PunctR: X Fz|Fe|Frc
 % 
-PunctL: Fz|Fe X
+PunctL: Fz|Fe|Fra X
 %
 
 ##########FIM tirar aspas#############
@@ -199,6 +202,8 @@ Recursivity 1
 CprepL: NOUN POS NOUN
 %
 
+AdjnL: CARD NOUN
+%
 #################FIM FRASE SUSTANTIVA########################
 
 
@@ -429,6 +434,13 @@ Add: coord:noun
 #PunctL: Fc CONJ<coord:noun>
 #%
 
+###talvez colocar aqui todos Cpreps???
+CprepR: ADJ|ADV|DATE PRP NOUNCOORD|PRO<type:D|P|I|X|>
+%
+CprepR: ADJ|ADV|DATE PRP VERB<mode:N>
+NoUniq
+%
+
 
 #######APOSIÇAO 1 com virgulas ou paranteses
 
@@ -477,13 +489,30 @@ NoUniq
 
 ##################Frase CIRC especificas#################
 
-
 #CircR: VERB<mode:[^P]> [NOUNCOORD<type:D|P|I|X>] PRP<lemma:$PrepMA> NOUNCOORD|PRO<type:D|P|I|X>|ADV
 #%
 CircR: VERB<mode:P> [NOUNCOORD|PRO<type:D|P|I|X>] PRP<lemma:por|by> NOUNCOORD|PRO<type:D|P|I|X>|ADV
 %
 CircR: VERB [NOUNCOORD|PRO<type:D|P|I|X>] PRP<lemma:$PrepMA> CARD|DATE
 %
+
+PunctR: VERB Fc [PRP] [DATE]
+NEXT
+CircR: VERB [Fc]? PRP DATE
+%
+PunctL: [PRP] [DATE] Fc VERB
+NEXT
+CircL: PRP DATE [Fc]? VERB
+%
+
+##Apposition:
+PunctR: VERB Fc [PRP] [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]
+NEXT
+PunctR: VERB [Fc] [PRP] [NOUNCOORD|PRO<type:D|P|I|X>] Fc
+NEXT
+CircR: VERB [Fc] PRP NOUNCOORD|PRO<type:D|P|I|X> [Fc]
+%
+
 ##################Fim CIRC#################
 
 

@@ -35,7 +35,9 @@ Single: VERB<token:[Ff]ui|[Ff]oi|[Ff]omos|[Ff]oram|[Ff]oste|[Ff]osse|[Ff]ossem> 
 Corr: lemma:ir
 %
 
-
+Single: X<token:–> [X]
+Corr: tag:Fe
+%
 ##########tirar aspas de uma palavra#############
 
 PunctR: X Fz|Fe|Frc
@@ -74,6 +76,10 @@ Add: tag:ADV
 Add: tag:DATE
 %
 
+>: X<lemma:segunda-feira|terça-feira|quarta-feira|quinta-feira|sexta-feira|sábado|domingo> Fc [DATE]
+NEXT
+<: X<lemma:segunda-feira|terça-feira|quarta-feira|quinta-feira|sexta-feira|sábado|domingo> [Fc]? DATE
+%
 
 #####################FRASE ADVERBIAL E ADJECTIVAL####################
 
@@ -142,7 +148,6 @@ Agreement: gender, number
 Recursivity: 1
 %
 
-
 AdjnR: NOUN [ADV]? ADJ|CONJ<coord:adj>
 Agreement: gender, number
 Recursivity: 1
@@ -161,6 +166,8 @@ AdjnR:  NOUN NOUN
 Recursivity: 1
 %
 
+AdjnL: CARD NOUN
+%
 #################FIM FRASE SUSTANTIVA########################
 
 
@@ -433,9 +440,9 @@ PunctL: Fc CONJ<coord:noun>
 ###talvez colocar aqui todos Cpreps???
 CprepR: ADJ|ADV|DATE PRP NOUNCOORD|PRO<type:D|P|I|X|>
 %
-CprepR: NOUN|CONJ<coord:noun> PRP VERB<mode:N>
-%
-CprepR: ADJ|ADV|NOUN|DATE PRP VERB<mode:N>
+#CprepR: NOUN|CONJ<coord:noun> PRP VERB<mode:N>
+#%
+CprepR: ADJ|ADV|DATE PRP VERB<mode:N>
 NoUniq
 %
 
@@ -508,6 +515,24 @@ PunctR: VERB Fc [NOUNCOORD|PRO<type:D|P|I|X>] [PRP<lemma:$PrepMA>] [CARD|DATE]
 NEXT
 CircR: VERB [Fc]? [NOUNCOORD|PRO<type:D|P|I|X>] PRP<lemma:$PrepMA> CARD|DATE
 %
+
+PunctR: VERB Fc [PRP] [DATE]
+NEXT
+CircR: VERB [Fc]? PRP DATE
+%
+PunctL: [PRP] [DATE] Fc VERB
+NEXT
+CircL: PRP DATE [Fc]? VERB
+%
+
+##Apposition:
+PunctR: VERB Fc [PRP] [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]
+NEXT
+PunctR: VERB [Fc] [PRP] [NOUNCOORD|PRO<type:D|P|I|X>] Fc
+NEXT
+CircR: VERB [Fc] PRP NOUNCOORD|PRO<type:D|P|I|X> [Fc]
+%
+
 ##################Fim CIRC#################
 
 

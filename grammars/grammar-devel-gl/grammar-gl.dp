@@ -19,13 +19,14 @@ Single: [X]? NOUN<lemma:$AdvTemp>
 Corr: tag:ADV
 %
 
-
-
+Single: X<token:–> [X]
+Corr: tag:Fe
+%
 ##########tirar aspas de uma palavra#############
 
-PunctR: X Fz|Fe
+PunctR: X Fz|Fe|Frc
 % 
-PunctL: Fz|Fe X
+PunctL: Fz|Fe|Fra X
 %
 
 ##########FIM tirar aspas#############
@@ -46,7 +47,14 @@ NEXT
 
 ##falta transformarse/convertirse en menos popular que...
 
+<: X<lemma:momento|minuto|segundo|hora|día|mes|ano|semana|século> X<lemma:antes|despois>
+Add: tag:DATE
+%
 
+>: X<lemma:segunda-feira|terça-feira|quarta-feira|quinta-feira|sexta-feira|luns|martes|mércores|xoves|venres|sábado|domingo> Fc [DATE]
+NEXT
+<: X<lemma:segunda-feira|terça-feira|quarta-feira|quinta-feira|sexta-feira|luns|martes|mércores|xoves|venres|sábado|domingo> [Fc]? DATE
+%
 
 #####################FRASE ADVERBIAL E ADJECTIVAL####################
 
@@ -134,8 +142,9 @@ AdjnR:  NOUN NOUN
 Recursivity: 1
 %
 
+AdjnL: CARD NOUN
+%
 #################FIM FRASE SUSTANTIVA########################
-
 
 
 
@@ -298,8 +307,6 @@ NEXT
 AdjnR: VERB [Fc]? ADV [Fc]
 %
 
-
-
 PunctL: Fc [ADV] [Fc]? VERB
 NEXT
 PunctL: [Fc] [ADV] Fc VERB
@@ -315,12 +322,7 @@ AdjnL:  ADV|CONJ<coord:adv>  VERB
 Recursivity: 1
 %
 
-
-
-
 #####################FIM FRASE VERBAL####################
-
-
 
 
 ##################Frase Preposicionais de nomes#################
@@ -400,6 +402,15 @@ Add: coord:noun
 PunctL: Fc CONJ<coord:noun>
 %
 
+###talvez colocar aqui todos Cpreps???
+CprepR: ADJ|ADV|DATE PRP NOUNCOORD|PRO<type:D|P|I|X|>
+%
+#CprepR: NOUN|CONJ<coord:noun> PRP VERB<mode:N>
+#%
+CprepR: ADJ|ADV|DATE PRP VERB<mode:N>
+NoUniq
+%
+
 #######Aposicao-1 com virgulas ou paranteses 
 
 PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc|Fpa|Fca NOUNCOORD|CARD|ADJ|PRO<type:D|P|I|X> [Fc|Fpt|Fct]
@@ -422,8 +433,6 @@ NoUniq
 %
 
 ##################Fim Frase Preposicionais de nomes#################
-
-
 
 
 ##erros antes de relativas: 'que' etiquetado como PRO com nomes que subcategorizam conjunçao 'que'
@@ -469,6 +478,24 @@ PunctR: VERB Fc [NOUNCOORD|PRO<type:D|P|I|X>] [PRP<lemma:$PrepMA>] [CARD|DATE]
 NEXT
 CircR: VERB [Fc]? [NOUNCOORD|PRO<type:D|P|I|X>] PRP<lemma:$PrepMA> CARD|DATE
 %
+
+PunctR: VERB Fc [PRP] [DATE]
+NEXT
+CircR: VERB [Fc]? PRP DATE
+%
+PunctL: [PRP] [DATE] Fc VERB
+NEXT
+CircL: PRP DATE [Fc]? VERB
+%
+
+##Aposition:
+PunctR: VERB Fc [PRP] [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]
+NEXT
+PunctR: VERB [Fc] [PRP] [NOUNCOORD|PRO<type:D|P|I|X>] Fc
+NEXT
+CircR: VERB [Fc] PRP NOUNCOORD|PRO<type:D|P|I|X> [Fc]
+%
+
 ##################Fim CIRC#################
 
 

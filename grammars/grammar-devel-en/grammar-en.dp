@@ -560,12 +560,12 @@ PrepR: NOUNCOORD|PRO<type:D|P|I|X> CONJ<coord:cprep>
 #############sustantivas
 SubjL: [VERB] [X<lemma:what>] NOUNCOORD|PRO<type:D|P|I|S> VERB
 NEXT
-DobjL: [VERB] X<lemma:what> [NOUNCOORD|PRO<type:D|P|I|S] VERB
+DobjL: [VERB] X<lemma:what> [NOUNCOORD|PRO<type:D|P|I|S>] VERB
 Add: compl:yes
 %
 AdjnL:  [VERB] [X<lemma:where|when>] NOUNCOORD|PRO<type:D|P|I|S> VERB
 NEXT
-DobjL: [VERB] X<lemma:where|when> [NOUNCOORD|PRO<type:D|P|I|S] VERB
+DobjL: [VERB] X<lemma:where|when> [NOUNCOORD|PRO<type:D|P|I|S>] VERB
 Add: compl:yes
 %
 
@@ -582,9 +582,9 @@ DobjComplR: VERB [NOUN]? VERB<compl:yes&mode:[^PNG]>  [PRP] NOUNCOORD|PRO<type:D
 
 CircR: [VERB<lemma:say|think>]  [NOUN]  VERB<mode:[^PNG]> PRP NOUNCOORD|PRO<type:D|P|I|X>
 NEXT
-SubjL: [VERB<lemma:say|think>] NOUN VERB<mode:[^PNG]> [PRP] NOUNCOORD|PRO<type:D|P|I|X>]
+SubjL: [VERB<lemma:say|think>] NOUN VERB<mode:[^PNG]> [PRP] [NOUNCOORD|PRO<type:D|P|I|X>]
 NEXT
-DobjComplR: VERB<lemma:say|think> [NOUN]? VERB<mode:[^PNG]>  [PRP] NOUNCOORD|PRO<type:D|P|I|X>]
+DobjComplR: VERB<lemma:say|think> [NOUN]? VERB<mode:[^PNG]>  [PRP] [NOUNCOORD|PRO<type:D|P|I|X>]
 %
 ##########fim completivas
 

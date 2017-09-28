@@ -461,6 +461,7 @@ NEXT
 PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? [PRO<type:R|W>|PRO<lemma:que|quen>] VERB|CONJ<coord:verb> Fc
 NEXT
 SubjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|PRO<lemma:que|quen> VERB|CONJ<coord:verb>   [Fc]?
+#Add: adsubj:yes
 NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|PRO<lemma:que|quen>] VERB|CONJ<coord:verb>  [Fc]?
 NoUniq
@@ -475,6 +476,7 @@ NEXT
 CircL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? PRP PRO<type:R|W>|PRO<lemma:que|quen> VERB|CONJ<coord:verb> [Fc]?
 NEXT
 SubjL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? [PRP] PRO<type:R|W>|PRO<lemma:que|quen> VERB|CONJ<coord:verb> [Fc]?
+Add: adsubj:yes
 NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRP] [PRO<type:R|W>|PRO<lemma:que|quen>] VERB|CONJ<coord:verb> [Fc]?
 NoUniq
@@ -968,8 +970,8 @@ PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRO<type:R|W>|PRO<lemma:que|quen>] VER
 NEXT
 PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? [PRO<type:R|W>|PRO<lemma:que|quen>] VERB|CONJ<coord:verb> Fc
 NEXT
-#SubjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|PRO<lemma:que|quen> VERB|CONJ<coord:verb>   [Fc]?
-#NEXT
+SubjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|PRO<lemma:que|quen> VERB|CONJ<coord:verb>   [Fc]?
+NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|PRO<lemma:que|quen>] VERB|CONJ<coord:verb>  [Fc]?
 %
 
@@ -980,8 +982,8 @@ NEXT
 PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?  [PRP] [PRO<type:R|W>|PRO<lemma:que|quen>] VERB|CONJ<coord:verb> Fc
 NEXT
 CircL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? PRP PRO<type:R|W>|PRO<lemma:que|quen> VERB|CONJ<coord:verb> [Fc]?
-#NEXT
-#SubjL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? [PRP] PRO<type:R|W>|PRO<lemma:que|quen> VERB|CONJ<coord:verb> [Fc]?
+NEXT
+SubjL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? [PRP] PRO<type:R|W>|PRO<lemma:que|quen> VERB|CONJ<coord:verb> [Fc]?
 NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRP] [PRO<type:R|W>|PRO<lemma:que|quen>] VERB|CONJ<coord:verb> [Fc]?
 %

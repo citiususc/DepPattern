@@ -497,7 +497,7 @@ NEXT
 PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? [PRO<type:R|W>|PRO<lemma:que|quem>] VERB|CONJ<coord:verb> Fc
 NEXT
 SubjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|PRO<lemma:que|quem> VERB|CONJ<coord:verb>   [Fc]?
-Add: adsubj:yes
+#Add: adsubj:yes
 NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|PRO<lemma:que|quem>] VERB|CONJ<coord:verb>  [Fc]?
 NoUniq
@@ -1000,7 +1000,6 @@ CprepR: ADJ|ADV|DATE|NOUN PRP VERB<mode:N>
 
 ######################RELATIVAS#########################
 
-
 #############especificativas e explicativas de objecto direito
 PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRO<type:R|W>|PRO<lemma:que|quem>] VERB<adsubj:yes>|CONJ<adsubj:yes&coord:verb>    [Fc]?
 NEXT
@@ -1011,12 +1010,14 @@ NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|PRO<lemma:que|quem>] VERB<adsubj:yes>|CONJ<adsubj:yes&coord:verb>    [Fc]?
 %
 
+
+
 #############especificativas e explicativas de sujeito
 PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRO<type:R|W>|PRO<lemma:que|quem>] VERB|CONJ<coord:verb>   [Fc]?
 NEXT
 PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? [PRO<type:R|W>|PRO<lemma:que|quem>] VERB|CONJ<coord:verb> Fc
-#NEXT
-#SubjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|PRO<lemma:que|quem> VERB|CONJ<coord:verb>   [Fc]?
+NEXT
+SubjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|PRO<lemma:que|quem> VERB|CONJ<coord:verb>   [Fc]?
 NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|PRO<lemma:que|quem>] VERB|CONJ<coord:verb>  [Fc]?
 %
@@ -1029,8 +1030,8 @@ NEXT
 PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?  [PRP] [PRO<type:R|W>|PRO<lemma:que|quem>] VERB|CONJ<coord:verb> Fc
 NEXT
 CircL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? PRP PRO<type:R|W>|PRO<lemma:que|quem> VERB|CONJ<coord:verb> [Fc]?
-#NEXT
-#SubjL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? [PRP] PRO<type:R|W>|PRO<lemma:que|quem> VERB|CONJ<coord:verb> [Fc]?
+NEXT
+SubjL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? [PRP] PRO<type:R|W>|PRO<lemma:que|quem> VERB|CONJ<coord:verb> [Fc]?
 NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRP] [PRO<type:R|W>|PRO<lemma:que|quem>] VERB|CONJ<coord:verb> [Fc]?
 %

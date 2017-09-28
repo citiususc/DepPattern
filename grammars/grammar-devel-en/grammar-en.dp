@@ -466,6 +466,8 @@ NoUniq
 
 ###RELATIVAS 1
 
+
+
 #############especificativas e explicativas de objecto direito
 PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRO<type:R|W>|PRO<lemma:that|which>] [NOUNCOORD|PRO<type:D|P|I|X>]  VERB|CONJ<coord:verb>   [Fc]?
 NEXT
@@ -483,6 +485,7 @@ NEXT
 PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? [PRO<type:R|W>|PRO<lemma:that|which>] VERB|CONJ<coord:verb> Fc
 NEXT
 SubjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|PRO<lemma:that|which> VERB|CONJ<coord:verb>   [Fc]?
+Add: adsubj:yes
 NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|PRO<lemma:that|which>] VERB|CONJ<coord:verb>  [Fc]?
 NoUniq
@@ -865,8 +868,8 @@ AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|PRO<lemma:that|which>] V
 PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRO<type:R|W>|PRO<lemma:that|which>] VERB|CONJ<coord:verb>   [Fc]?
 NEXT
 PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? [PRO<type:R|W>|PRO<lemma:that|which>] VERB|CONJ<coord:verb> Fc
-#NEXT
-#SubjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|PRO<lemma:that|which> VERB|CONJ<coord:verb>   [Fc]?
+NEXT
+SubjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|PRO<lemma:that|which> VERB|CONJ<coord:verb>   [Fc]?
 NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|PRO<lemma:that|which>] VERB|CONJ<coord:verb>  [Fc]?
 %
@@ -879,8 +882,8 @@ NEXT
 PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?  [PRP] [PRO<type:R|W>|PRO<lemma:that|which>] VERB|CONJ<coord:verb> Fc
 NEXT
 CircL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? PRP PRO<type:R|W>|PRO<lemma:that|which> VERB|CONJ<coord:verb> [Fc]?
-#NEXT
-#SubjL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? [PRP] PRO<type:R|W>|PRO<lemma:that|which> VERB|CONJ<coord:verb> [Fc]?
+NEXT
+SubjL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? [PRP] PRO<type:R|W>|PRO<lemma:that|which> VERB|CONJ<coord:verb> [Fc]?
 NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRP] [PRO<type:R|W>|PRO<lemma:that|which>] VERB|CONJ<coord:verb> [Fc]?
 %

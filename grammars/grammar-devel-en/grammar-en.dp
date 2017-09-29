@@ -465,9 +465,6 @@ NoUniq
 
 
 ###RELATIVAS 1
-
-
-
 #############especificativas e explicativas de objecto direito
 PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRO<type:R|W>|PRO<lemma:that|which>] [NOUNCOORD|PRO<type:D|P|I|X>]  VERB|CONJ<coord:verb>   [Fc]?
 NEXT
@@ -485,7 +482,7 @@ NEXT
 PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? [PRO<type:R|W>|PRO<lemma:that|which>] VERB|CONJ<coord:verb> Fc
 NEXT
 SubjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|PRO<lemma:that|which> VERB|CONJ<coord:verb>   [Fc]?
-Add: adsubj:yes
+#Add: adsubj:yes
 NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|PRO<lemma:that|which>] VERB|CONJ<coord:verb>  [Fc]?
 NoUniq
@@ -499,8 +496,6 @@ PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?  [PRP] [PRO<type:R|W>|PRO<lemma:that
 NEXT
 CircL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? PRP PRO<type:R|W>|PRO<lemma:that|which> VERB|CONJ<coord:verb> [Fc]?
 NEXT
-SubjL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? [PRP] PRO<type:R|W>|PRO<lemma:that|which> VERB|CONJ<coord:verb> [Fc]?
-NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRP] [PRO<type:R|W>|PRO<lemma:that|which>] VERB|CONJ<coord:verb> [Fc]?
 NoUniq
 %
@@ -513,6 +508,9 @@ PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?  [PRP] [PRO<type:R|W>|PRO<lemma:that
 NEXT
 CircL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? PRP PRO<type:R|W>|PRO<lemma:that|which> [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb> [Fc]?
 NEXT
+#SubjL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? [PRP] [PRO<type:R|W>|PRO<lemma:that|which>] NOUNCOORD|PRO<type:D|P|I|X> VERB|CONJ<coord:verb> [Fc]?
+#Add: adsubj:yes
+#NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRP] [PRO<type:R|W>|PRO<lemma:that|which>] [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb> [Fc]?
 NoUniq
 %
@@ -522,6 +520,7 @@ NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X>  [Fc]? VERB<mode:[GP]>|CONJ<coord:verb>
 NoUniq
 %
+
 
 
 ##################Frase CIRC especificas#################
@@ -864,6 +863,7 @@ NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|PRO<lemma:that|which>] VERB<adsubj:yes>|CONJ<adsubj:yes&coord:verb>    [Fc]?
 %
 
+
 #############especificativas e explicativas de sujeito
 PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRO<type:R|W>|PRO<lemma:that|which>] VERB|CONJ<coord:verb>   [Fc]?
 NEXT
@@ -883,16 +883,16 @@ PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?  [PRP] [PRO<type:R|W>|PRO<lemma:that
 NEXT
 CircL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? PRP PRO<type:R|W>|PRO<lemma:that|which> VERB|CONJ<coord:verb> [Fc]?
 NEXT
-SubjL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? [PRP] PRO<type:R|W>|PRO<lemma:that|which> VERB|CONJ<coord:verb> [Fc]?
-NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRP] [PRO<type:R|W>|PRO<lemma:that|which>] VERB|CONJ<coord:verb> [Fc]?
 %
+
 
 ##relativas com gerundio/participio (INGLES)
 PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc VERB<mode:[GP]>|CONJ<coord:verb>
 NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? VERB<mode:[GP]>|CONJ<coord:verb>
 %
+
 
 
 

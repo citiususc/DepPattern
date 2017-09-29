@@ -47,6 +47,13 @@ NEXT
 
 ##falta transformarse/convertirse en menos popular que...
 
+
+<: X<token:[Aa]> X<lemma:partir|partires> [PRP<lemma:de>]
+NEXT
+<: [X<token:[Aa]>] X<lemma:partir> PRP<lemma:de>
+%
+
+
 <: X<lemma:momento|minuto|segundo|hora|día|mes|ano|semana|século> X<lemma:antes|despois>
 Add: tag:DATE
 %
@@ -55,6 +62,7 @@ Add: tag:DATE
 NEXT
 <: X<lemma:segunda-feira|terça-feira|quarta-feira|quinta-feira|sexta-feira|luns|martes|mércores|xoves|venres|sábado|domingo> [Fc]? DATE
 %
+
 
 #####################FRASE ADVERBIAL E ADJECTIVAL####################
 
@@ -192,6 +200,9 @@ SpecL: DET<type:A> PRO<type:X>
 SpecL: DET<type:[AD]>|PRO<type:D> PRO<type:[RW]>
 Add: sust:yes
 Inherit: number, person
+%
+Single: [PRP] PRO<sust:yes>
+Add: sust:no
 %
 
 ##o de Mario, um desses
@@ -444,6 +455,7 @@ Corr: tag:CONJ, type:S
 %
 
 ###RELATIVAS 1
+
 #############especificativas e explicativas de objecto direito
 PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRO<type:R|W>|PRO<lemma:que|quen>] [NOUNCOORD|PRO<type:D|P|I|X>]  VERB|CONJ<coord:verb>   [Fc]?
 NEXT
@@ -475,9 +487,6 @@ PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?  [PRP] [PRO<type:R|W>|PRO<lemma:que|
 NEXT
 CircL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? PRP PRO<type:R|W>|PRO<lemma:que|quen> VERB|CONJ<coord:verb> [Fc]?
 NEXT
-SubjL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? [PRP] PRO<type:R|W>|PRO<lemma:que|quen> VERB|CONJ<coord:verb> [Fc]?
-Add: adsubj:yes
-NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRP] [PRO<type:R|W>|PRO<lemma:que|quen>] VERB|CONJ<coord:verb> [Fc]?
 NoUniq
 %
@@ -490,6 +499,9 @@ PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?  [PRP] [PRO<type:R|W>|PRO<lemma:que|
 NEXT
 CircL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? PRP PRO<type:R|W>|PRO<lemma:que|quen> [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb> [Fc]?
 NEXT
+#SubjL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? [PRP] [PRO<type:R|W>|PRO<lemma:que|quen>] NOUNCOORD|PRO<type:D|P|I|X> VERB|CONJ<coord:verb> [Fc]?
+#Add: adsubj:yes
+#NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRP] [PRO<type:R|W>|PRO<lemma:que|quen>] [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb> [Fc]?
 NoUniq
 %
@@ -975,7 +987,6 @@ NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|PRO<lemma:que|quen>] VERB|CONJ<coord:verb>  [Fc]?
 %
 
-
 #############especificativas e explicativas de ccirc
 PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRP] [PRO<type:R|W>|PRO<lemma:que|quen>] VERB|CONJ<coord:verb>   [Fc]?
 NEXT
@@ -983,19 +994,14 @@ PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?  [PRP] [PRO<type:R|W>|PRO<lemma:que|
 NEXT
 CircL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? PRP PRO<type:R|W>|PRO<lemma:que|quen> VERB|CONJ<coord:verb> [Fc]?
 NEXT
-SubjL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? [PRP] PRO<type:R|W>|PRO<lemma:que|quen> VERB|CONJ<coord:verb> [Fc]?
-NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRP] [PRO<type:R|W>|PRO<lemma:que|quen>] VERB|CONJ<coord:verb> [Fc]?
 %
-
 
 ##relativas com gerundio/participio (INGLES)
 PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc VERB<mode:[GP]>|CONJ<coord:verb>
 NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? VERB<mode:[GP]>|CONJ<coord:verb>
 %
-
-
 ######################FIM RELATIVAS#########################
 
 
@@ -1006,7 +1012,6 @@ AdjnR: VERB CONJ<type:S> [VERB]
 NEXT
 AdjnR: VERB [CONJ<type:S>] VERB
 %
-
 ########FIM DEPENDENCIAS COM CONJUNÇOES SUBORDINADAS###############
 
 

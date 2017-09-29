@@ -68,6 +68,11 @@ NEXT
 <: [ADV<lemma:antes|depois>] PRP<lemma:de> ADV<lemma:ontem|amanhã>
 %
 
+<: X<token:[Aa]> X<lemma:partir> [PRP<lemma:de>]
+NEXT
+<: [X<token:[Aa]>] X<lemma:partir> PRP<lemma:de>
+%
+
 <: PRP<lemma:de> X<lemma:manhã|tarde|noite>
 Add: tag:ADV
 %
@@ -80,6 +85,7 @@ Add: tag:DATE
 NEXT
 <: X<lemma:segunda-feira|terça-feira|quarta-feira|quinta-feira|sexta-feira|sábado|domingo> [Fc]? DATE
 %
+
 
 #####################FRASE ADVERBIAL E ADJECTIVAL####################
 
@@ -217,6 +223,9 @@ SpecL: DET<type:A> PRO<type:X>
 SpecL: DET<type:[AD]>|PRO<type:D> PRO<type:[RW]>
 Add: sust:yes
 Inherit: number, person
+%
+Single: [PRP] PRO<sust:yes>
+Add: sust:no
 %
 
 ##o de Mario, um desses
@@ -511,9 +520,6 @@ PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?  [PRP] [PRO<type:R|W>|PRO<lemma:que|
 NEXT
 CircL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? PRP PRO<type:R|W>|PRO<lemma:que|quem> VERB|CONJ<coord:verb> [Fc]?
 NEXT
-SubjL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? [PRP] PRO<type:R|W>|PRO<lemma:que|quem> VERB|CONJ<coord:verb> [Fc]?
-Add: adsubj:yes
-NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRP] [PRO<type:R|W>|PRO<lemma:que|quem>] VERB|CONJ<coord:verb> [Fc]?
 NoUniq
 %
@@ -526,6 +532,9 @@ PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?  [PRP] [PRO<type:R|W>|PRO<lemma:que|
 NEXT
 CircL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? PRP PRO<type:R|W>|PRO<lemma:que|quem> [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb> [Fc]?
 NEXT
+#SubjL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? [PRP] [PRO<type:R|W>|PRO<lemma:que|quem>] NOUNCOORD|PRO<type:D|P|I|X> VERB|CONJ<coord:verb> [Fc]?
+#Add: adsubj:yes
+#NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRP] [PRO<type:R|W>|PRO<lemma:que|quem>] [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb> [Fc]?
 NoUniq
 %
@@ -1011,7 +1020,6 @@ AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|PRO<lemma:que|quem>] VER
 %
 
 
-
 #############especificativas e explicativas de sujeito
 PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRO<type:R|W>|PRO<lemma:que|quem>] VERB|CONJ<coord:verb>   [Fc]?
 NEXT
@@ -1030,8 +1038,6 @@ NEXT
 PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?  [PRP] [PRO<type:R|W>|PRO<lemma:que|quem>] VERB|CONJ<coord:verb> Fc
 NEXT
 CircL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? PRP PRO<type:R|W>|PRO<lemma:que|quem> VERB|CONJ<coord:verb> [Fc]?
-NEXT
-SubjL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? [PRP] PRO<type:R|W>|PRO<lemma:que|quem> VERB|CONJ<coord:verb> [Fc]?
 NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRP] [PRO<type:R|W>|PRO<lemma:que|quem>] VERB|CONJ<coord:verb> [Fc]?
 %

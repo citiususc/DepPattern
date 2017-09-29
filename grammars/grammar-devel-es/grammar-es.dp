@@ -927,12 +927,12 @@ PunctL: Fc CONJ<coord:verb>
 
 ###SUJEITOS
 SubjL: NOUN<type:P> VERB<mode:[^PG]>|CONJ<coord:verb&mode:[^PG]>
-Add: subj:yes
+Add: adsubj:yes
 %
 
 SubjL: NOMINAL|PRO<type:D|P|I|X> VERB<mode:[^PG]>|CONJ<coord:verb&mode:[^PG]>
 #Agreement: person, number
-Add: subj:yes
+Add: adsubj:yes
 %
 
 

@@ -1716,6 +1716,14 @@ sub activarTags {
 		$TagStr{"pos"} = $pos;
 		return 1;
 	}
+	##dates
+        elsif ($x =~  /^DATE/) {
+                $TagStr{"number"} = 0;
+                $TagStr{"person"} = 0;
+                $TagStr{"gender"} = 0;
+                $TagStr{"pos"} = $pos;
+                return 1;
+        }
 	elsif ($x =~ /^ADJ/) {
 		$TagStr{"type"} = 0;
 		$TagStr{"degree"} = 0;

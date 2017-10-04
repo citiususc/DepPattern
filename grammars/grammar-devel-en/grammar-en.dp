@@ -51,6 +51,10 @@ Corr: tag:DT, type:I, lemma:=token
 Single: X<token:–> [X]
 Corr: tag:Fe
 %
+
+Single: [X<lemma:este>] X<lemma:january|february|march|april|may|june|july|august|september|october|november|december>
+Corr: tag:DATE
+%
 ##########tirar aspas de uma palavra#############
 
 PunctR: X Fz|Fe|Frc
@@ -650,7 +654,7 @@ AtrR: VERB ADJ|CONJ<coord:adj>
 
 
 ##CDir, caso geral
-DobjR: VERB NOUNCOORD|PRO<type:D|P|I|X>
+DobjR: VERB CARD|NOUN|CONJ<coord:noun>|PRO<type:D|P|I|X>
 %
 
 ######COORDINAÇAO VERBOS (antes dos circunstancias)###############
@@ -734,12 +738,12 @@ CircL: [Fc] PRP NOUNCOORD|PRO<type:D|P|I|X> [Fc]  VERB
 
 
 ###TRATAMENTO DE DATAS
-AdjnR:  VERB<mode:[^PNG]> DATE
+AdjnR:  VERB DATE
 %
 
-PunctL: Fc [DATE] VERB<mode:[^PNG]>
+PunctL: Fc [DATE] VERB
 NEXT
-AdjnL:  [Fc]? DATE VERB<mode:[^PNG]>
+AdjnL:  [Fc]? DATE VERB>
 %
 
 

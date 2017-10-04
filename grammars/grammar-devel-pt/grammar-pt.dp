@@ -38,6 +38,11 @@ Corr: lemma:ir
 Single: X<token:–> [X]
 Corr: tag:Fe
 %
+
+Single: [X<lemma:este>] X<lemma:segunda-feira|terça-feira|quarta-feira|quinta-feira|sexta-feira|sábado|domingo>
+Corr: tag:DATE
+%
+
 ##########tirar aspas de uma palavra#############
 
 PunctR: X Fz|Fe|Frc

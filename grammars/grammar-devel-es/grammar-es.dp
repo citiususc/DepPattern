@@ -45,6 +45,10 @@ Corr: lemma:creer
 Single: X<token:–> [X]
 Corr: tag:Fe
 %
+
+Single: [X<lemma:este>] X<lemma:lunes|martes|miércoles|jueves|viernes|sábado|domingo>
+Corr: tag:DATE
+%
 ##########tirar aspas de uma palavra#############
 
 PunctR: X Fz|Fe|Frc
@@ -662,10 +666,8 @@ AtrR: VERB ADJ|CONJ<coord:adj>
 
 
 ############# OBJ DIRECTO (so nominal)
-DobjR: VERB NOUNCOORD|PRO<type:D|P|I|X>
+DobjR: VERB CARD|NOUN|CONJ<coord:noun>|PRO<type:D|P|I|X>
 %
-
-
 
 
 ###Complementos Preposicionais argumentais (Creg)

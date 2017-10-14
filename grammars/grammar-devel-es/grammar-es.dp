@@ -343,18 +343,18 @@ AdjnL: ADV<pos:0> [Fc] VERB
 %
 
 
-PunctR:  VERB [Fc]? [ADV] Fc
+PunctR:  VERB [Fc] [ADV] Fc
 NEXT
 PunctR: VERB Fc [ADV] [Fc]
 NEXT
-AdjnR: VERB [Fc]? ADV [Fc]
+AdjnR: VERB [Fc] ADV [Fc]
 %
 
-PunctL: Fc [ADV] [Fc]? VERB
+PunctL: Fc [ADV] [Fc] VERB
 NEXT
 PunctL: [Fc] [ADV] Fc VERB
 NEXT
-AdjnL: [Fc] ADV [Fc]? VERB
+AdjnL: [Fc] ADV [Fc] VERB
 %
 
 AdjnR: VERB [NOUN|PRO<type:D|P|I|X>]? ADV|CONJ<coord:adv> 

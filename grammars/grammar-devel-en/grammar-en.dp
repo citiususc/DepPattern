@@ -311,6 +311,23 @@ Inherit: mode, person, tense, number
 %
 
 
+#####SEPARABLE PHRASAL VERBS
+>: VERB<lemma:$VPhAway> [NOUN|PRO<type:D|P|I|X>]? X<lemma:away>
+%
+>: VERB<lemma:$VPhBack> [NOUN|PRO<type:D|P|I|X>]? X<lemma:back>
+%
+>: VERB<lemma:$VPhDown> [NOUN|PRO<type:D|P|I|X>]? X<lemma:down>
+%
+>: VERB<lemma:$VPhIn> [NOUN|PRO<type:D|P|I|X>]? X<lemma:in>
+%
+>: VERB<lemma:$VPhOff> [NOUN|PRO<type:D|P|I|X>]? X<lemma:off>
+%
+>: VERB<lemma:$VPhOn> [NOUN|PRO<type:D|P|I|X>]? X<lemma:on>
+%
+>: VERB<lemma:$VPhOut> [NOUN|PRO<type:D|P|I|X>]? X<lemma:out>
+%
+>: VERB<lemma:$VPhUp> [NOUN|PRO<type:D|P|I|X>]? X<lemma:up>
+%
 
 #########COMPLEMENTOS ADVERVIAIS
 PunctL: [ADV<pos:0>] Fc VERB

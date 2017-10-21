@@ -312,6 +312,8 @@ Inherit: mode, person, tense, number
 
 
 #####SEPARABLE PHRASAL VERBS
+>: VERB<lemma:$VPhAbout> [NOUN|PRO<type:D|P|I|X>]? X<lemma:about>
+%
 >: VERB<lemma:$VPhAway> [NOUN|PRO<type:D|P|I|X>]? X<lemma:away>
 %
 >: VERB<lemma:$VPhBack> [NOUN|PRO<type:D|P|I|X>]? X<lemma:back>
@@ -325,6 +327,8 @@ Inherit: mode, person, tense, number
 >: VERB<lemma:$VPhOn> [NOUN|PRO<type:D|P|I|X>]? X<lemma:on>
 %
 >: VERB<lemma:$VPhOut> [NOUN|PRO<type:D|P|I|X>]? X<lemma:out>
+%
+>: VERB<lemma:$VPhOver> [NOUN|PRO<type:D|P|I|X>]? X<lemma:over>
 %
 >: VERB<lemma:$VPhUp> [NOUN|PRO<type:D|P|I|X>]? X<lemma:up>
 %

@@ -13,6 +13,16 @@ Single: [NOUN] [Fc]? CONJ<lemma:que> [NOUN] [VERB]
 Corr: tag:PRO, type:R
 %
 
+###corrections of ir/ser
+Single: VERB<token:[Ff]un|[Ff]oi|[Ff]omos|[Ff]oran|[Ff]ostes|[Ff]ose|[Ff]osem> [X<token:a>] [NOUN<type:P>]
+Corr: lemma:ir
+%
+Single: VERB<token:[Ff]un|[Ff]oi|[Ff]omos|[Ff]oran|[Ff]ostes|[Ff]ose|[Ff]osem> [PRP<lemma:a>]
+Corr: lemma:ir
+%
+Single: VERB<token:[Ff]un|[Ff]oi|[Ff]omos|[Ff]oran|[Ff]ostes|[Ff]ose|[Ff]osem> [PRO<lemma:se>]
+Corr: lemma:ir
+%
 
 ###Nomes de tempo que são advérbios: (#re-corrigir em nome se vai antes de derminante!)
 Single: [X]? NOUN<lemma:$AdvTemp>
@@ -26,6 +36,9 @@ Corr: tag:Fe
 Single: [X<lemma:este>] X<lemma:luns|martes|mércores|xoves|venres|segunda-feira|terça-feira|quarta-feira|quinta-feira|sexta-feira|sábado|domingo>
 Corr: tag:DATE
 %
+
+Single: [VERB|NOUN] ADV<lemma:como>|PRO<lemma:como>
+Corr: tag:CONJ
 ##########tirar aspas de uma palavra#############
 
 PunctR: X Fz|Fe|Frc
@@ -259,12 +272,16 @@ Recursivity: 1
 %
 
 ###########AUXILIARES
-VSpecL: VERB<type:S> [ADV]* VERB<mode:P>
+VSpecL: VERB<type:S> [ADV]? VERB<mode:P>
+Add: voice:passive
+Inherit: mode, person, tense, number
+%
+VSpecL: VERB<token:[Ff]un|[fF]uches|[Ff]oi|[Ff]omos|[Ff]oran|[Ff]ostes|[Ff]ose|[Ff]osen> [ADV]? VERB<mode:P>
 Add: voice:passive
 Inherit: mode, person, tense, number
 %
 
-VSpecL: VERB<(type:A)|(lemma:ter|haver|haber|avoir|have)> [ADV]* VERB<mode:P>
+VSpecL: VERB<(type:A)|(lemma:ter|haver|haber|avoir|have)> [ADV]? VERB<mode:P>
 Add: type:perfect
 Inherit: mode, person, tense, number
 %
@@ -391,6 +408,12 @@ CprepR: NOUNSINGLE PRP<lemma:de> NOUNSINGLE|PRO<type:D|P|I|X>
 ##uno/este/otro de Valencia
 CprepR: X<lemma:uno>|PRO<type:[DI]> PRP NOUNSINGLE|PRO<type:D|P|I|X>
 Add: tag:PRO
+%
+
+###nomeado/nomeamento como embaixador
+CprepR: NOUN ADV<lemma:como>|PRP<lemma:como>|CONJ<lemma:como> NOUN
+%
+CircR: VERB ADV<lemma:como>|PRP<lemma:como>|CONJ<lemma:como> NOUN
 %
 
 #TermR: PRP<lemma:de&nomin:yes> NOUNSINGLE|PRO<type:D|P|I|X>

@@ -43,6 +43,9 @@ Single: [X<lemma:este>] X<lemma:segunda-feira|terça-feira|quarta-feira|quinta-f
 Corr: tag:DATE
 %
 
+Single: [VERB|NOUN] ADV<lemma:como>|PRO<lemma:como>
+Corr: tag:CONJ
+
 ##########tirar aspas de uma palavra#############
 
 PunctR: X Fz|Fe|Frc
@@ -283,12 +286,16 @@ Recursivity: 1
 %
 
 ###########AUXILIARES
-VSpecL: VERB<lemma:ser> [ADV]* VERB<mode:P>
+VSpecL: VERB<lemma:ser> [ADV]? VERB<mode:P>
+Add: voice:passive
+Inherit: mode, person, tense, number
+%
+VSpecL: VERB<token:[Ff]ui|[Ff]oi|[Ff]omos|[Ff]oram|[Ff]oste|[Ff]osse|[Ff]ossem> [ADV]? VERB<mode:P>
 Add: voice:passive
 Inherit: mode, person, tense, number
 %
 
-VSpecL: VERB<(type:A)|(lemma:ter|haver|haber|avoir|have)> [ADV]* VERB<mode:P>
+VSpecL: VERB<(type:A)|(lemma:ter|haver|haber|avoir|have)> [ADV]? VERB<mode:P>
 Add: type:perfect
 Inherit: mode, person, tense, number
 %
@@ -424,6 +431,13 @@ CprepR: NOUNSINGLE PRP<lemma:de> NOUNSINGLE|PRO<type:D|P|I|X>
 ##uno/este/otro de Valencia
 CprepR: X<lemma:uno>|PRO<type:[DI]> PRP NOUNSINGLE|PRO<type:D|P|I|X>
 Add: tag:PRO
+%
+
+
+###nomeado/nomeação como embaixador
+CprepR: NOUN ADV<lemma:como>|PRP<lemma:como>|CONJ<lemma:como> NOUN
+%
+CircR: VERB ADV<lemma:como>|PRP<lemma:como>|CONJ<lemma:como> NOUN
 %
 
 #TermR: PRP<lemma:de&nomin:yes> NOUNSINGLE|PRO<type:D|P|I|X>

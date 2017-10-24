@@ -473,6 +473,11 @@ CprepR: ADJ|ADV|DATE PRP VERB<mode:N>
 NoUniq
 %
 
+##long distance dependencies:
+DobjR: VERB [Fc] [PRP] [NOUNCOORD|PRO<type:D|P|I|X>] [Fc] NOUNCOORD|PRO<type:D|P|I|X>
+%
+
+
 #######Aposicao-1 com virgulas ou paranteses 
 
 PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc|Fpa|Fca NOUNCOORD|CARD|ADJ|PRO<type:D|P|I|X> [Fc|Fpt|Fct]
@@ -790,8 +795,8 @@ PunctR: VERB Fc [PRP] [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?
 NEXT
 PunctR: VERB [Fc] [PRP] [NOUNCOORD|PRO<type:D|P|I|X>] Fc
 NEXT
-CircR: VERB [Fc] PRP [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?
-Recursivity:2
+CircR: VERB [Fc] PRP NOUNCOORD|PRO<type:D|P|I|X> [Fc]?
+Recursivity:1
 %
 
 ##circunstanciais a esquerda

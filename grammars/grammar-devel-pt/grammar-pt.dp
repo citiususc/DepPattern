@@ -326,7 +326,7 @@ Inherit: mode, person, tense, number
 %
 
 ##incoativos 'ir+inf'
-VSpecL: VERB<lemma:ir|vir> [ADV]?  VERB<mode:N>
+VSpecL: VERB<lemma:ir|vir|ser> [ADV]?  VERB<mode:N>
 Inherit: mode, person, tense, number
 %
 

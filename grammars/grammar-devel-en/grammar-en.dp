@@ -314,11 +314,19 @@ Inherit: mode, person, tense, number
 #####SEPARABLE PHRASAL VERBS
 >: VERB<lemma:$VPhAbout> [NOUN|PRO<type:D|P|I|X>]? X<lemma:about>
 %
+>: VERB<lemma:$VPhAgainst> [NOUN|PRO<type:D|P|I|X>]? X<lemma:against>
+%
+>: VERB<lemma:$VPhAlong> [NOUN|PRO<type:D|P|I|X>]? X<lemma:along>
+%
+>: VERB<lemma:$VPhAround> [NOUN|PRO<type:D|P|I|X>]? X<lemma:around>
+%
 >: VERB<lemma:$VPhAway> [NOUN|PRO<type:D|P|I|X>]? X<lemma:away>
 %
 >: VERB<lemma:$VPhBack> [NOUN|PRO<type:D|P|I|X>]? X<lemma:back>
 %
 >: VERB<lemma:$VPhDown> [NOUN|PRO<type:D|P|I|X>]? X<lemma:down>
+%
+>: VERB<lemma:$VPhFrom> [NOUN|PRO<type:D|P|I|X>]? X<lemma:from>
 %
 >: VERB<lemma:$VPhIn> [NOUN|PRO<type:D|P|I|X>]? X<lemma:in>
 %
@@ -329,6 +337,8 @@ Inherit: mode, person, tense, number
 >: VERB<lemma:$VPhOut> [NOUN|PRO<type:D|P|I|X>]? X<lemma:out>
 %
 >: VERB<lemma:$VPhOver> [NOUN|PRO<type:D|P|I|X>]? X<lemma:over>
+%
+>: VERB<lemma:$VPhUnder> [NOUN|PRO<type:D|P|I|X>]? X<lemma:under>
 %
 >: VERB<lemma:$VPhUp> [NOUN|PRO<type:D|P|I|X>]? X<lemma:up>
 %

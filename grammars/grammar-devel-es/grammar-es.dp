@@ -24,7 +24,7 @@ Single: [X<lemma:lo>] CONJ<lemma:que>
 Corr: tag:PRO, type:R
 %
 Single: X<lemma:lo> [PRO<lemma:que>]
-Corr: tag:DT, type:A
+Corr: tag:DET, type:A
 %
 
 ## a conjunçao 'pero' prefior trata-la como subordinante

@@ -40,12 +40,12 @@ Corr: mode:0
 
 ##pronomes possessivos em funçao de determinante
 Single: PRO<type:X> [ADJ]? [NOUN]
-Corr: tag:DT, type:P
+Corr: tag:DET, type:P
 %
 
 ##"a" como numeral passa a determinante
 Single: X<token:a|an> [NOUN|ADJ|ADV]
-Corr: tag:DT, type:I, lemma:=token
+Corr: tag:DET, type:I, lemma:=token
 %
 
 Single: X<token:–> [X]
@@ -239,7 +239,7 @@ NEXT
 SpecL: DET [VERB<mode:P>] NOUN
 %
 
-SpecL: DET CARD|DATE
+SpecL: DET CARD|DATE|ADJ
 %
 
 

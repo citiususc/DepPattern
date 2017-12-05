@@ -54,7 +54,7 @@ optional named arguments:
 
 ## HOW TO USE IN WINDOWS
 
-The same syntax with `deppattern.bat` command. You must install perl and ruby for Windows and insert the paths for the corresponding interperters in these two files: `deppattern.bat` (first line) and `deppattern.perl` (line 121)
+The same syntax with `deppattern.bat` command. You must install Perl and Ruby for Windows and specify the paths for the corresponding interperters: perl and ruby.
 
 
 ## EXAMPLES

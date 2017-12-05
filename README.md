@@ -16,7 +16,7 @@ You only need to download the repository.
 
 ### ZIP Download
 
-Download [Linguakit-master.zip](https://github.com/citiususc/DepPattern/archive/master.zip) and then: 
+Download [DepPattern-master.zip](https://github.com/citiususc/DepPattern/archive/master.zip) and then: 
 
 ```bash
 unzip DepPattern-master.zip
@@ -54,7 +54,7 @@ optional named arguments:
 
 ## HOW TO USE IN WINDOWS
 
-The same syntax with `deppattern.bat` command.
+The same syntax with `deppattern.bat` command. You must install perl and ruby for Windows and insert the paths for the corresponding interperters in these two files: `deppattern.bat` (first line) and `deppattern.perl` (line 121)
 
 
 ## EXAMPLES

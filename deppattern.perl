@@ -18,10 +18,12 @@ binmode STDIN, ':utf8';
 binmode STDOUT, ':utf8';
 binmode STDERR, ':utf8';
 use utf8;
+use lib dirname(__FILE__);
 
 push @ARGV, "-h" if $#ARGV < 0;
 
 #Linguakit dependencies
+push(@INC, dirname(__FILE__)."/lib");
 my $deps = 1;
 if (!eval{require Getopt::ArgParse;}){
 	warn "Please install Getopt::ArgParse module: cpan Getopt::ArgParse\n";

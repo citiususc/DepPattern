@@ -153,6 +153,7 @@ class Definition
 		@agr = "" # string with the list of attributes with colon and no spaces insde the string, empty string by default because ist allways printed
 		@agr_statement = false # Boolean only used in the block rules to put the statement in the las rule
 		@inherit = nil # string with the list separated with colon and no spaces inside the string
+                @declare = nil # string with a lista of "pair:value" with colon and no spaces inside the string
 		@add = nil # string with a lista of "pair:value" with colon and no spaces inside the string
 		@nouniq = false # false by default, true if explicit
                 @remove = false # false by default, true if explicit
@@ -175,13 +176,16 @@ class Definition
 				if (/[Aa]dd/ =~ line) != nil && line.split(':')[1] != nil
 					@add = limpa_brancos(line.gsub(/^[^:]+:/,"")).gsub(", "," ").gsub(","," ").gsub(" ",",").gsub("@",'\@') # @ subs its for two words relationship
 				end
+                                if (/[Dd]eclare/ =~ line) != nil && line.split(':')[1] != nil
+				  @declare = limpa_brancos(line.gsub(/^[^:]+:/,"")).gsub(", "," ").gsub(","," ").gsub(" ",",").gsub("@",'\@') # @ subs its for two words relationship
+                                end
 				if (/[Cc]orr/ =~ line) != nil && line.split(':')[1] != nil
 					@corr = limpa_brancos(line.gsub(/^[^:]+:/,"")).gsub(", "," ").gsub(","," ").gsub(" ",",").gsub("@",'\@') # @ subs its for two words relationship
 				end
 				if (/[Nn]o[Uu]niq(ue)?/ =~ line) != nil
 					@nouniq = true
 				end
-                                if (/[Re]move/ =~ line) != nil
+                                if (/[Rr]emove/ =~ line) != nil
 					@remove = true
 				end
 			end
@@ -277,6 +281,11 @@ class Definition
 		end
 		if @add != nil
 			out_code << "\t\t\t\t\t" + 'Add("' + $name_function[@name] + '","' + @add + '",\@temp);' + "\n"
+		end
+                if @declare != nil
+                   decl = @declare.sub(/\:[^:]+/,"")
+                   out_code << "\t\t\t\t\t" + 'Add("' + $name_function[@name] + '","' + @declare + '",\@temp) if ($listTags !~ /' + decl + '/);' + "\n"
+                                               
 		end
 		if @corr != nil
 			out_code << "\t\t\t\t\t" + 'Corr("' + $name_function[@name] + '","' + @corr + '",\@temp);' + "\n"

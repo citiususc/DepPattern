@@ -2,7 +2,7 @@
 
 #Declarar verbos como nao nominativos por defeito:
 Single: VERB
-Add: nomin:no
+Declare: nomin:no
 %
 
 

@@ -94,6 +94,9 @@ NEXT
 <: X<lemma:segunda-feira|terça-feira|quarta-feira|quinta-feira|sexta-feira|sábado|domingo> [Fc]? DATE
 %
 
+<: X<lemma:dentro> PRP<lemma:de>
+Add: tag:PRP
+%
 
 #####################FRASE ADVERBIAL E ADJECTIVAL####################
 

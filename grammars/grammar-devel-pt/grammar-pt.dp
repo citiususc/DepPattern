@@ -824,6 +824,7 @@ Recursivity:1
 
 ## "parece cansado" (V+VPP), hai que tratar os predicativos de verbos atributivos, ja que hai muitos adjectivos etiquetados como participios
 AtrR: VERB<lemma:$SubcatAtr>  VERB<mode:[PNG]>
+Agr: number, person
 %
 
 ##si o gerundio aparece com um não atributivo, entao Circ

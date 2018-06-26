@@ -98,6 +98,9 @@ NEXT
 Add: tag:PRP
 %
 
+<: PRP<lemma:com> X<lemma:efeito>
+Add: tag:ADV
+%
 #####################FRASE ADVERBIAL E ADJECTIVAL####################
 
 

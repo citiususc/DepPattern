@@ -315,7 +315,7 @@ Inherit: mode, person, tense, number
 
 ##antes de tratar as perífrases:
 ## "parece cansado" (V+VPP), hai que tratar os predicativos de verbos atributivos, ja que hai muitos adjectivos etiquetados como participios
-AtrR: VERB<lemma:$SubcatAtr>  VERB<mode:[PNG]>
+AtrR: VERB<lemma:$SubcatAtr>  VERB<mode:P>
 Agr: number, person
 %
 ##lo que me gusta es cantar

@@ -2,7 +2,7 @@
 
 #Declarar verbos como nao nominativos por defeito:
 Single: VERB
-Add: nomin:no
+Declare: nomin:no
 %
 
 
@@ -92,6 +92,14 @@ Add: tag:DATE
 >: X<lemma:segunda-feira|terça-feira|quarta-feira|quinta-feira|sexta-feira|sábado|domingo> Fc [DATE]
 NEXT
 <: X<lemma:segunda-feira|terça-feira|quarta-feira|quinta-feira|sexta-feira|sábado|domingo> [Fc]? DATE
+%
+
+<: X<lemma:dentro> PRP<lemma:de>
+Add: tag:PRP
+%
+
+<: [Fc] PRP<lemma:com> X<lemma:efeito> [Fc]
+Add: tag:ADV
 %
 
 >: [Fc] X<token:é> X<lemma:dizer|certo> [Fc]
@@ -307,8 +315,9 @@ Inherit: mode, person, tense, number
 
 ##antes de tratar as perífrases:
 ## "parece cansado" (V+VPP), hai que tratar os predicativos de verbos atributivos, ja que hai muitos adjectivos etiquetados como participios
-#AtrR: VERB<lemma:$SubcatAtr>  VERB<mode:P>
-#%
+AtrR: VERB<lemma:$SubcatAtr>  VERB<mode:[PNG]>
+Agr: number, person
+%
 ##lo que me gusta es cantar
 #AtrR: VERB<lemma:ser> VERB<mode:N>
 #%

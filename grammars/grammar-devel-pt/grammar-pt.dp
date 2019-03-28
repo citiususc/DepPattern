@@ -2,7 +2,7 @@
 
 #Declarar verbos como nao nominativos por defeito:
 Single: VERB
-Declare: nomin:no
+Add: nomin:no
 %
 
 
@@ -94,13 +94,11 @@ NEXT
 <: X<lemma:segunda-feira|terça-feira|quarta-feira|quinta-feira|sexta-feira|sábado|domingo> [Fc]? DATE
 %
 
-<: X<lemma:dentro> PRP<lemma:de>
-Add: tag:PRP
-%
-
-<: PRP<lemma:com> X<lemma:efeito>
+>: [Fc] X<token:é> X<lemma:dizer|certo> [Fc]
 Add: tag:ADV
 %
+
+
 #####################FRASE ADVERBIAL E ADJECTIVAL####################
 
 
@@ -827,7 +825,6 @@ Recursivity:1
 
 ## "parece cansado" (V+VPP), hai que tratar os predicativos de verbos atributivos, ja que hai muitos adjectivos etiquetados como participios
 AtrR: VERB<lemma:$SubcatAtr>  VERB<mode:[PNG]>
-Agr: number, person
 %
 
 ##si o gerundio aparece com um não atributivo, entao Circ

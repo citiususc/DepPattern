@@ -652,18 +652,18 @@ sub HeadDep_lex {
 
 			if (!defined $ATTR_lemma{$n1} && !defined $ATTR_lemma{$n2} ) {
 				$ATTR_lemma{$n1} = $ATTR[$n1]{"lemma"} . "\@$Lemma[$n2]" ;
-				# $ATTR_token{$n1} = $ATTR[$n1]{"token"} .  "\@$Token[$n2]";
+				$ATTR_token{$n1} = $ATTR[$n1]{"token"} .  "\@$Token[$n2]";
 				$IDF{$n1}++;
 			} elsif (!defined $ATTR_lemma{$n1} && defined $ATTR_lemma{$n2} ) {
 				$ATTR_lemma{$n1} = $ATTR[$n1]{"lemma"} .  "\@$ATTR_lemma{$n2}" ;
-				#$ATTR_token{$n1} = $ATTR[$n1]{"token"} .   "\@$ATTR_token{$n2}";
+				$ATTR_token{$n1} = $ATTR[$n1]{"token"} .   "\@$ATTR_token{$n2}";
 				$IDF{$n1}++;
 			} elsif (defined $ATTR_lemma{$n1} && !defined $ATTR_lemma{$n2} ) {
 				$ATTR_lemma{$n1} .=   "\@$Lemma[$n2]";
-				#$ATTR_token{$n1} .=   "\@$Token[$n2]";
+				$ATTR_token{$n1} .=   "\@$Token[$n2]";
 			} else {
 				$ATTR_lemma{$n1} .=    "\@$ATTR_lemma{$n2}" ;
-				#$ATTR_token{$n1} .=    "\@$ATTR_token{$n2}";
+				$ATTR_token{$n1} .=    "\@$ATTR_token{$n2}";
 			}
 			#print STDERR "$n1::: $ATTR_lemma{$n1} -- $ATTR_token{$n1} \n";
 		} else {
@@ -694,23 +694,23 @@ sub HeadDep_lex {
 
 				if (!defined $ATTR_lemma{$n1} && !defined $ATTR_lemma{$n2} ) {
 					$ATTR_lemma{$n1} = $ATTR[$n1]{"lemma"} . "\@$Lemma[$n2]" ;
-					# $ATTR_token{$n1} = $ATTR[$n1]{"token"} .  "\@$Token[$n2]";
+				        $ATTR_token{$n1} = $ATTR[$n1]{"token"} .  "\@$Token[$n2]";
 					$IDF{$n1}++;
 				} elsif (!defined $ATTR_lemma{$n1} && defined $ATTR_lemma{$n2} ) {
 					$ATTR_lemma{$n1} = $ATTR[$n1]{"lemma"} .  "\@$ATTR_lemma{$n2}" ;
-					#$ATTR_token{$n1} = $ATTR[$n1]{"token"} .   "\@$ATTR_token{$n2}";
+					$ATTR_token{$n1} = $ATTR[$n1]{"token"} .   "\@$ATTR_token{$n2}";
 					$IDF{$n1}++;
 				} elsif (defined $ATTR_lemma{$n1} && !defined $ATTR_lemma{$n2} ) {
 					$ATTR_lemma{$n1} .=   "\@$Lemma[$n2]" ;
-					#$ATTR_token{$n1} .=   "\@$Token[$n2]";
+					$ATTR_token{$n1} .=   "\@$Token[$n2]";
 				} else {
 					$ATTR_lemma{$n1} .=    "\@$ATTR_lemma{$n2}";
-					#$ATTR_token{$n1} .=    "\@$ATTR_token{$n2}";
+					$ATTR_token{$n1} .=    "\@$ATTR_token{$n2}";
 				}
 			}
 		}
 		$Lemma[$n1] = $ATTR_lemma{$n1};
-		# $Token[$n1] = $ATTR_token{$n1};
+		$Token[$n1] = $ATTR_token{$n1};
 	}
 }
 
@@ -745,18 +745,18 @@ sub DepHead_lex {
 			#print STDERR "OKKKK: #$Dep - $n2#\n";
 			if (!defined $ATTR_lemma{$n1} && !defined $ATTR_lemma{$n2} ) {
 				$ATTR_lemma{$n1} = $ATTR[$n2]{"lemma"} . "\@$Lemma[$n1]" ;
-				#$ATTR_token{$n1} = $ATTR[$n2]{"token"} .  "\@$Token[$n1]";
+				$ATTR_token{$n1} = $ATTR[$n2]{"token"} .  "\@$Token[$n1]";
 				$IDF{$n1}++;
 			} elsif (!defined $ATTR_lemma{$n1} && defined $ATTR_lemma{$n2} ) {
 				$ATTR_lemma{$n1} =   "$ATTR_lemma{$n2}\@"  . $ATTR[$n1]{"lemma"}  ;
-				#$ATTR_token{$n1} =   "$ATTR_token{$n2}\@" .  $ATTR[$n1]{"token"};
+				$ATTR_token{$n1} =   "$ATTR_token{$n2}\@" .  $ATTR[$n1]{"token"};
 				$IDF{$n1}++;
 		} elsif (defined $ATTR_lemma{$n1} && !defined $ATTR_lemma{$n2} ) {
 			$ATTR_lemma{$n1} .=   "$Lemma[$n2]\@";
-			#$ATTR_token{$n1} .=   "$Token[$n2]\@";
+			$ATTR_token{$n1} .=   "$Token[$n2]\@";
 		} else {
 			$ATTR_lemma{$n1} .=    "$ATTR_lemma{$n1}\@" ;
-			#$ATTR_token{$n1} .=    "$ATTR_token{$n1}\@" ;
+			$ATTR_token{$n1} .=    "$ATTR_token{$n1}\@" ;
 		}
 	} else {
 		foreach my $atr (@z) {
@@ -783,23 +783,23 @@ sub DepHead_lex {
 
 			if (!defined $ATTR_lemma{$n1} && !defined $ATTR_lemma{$n2} ) {
 				$ATTR_lemma{$n1} = $ATTR[$n2]{"lemma"} . "\@$Lemma[$n1]" ;
-				#$ATTR_token{$n1} = $ATTR[$n2]{"token"} .  "\@$Token[$n1]";
+				$ATTR_token{$n1} = $ATTR[$n2]{"token"} .  "\@$Token[$n1]";
 				$IDF{$n1}++;
 			} elsif (!defined $ATTR_lemma{$n1} && defined $ATTR_lemma{$n2} ) {
 				$ATTR_lemma{$n1} =   "$ATTR_lemma{$n2}\@"  . $ATTR[$n1]{"lemma"}  ;
-				#$ATTR_token{$n1} =   "$ATTR_token{$n2}\@" .  $ATTR[$n1]{"token"};
+				$ATTR_token{$n1} =   "$ATTR_token{$n2}\@" .  $ATTR[$n1]{"token"};
 				$IDF{$n1}++;
 			} elsif (defined $ATTR_lemma{$n1} && !defined $ATTR_lemma{$n2} ) {
 				$ATTR_lemma{$n1} .=   "$Lemma[$n2]\@";
-				#$ATTR_token{$n1} .=   "$Token[$n2]\@";
+				$ATTR_token{$n1} .=   "$Token[$n2]\@";
 			} else {
 				$ATTR_lemma{$n1} .=    "$ATTR_lemma{$n1}\@";
-				#$ATTR_token{$n1} .=    "$ATTR_token{$n1}\@";
+				$ATTR_token{$n1} .=    "$ATTR_token{$n1}\@";
 			}
 		}
 	}
 	$Lemma[$n1] = $ATTR_lemma{$n1} ;
-	#$Token[$n1] = $ATTR_token{$n1} ;
+	$Token[$n1] = $ATTR_token{$n1} ;
 	}
 }
 
@@ -823,7 +823,7 @@ sub LEX {
 		# $ATTR[$idf]{"token"}  =~ s/[\\]/\\\\/g ;
 
 		$listTags =~ s/($Tag[$idf]_${idf}${l})lemma:$ATTR[$idf]{'lemma'}/${1}lemma:$ATTR_lemma{$idf}/;
-		# $listTags =~ s/($Tag[$idf]_${idf}${l})token:$ATTR[$idf]{"token"}/${1}token:$ATTR_token{$idf}/;
+		$listTags =~ s/($Tag[$idf]_${idf}${l})token:$ATTR[$idf]{"token"}/${1}token:$ATTR_token{$idf}/;
 
 		delete $IDF{$idf};
 		delete $ATTR_lemma{$idf};

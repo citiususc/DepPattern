@@ -258,11 +258,16 @@ Add: sust:no
 %
 
 ##o de Mario, um desses
-
 SpecL: DET<type:[AD]>|PRO<type:D> PRP<lemma:de> [NOUNSINGLE|PRO<type:D|P|I|X>]
 Add: nomin:yes
 Inherit: number, person
 %
+
+##nominalizaçons de adjectivos -> nomes:
+SpecL: DET ADJ
+Add: tag:NOUN
+%
+
 
 ##o comer
 #SpecL: DET<type:A> VERB<mode:N>

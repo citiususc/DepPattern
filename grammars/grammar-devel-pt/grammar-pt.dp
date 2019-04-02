@@ -357,11 +357,16 @@ Inherit: mode, person, tense, number
 #Inherit: mode, person, tense, number
 #%
 
-
 ##estoy comiendo
 VSpecL: VERB<lemma:estar> [ADV]? VERB<mode:G>
 Inherit: mode, person, tense, number
 %
+
+##Só para Task2-Iberlef2019:
+#VSpecL: VERB [ADV]? VERB<mode:N>
+#Inherit: mode, person, tense, number
+#%
+
 
 #########COMPLEMENTOS ADVERVIAIS
 
@@ -466,18 +471,33 @@ TermR: PRP<nomin:yes> NOUNSINGLE|PRO<type:D|P|I|X>
 %
 
 
-########coordinaçao NOUN
-
+########coordinaçao NOUN (1 fase)
+##nomes comuns e nominalizations
 CoordL: NP [Fc] [NP] CONJ<(type:C)|(lemma:$CCord)> [NP]
 NEXT
 PunctL: [NP] Fc [NP] CONJ<(type:C)|(lemma:$CCord)> [NP]
 Recursivity: 10
 %
 
-
 CoordL: [Fc]? NP CONJ<(type:C)|(lemma:$CCord)> [NP]
 NEXT
 CoordR: [Fc]? [NP] CONJ<(type:C)|(lemma:$CCord)> NP
+Add: coord:noun
+#Inherit: gender, number
+%
+PunctL: Fc CONJ<coord:noun>
+%
+
+##so nomes proprios
+CoordL: NOUN<type:P> [Fc] [NOUN<type:P>] CONJ<(type:C)|(lemma:$CCord)> [NOUN<type:P>]
+NEXT
+PunctL: [NOUN<type:P>] Fc [NOUN<type:P>] CONJ<(type:C)|(lemma:$CCord)> [NOUN<type:P>]
+Recursivity: 10
+%
+
+CoordL: [Fc]? NOUN<type:P> CONJ<(type:C)|(lemma:$CCord)> [NOUN<type:P>]
+NEXT
+CoordR: [Fc]? [NOUN<type:P>] CONJ<(type:C)|(lemma:$CCord)> NOUN<type:P>
 Add: coord:noun
 #Inherit: gender, number
 %
@@ -765,12 +785,26 @@ CoordR: [Fc]? [NP] CONJ<(type:C)|(lemma:$CCord)> NP
 Add: coord:noun
 #Inherit: gender, number
 %
-
 PunctL: Fc CONJ<coord:noun>
 %
+
+#so nomes proprios
+CoordL: NOUN<type:P> [Fc] [NOUN<type:P>] CONJ<(type:C)|(lemma:$CCord)> [NOUN<type:P>]
+NEXT
+PunctL: [NOUN<type:P>] Fc [NOUN<type:P>] CONJ<(type:C)|(lemma:$CCord)> [NOUN<type:P>]
+Recursivity: 10
+%
+
+CoordL: [Fc]? NOUN<type:P> CONJ<(type:C)|(lemma:$CCord)> [NOUN<type:P>]
+NEXT
+CoordR: [Fc]? [NOUN<type:P>] CONJ<(type:C)|(lemma:$CCord)> NOUN<type:P>
+Add: coord:noun
+#Inherit: gender, number
+%
+PunctL: Fc CONJ<coord:noun>
+%
+
 #############################################
-
-
 
 
 
@@ -967,7 +1001,7 @@ NEXT
 AdjnL:  [PRO<type:R|W>|X<lemma:que|quem>] [Fc] VERB|CONJ<coord:verb> [Fc] [NOUNCOORD|PRO<type:D|P|I|X>]?  VERB|CONJ<coord:verb>
 %
 
-########coordinaçao NOUN (tercera fase)
+########coordinaçao NOUN (terceira fase)
 
 CoordL: NP [Fc] [NP] CONJ<(type:C)|(lemma:$CCord)> [NP]
 NEXT
@@ -981,7 +1015,22 @@ CoordR: [Fc]? [NP] CONJ<(type:C)|(lemma:$CCord)> NP
 Add: coord:noun
 #Inherit: gender, number
 %
+PunctL: Fc CONJ<coord:noun>
+%
 
+#todos os nomes (proprios e comuns)
+CoordL: NOUN [Fc] [NOUN] CONJ<(type:C)|(lemma:$CCord)> [NOUN]
+NEXT
+PunctL: [NOUN] Fc [NOUN] CONJ<(type:C)|(lemma:$CCord)> [NOUN]
+Recursivity: 10
+%
+
+CoordL: [Fc]? NOUN CONJ<(type:C)|(lemma:$CCord)> [NOUN]
+NEXT
+CoordR: [Fc]? [NOUN] CONJ<(type:C)|(lemma:$CCord)> NOUN
+Add: coord:noun
+#Inherit: gender, number
+%
 PunctL: Fc CONJ<coord:noun>
 %
 #############################

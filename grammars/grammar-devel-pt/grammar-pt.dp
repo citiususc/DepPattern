@@ -582,6 +582,7 @@ NEXT
 DobjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|PRO<lemma:que|quem> [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb>   [Fc]?
 NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|PRO<lemma:que|quem>] [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb>    [Fc]?
+Add: relative:yes
 NoUniq
 %
 
@@ -594,6 +595,7 @@ SubjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|PRO<lemma:que|quem> VER
 #Add: adsubj:yes
 NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|PRO<lemma:que|quem>] VERB|CONJ<coord:verb>  [Fc]?
+Add: relative:yes
 NoUniq
 %
 
@@ -1142,6 +1144,16 @@ NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|PRO<lemma:que|quem>] VERB<adsubj:yes&relative:yes>|CONJ<adsubj:yes&coord:verb>    [Fc]?
 %
 
+#############especificativas e explicativas de ccirc
+
+PunctL: [NOUNCOORD|PRO<type:D|P|I|X>]? Fc [PRP] [PRO<type:R|W>|PRO<lemma:que|quem>] VERB<relative:yes>|CONJ<coord:verb>   [Fc]?
+NEXT
+PunctR: [NOUNCOORD|PRO<type:D|P|I|X>]? [Fc]  [PRP] [PRO<type:R|W>|PRO<lemma:que|quem>] VERB<relative:yes>|CONJ<coord:verb> Fc
+NEXT
+CircL: [NOUNCOORD|PRO<type:D|P|I|X>]?  [Fc]? PRP PRO<type:R|W>|PRO<lemma:que|quem> VERB<relative:yes>|CONJ<coord:verb> [Fc]?
+NEXT
+AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRP] [PRO<type:R|W>|PRO<lemma:que|quem>] VERB<relative:yes>|CONJ<coord:verb> [Fc]?
+%
 
 #############especificativas e explicativas de sujeito
 PunctL: [NOUNCOORD|PRO<type:D|P|I|X>]? Fc [PRO<type:R|W>|PRO<lemma:que|quem>] VERB<relative:yes>|CONJ<coord:verb>   [Fc]?
@@ -1153,17 +1165,6 @@ NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|PRO<lemma:que|quem>] VERB<relative:yes>|CONJ<coord:verb>  [Fc]?
 %
 
-
-#############especificativas e explicativas de ccirc
-
-PunctL: [NOUNCOORD|PRO<type:D|P|I|X>]? Fc [PRP] [PRO<type:R|W>|PRO<lemma:que|quem>] VERB<relative:yes>|CONJ<coord:verb>   [Fc]?
-NEXT
-PunctR: [NOUNCOORD|PRO<type:D|P|I|X>]? [Fc]  [PRP] [PRO<type:R|W>|PRO<lemma:que|quem>] VERB<relative:yes>|CONJ<coord:verb> Fc
-NEXT
-CircL: [NOUNCOORD|PRO<type:D|P|I|X>]?  [Fc]? PRP PRO<type:R|W>|PRO<lemma:que|quem> VERB<relative:yes>|CONJ<coord:verb> [Fc]?
-NEXT
-AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRP] [PRO<type:R|W>|PRO<lemma:que|quem>] VERB<relative:yes>|CONJ<coord:verb> [Fc]?
-%
 
 
 ##relativas com gerundio/participio (INGLES)

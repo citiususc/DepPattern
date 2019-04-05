@@ -9,10 +9,10 @@ Declare: nomin:no
 ##corrections
 
 ## o 'que' apos nome deve ser pronome relativo
-Single: [NOUN] [Fc]? CONJ<lemma:que> [Fc] [VERB] [X]? [X]? [X]? [Fc] [NOUN|PRO]? [VERB]
+Single: [NOUN] [ADJ]? [Fc]? CONJ<lemma:que> [VERB] [X]? [X]? [X]? [Fc] [NOUN|PRO]? [VERB]
 Corr: tag:PRO, type:R
 %
-Single: [NOUN] [Fc]? CONJ<lemma:que> [NOUN|PRO]? [VERB]
+Single: [NOUN]  [ADJ]? [Fc]? CONJ<lemma:que> [X]? [NOUN|PRO]? [X]? [VERB]
 Corr: tag:PRO, type:R
 %
 
@@ -179,7 +179,7 @@ PunctL: Fc CONJ<coord:adj>
 
 #################FRASE SUSTANTIVA#####################################
 AdjnL: ADJ|CONJ<coord:adj>|CARD [ADV]? NOUN
-Agreement: gender, number
+Agreement: gender,number
 Recursivity: 1
 %
 
@@ -193,9 +193,6 @@ Recursivity: 1
 #AdjnR: NOUN [Fc] ADJ|CONJ<coord:adj>
 #Agreement: gender, number
 #%
-AdjnR: NOUN  ADJ|CONJ<coord:adj>
-Agreement: gender, number
-%
 
 AdjnR:  NOUN NOUN|DATE
 Recursivity: 1
@@ -591,7 +588,7 @@ NoUniq
 #############especificativas e explicativas de sujeito
 PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRO<type:R|W>|PRO<lemma:que|quem>] VERB|CONJ<coord:verb>   [Fc]?
 NEXT
-PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? [PRO<type:R|W>|PRO<lemma:que|quem>] VERB|CONJ<coord:verb> Fc
+PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc] [PRO<type:R|W>|PRO<lemma:que|quem>] VERB|CONJ<coord:verb> Fc
 NEXT
 SubjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|PRO<lemma:que|quem> VERB|CONJ<coord:verb>   [Fc]?
 #Add: adsubj:yes
@@ -604,7 +601,7 @@ NoUniq
 
 PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRP] [PRO<type:R|W>|PRO<lemma:que|quem>] VERB|CONJ<coord:verb>   [Fc]?
 NEXT
-PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?  [PRP] [PRO<type:R|W>|PRO<lemma:que|quem>] VERB|CONJ<coord:verb> Fc
+PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]  [PRP] [PRO<type:R|W>|PRO<lemma:que|quem>] VERB|CONJ<coord:verb> Fc
 NEXT
 CircL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? PRP PRO<type:R|W>|PRO<lemma:que|quem> VERB|CONJ<coord:verb> [Fc]?
 NEXT
@@ -1149,7 +1146,7 @@ AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|PRO<lemma:que|quem>] VER
 #############especificativas e explicativas de sujeito
 PunctL: [NOUNCOORD|PRO<type:D|P|I|X>]? Fc [PRO<type:R|W>|PRO<lemma:que|quem>] VERB<relative:yes>|CONJ<coord:verb>   [Fc]?
 NEXT
-PunctR: [NOUNCOORD|PRO<type:D|P|I|X>]? [Fc]? [PRO<type:R|W>|PRO<lemma:que|quem>] VERB<relative:yes>|CONJ<coord:verb> Fc
+PunctR: [NOUNCOORD|PRO<type:D|P|I|X>]? [Fc] [PRO<type:R|W>|PRO<lemma:que|quem>] VERB<relative:yes>|CONJ<coord:verb> Fc
 NEXT
 SubjL: [NOUNCOORD|PRO<type:D|P|I|X>]? [Fc]? PRO<type:R|W>|PRO<lemma:que|quem> VERB<relative:yes>|CONJ<coord:verb>   [Fc]?
 NEXT
@@ -1161,7 +1158,7 @@ AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|PRO<lemma:que|quem>] VER
 
 PunctL: [NOUNCOORD|PRO<type:D|P|I|X>]? Fc [PRP] [PRO<type:R|W>|PRO<lemma:que|quem>] VERB<relative:yes>|CONJ<coord:verb>   [Fc]?
 NEXT
-PunctR: [NOUNCOORD|PRO<type:D|P|I|X>]? [Fc]?  [PRP] [PRO<type:R|W>|PRO<lemma:que|quem>] VERB<relative:yes>|CONJ<coord:verb> Fc
+PunctR: [NOUNCOORD|PRO<type:D|P|I|X>]? [Fc]  [PRP] [PRO<type:R|W>|PRO<lemma:que|quem>] VERB<relative:yes>|CONJ<coord:verb> Fc
 NEXT
 CircL: [NOUNCOORD|PRO<type:D|P|I|X>]?  [Fc]? PRP PRO<type:R|W>|PRO<lemma:que|quem> VERB<relative:yes>|CONJ<coord:verb> [Fc]?
 NEXT

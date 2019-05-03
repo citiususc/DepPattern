@@ -2,7 +2,7 @@
 
 #Declarar verbos como nao nominativos por defeito:
 Single: VERB
-Add: nomin:no
+Declare: nomin:no
 %
 
 
@@ -27,10 +27,15 @@ Single: X<lemma:lo> [PRO<lemma:que>]
 Corr: tag:DET, type:A
 %
 
-## a conjunçao 'pero' prefior trata-la como subordinante
-Single: [X]? CONJ<lemma:pero>
+Single: [X<lemma:que>] X<token:lo> [VERB] 
+Corr: tag:PRO, type:P
+%
+
+#conjs coordenadas que hai que tratar como subordinadas
+Single: CONJ<lemma:pero|mas|aunque|sinó|>
 Corr: type:S
 %
+
 
 ###Nomes de tempo que são advérbios: (#re-corrigir em nome se vai antes de derminante!)
 Single: [X]? NOUN<lemma:$AdvTemp>
@@ -92,6 +97,164 @@ Add: tag:DATE
 >: X<lemma:lunes|martes|miércoles|jueves|viernes|sábado|domingo> Fc [DATE]
 NEXT
 <: X<lemma:lunes|martes|miércoles|jueves|viernes|sábado|domingo> [Fc]? DATE
+%
+
+#######LOCUTIONS
+
+>: [X<lemma:a>] X<lemma:pesar> X<lemma:de>
+NEXT
+>: X<lemma:a> X<lemma:pesar> [X<lemma:de>]
+Add: tag:CONJ,type:S
+%
+
+>: [X<lemma:a>] X<lemma:pesar> X<lemma:que>
+NEXT
+>: X<lemma:a> X<lemma:pesar> [X<lemma:que>]
+Add: tag:CONJ,type:S
+%
+
+>: [X<token:[Pp]ese>] X<lemma:a> X<lemma:que>
+NEXT
+>: X<lemma:[Pp]ese> X<lemma:a> [X<lemma:que>]
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:sin> X<lemma:embargo>
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:ahora> X<lemma:que>
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:bien> X<lemma:que>
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:por> X<lemma:eso>
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:con> X<lemma:todo>
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:sino> X<lemma:que>
+Add: tag:CONJ,type:S
+%
+
+>: [X<lemma:a>] X<lemma:menos> X<lemma:que>
+NEXT
+>: X<lemma:a> X<lemma:menos> [X<lemma:que>]
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:a[uú]n> X<lemma:así>
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:excepto> X<lemma:que>
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:menos> X<lemma:que>
+Add: tag:CONJ,type:S
+%
+
+>: X<token:quitando> X<lemma:que>
+Add: tag:CONJ,type:S
+%
+
+>: X<token:sacando> X<lemma:que>
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:s[óo]lo> X<lemma:que>
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:ora> X<lemma:ben>
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:ahora> X<lemma:que>
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:mismo> X<lemma:si>
+Add: tag:CONJ,type:S
+%
+
+##CAUSAIS:
+
+>: X<token:[pP]uesto|[Dd]ado|[vV]isto|[cC]onsiderando> X<lemma:que>
+Add: tag:CONJ,type:S,loc:causal
+%
+>: [X<token:[tT]eniendo>] [X<lemma:en>] X<lemma:cuenta> X<lemma:que>
+NEXT
+>: [X<token:[tT]eniendo>] X<lemma:en> X<lemma:cuenta> [X<lemma:que>]
+NEXT
+>: X<token:[tT]eniendo> X<lemma:en> [X<lemma:cuenta>] [X<lemma:que>]
+Add: tag:CONJ,type:S,loc:causal
+%
+>: X<lemma:ya> X<lemma:que>
+Add: tag:CONJ,type:S,loc:causal
+%
+>: [X<lemma:a>] X<lemma:causa|fuerza|propuesta|petición|efecto> X<lemma:de>
+NEXT
+>: X<lemma:a> X<lemma:causa|fuerza|propuesta|petición|efecto> [X<lemma:de>]
+Add: tag:CONJ,type:S,loc:causalprep
+%
+>: [X<lemma:a>] [DET<token:los>] X<token:efectos> X<lemma:de>
+NEXT
+>: [X<lemma:a>] DET<token:los> X<token:efectos> [X<lemma:de>]
+NEXT
+>: X<lemma:a> DET<token:los> [X<token:efectos>] [X<lemma:de>]
+Add: tag:CONJ,type:S,loc:causalprep
+%
+>: [X<lemma:con>] X<lemma:motivo> X<lemma:de>
+NEXT
+>: X<lemma:con> X<lemma:motivo> [X<lemma:de>]
+Add: tag:CONJ,type:S,loc:causalprep
+%
+>: [X<lemma:en>] X<lemma:razón|vista|virtud> X<lemma:de>
+NEXT
+>: X<lemma:en> X<lemma:razón|vista|virtud> [X<lemma:de>]
+Add: tag:CONJ,type:S,loc:causalprep
+%
+>: [X<lemma:por>] X<lemma:causa|culpa|razón> X<lemma:de>
+NEXT
+>: X<lemma:por> X<lemma:causa|culpa|razón> [X<lemma:de>]
+Add: tag:CONJ,type:S,loc:causalprep
+%
+>: [X<lemma:de>] X<lemma:acuerdo> X<lemma:con>
+NEXT
+>: X<lemma:de> X<lemma:acuerdo> [X<lemma:con>]
+Add: tag:CONJ,type:S,loc:causalprep
+%
+>: X<lemma:gracias> X<lemma:a>
+Add: tag:CONJ,type:S,loc:causalprep
+%
+
+##Consecutivas
+>: X<lemma:en> X<lemma:consecuencia>
+Add: tag:CONJ,type:S,loc:conseq
+%
+>: X<lemma:por> X<lemma:tanto|consiguiente>
+Add: tag:CONJ,type:S,loc:conseq
+%
+>: [Fc] X<lemma:por> X<token:eso>
+Add: tag:CONJ,type:S,loc:conseq
+%
+>: [PRP<lemma:por>] X<token:lo> X<lemma:cual>
+NEXT
+>: PRP<lemma:por> X<token:lo> [X<lemma:cual|tanto>]
+Add: tag:CONJ,type:S,loc:conseq
+%
+>: [Fc] [PRP<lemma:por>] X<token:lo> X<lemma:que>
+NEXT
+>: [Fc] PRP<lemma:por> X<token:lo> [X<lemma:que>]
+Add: tag:CONJ,type:S,loc:conseq
 %
 
 #####################FRASE ADVERBIAL E ADJECTIVAL####################
@@ -177,6 +340,9 @@ AdjnR:  NOUN NOUN
 Recursivity: 1
 %
 
+AdjnR:  NOUN CARD
+%
+
 AdjnL: CARD NOUN
 %
 #################FIM FRASE SUSTANTIVA########################
@@ -223,6 +389,8 @@ SpecL: DET NOUN
 ##el tuyo
 SpecL: DET<type:A> PRO<type:X>
 %
+
+##por lo que (pro) verbo
 
 ##lo que me gusta (sustantivas)
 SpecL: DET<type:[AD]>|PRO<type:D> PRO<type:[RW]>
@@ -510,49 +678,49 @@ Corr: tag:CONJ, type:S
 
 
 #############especificativas e explicativas de objecto direito
-PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRO<type:R|W>|PRO<lemma:que|quien>] [NOUNCOORD|PRO<type:D|P|I|X>]  VERB|CONJ<coord:verb>   [Fc]?
+PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRO<type:R|W>|X<lemma:que|quien>] [NOUNCOORD|PRO<type:D|P|I|X>]  VERB|CONJ<coord:verb>   [Fc]?
 NEXT
-PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc] [PRO<type:R|W>|PRO<lemma:que|quien>] [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb>   Fc
+PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc] [PRO<type:R|W>|X<lemma:que|quien>] [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb>   Fc
 NEXT
-DobjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|PRO<lemma:que|quien> [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb>   [Fc]?
+DobjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|X<lemma:que|quien> [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb>   [Fc]?
 NEXT
-AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|PRO<lemma:que|quien>] [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb>    [Fc]?
+AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|X<lemma:que|quien>] [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb>    [Fc]?
 NoUniq
 %
 
 #############especificativas e explicativas de sujeito
-PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRO<type:R|W>|PRO<lemma:que|quien>] VERB|CONJ<coord:verb>   [Fc]?
+PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb>   [Fc]?
 NEXT
-PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? [PRO<type:R|W>|PRO<lemma:que|quien>] VERB|CONJ<coord:verb> Fc
+PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb> Fc
 NEXT
-SubjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|PRO<lemma:que|quien> VERB|CONJ<coord:verb>   [Fc]?
+SubjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|X<lemma:que|quien> VERB|CONJ<coord:verb>   [Fc]?
 #Add: adsubj:yes
 NEXT
-AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|PRO<lemma:que|quien>] VERB|CONJ<coord:verb>  [Fc]?
+AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb>  [Fc]?
 NoUniq
 %
 
 #############especificativas e explicativas de ccirc
 
-PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRP] [PRO<type:R|W>|PRO<lemma:que|quien>] VERB|CONJ<coord:verb>   [Fc]?
+PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRP] [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb>   [Fc]?
 NEXT
-PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?  [PRP] [PRO<type:R|W>|PRO<lemma:que|quien>] VERB|CONJ<coord:verb> Fc
+PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?  [PRP] [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb> Fc
 NEXT
-CircL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? PRP PRO<type:R|W>|PRO<lemma:que|quien> VERB|CONJ<coord:verb> [Fc]?
+CircL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? PRP PRO<type:R|W>|X<lemma:que|quien> VERB|CONJ<coord:verb> [Fc]?
 NEXT
-AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRP] [PRO<type:R|W>|PRO<lemma:que|quien>] VERB|CONJ<coord:verb> [Fc]?
+AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRP] [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb> [Fc]?
 NoUniq
 %
 
 #############especificativas e explicativas de ccirc com subj
 
-PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRP] [PRO<type:R|W>|PRO<lemma:que|quien>] [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb>   [Fc]?
+PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRP] [PRO<type:R|W>|X<lemma:que|quien>] [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb>   [Fc]?
 NEXT
-PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?  [PRP] [PRO<type:R|W>|PRO<lemma:que|quien>] [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb> Fc
+PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?  [PRP] [PRO<type:R|W>|X<lemma:que|quien>] [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb> Fc
 NEXT
-CircL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? PRP PRO<type:R|W>|PRO<lemma:que|quien> [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb> [Fc]?
+CircL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? PRP PRO<type:R|W>|X<lemma:que|quien> [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb> [Fc]?
 NEXT
-#SubjL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? [PRP] [PRO<type:R|W>|PRO<lemma:que|quien>] NOUNCOORD|PRO<type:D|P|I|X> VERB|CONJ<coord:verb> [Fc]?
+#SubjL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? [PRP] [PRO<type:R|W>|X<lemma:que|quien>] NOUNCOORD|PRO<type:D|P|I|X> VERB|CONJ<coord:verb> [Fc]?
 #Add: adsubj:yes
 #NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRP] [PRO<type:R|W>|PRO<lemma:que|quien>] [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb> [Fc]?
@@ -625,6 +793,10 @@ PrepR: VERB [NOUNCOORD|PRO<type:D|P|I|X>] CONJ<coord:cprep>
 
 PrepR: NOUNCOORD|PRO<type:D|P|I|X> CONJ<coord:cprep>
 %
+
+##Bipolares com conj+noun:
+#PrepR: CONJ<loc:causalprep> NOUNCOORD|PRO
+#%
 
 ##############
 
@@ -948,7 +1120,7 @@ Add: adsubj:yes
 %
 
 SubjL: NOMINAL|PRO<type:D|P|I|X> VERB<mode:[^PG]>|CONJ<coord:verb&mode:[^PG]>
-#Agreement: person, number
+Agreement: person, number
 Add: adsubj:yes
 %
 
@@ -1010,36 +1182,35 @@ CregR: VERB<lemma:$SubcatSOBRE>  [NOMINAL|PRO<type:D|P|I|X>]? PRP<lemma:sobre> N
 ######################RELATIVAS#########################
 
 #############especificativas e explicativas de objecto direito
-PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRO<type:R|W>|PRO<lemma:que|quien>] VERB<adsubj:yes>|CONJ<adsubj:yes&coord:verb>    [Fc]?
+PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRO<type:R|W>|X<lemma:que|quien>] VERB<adsubj:yes>|CONJ<adsubj:yes&coord:verb>    [Fc]?
 NEXT
-PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc] [PRO<type:R|W>|PRO<lemma:que|quien>] VERB<adsubj:yes>|CONJ<adsubj:yes&coord:verb>   Fc
+PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? [PRO<type:R|W>|X<lemma:que|quien>] VERB<adsubj:yes>|CONJ<adsubj:yes&coord:verb>   Fc
 NEXT
-DobjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|PRO<lemma:que|quien> VERB<adsubj:yes>|CONJ<adsubj:yes&coord:verb>    [Fc]?
+DobjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|X<lemma:que|quien> VERB<adsubj:yes>|CONJ<adsubj:yes&coord:verb>    [Fc]?
 NEXT
-AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|PRO<lemma:que|quien>] VERB<adsubj:yes>|CONJ<adsubj:yes&coord:verb>    [Fc]?
+AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|X<lemma:que|quien>] VERB<adsubj:yes>|CONJ<adsubj:yes&coord:verb>    [Fc]?
 %
 
 
 #############especificativas e explicativas de sujeito
-PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRO<type:R|W>|PRO<lemma:que|quien>] VERB|CONJ<coord:verb>   [Fc]?
+PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb>   [Fc]?
 NEXT
-PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? [PRO<type:R|W>|PRO<lemma:que|quien>] VERB|CONJ<coord:verb> Fc
+PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb> Fc
 NEXT
-SubjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|PRO<lemma:que|quien> VERB|CONJ<coord:verb>   [Fc]?
+SubjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|X<lemma:que|quien> VERB|CONJ<coord:verb>   [Fc]?
 NEXT
-AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|PRO<lemma:que|quien>] VERB|CONJ<coord:verb>  [Fc]?
+AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb>  [Fc]?
 %
-
 
 #############especificativas e explicativas de ccirc
 
-PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRP] [PRO<type:R|W>|PRO<lemma:que|quien>] VERB|CONJ<coord:verb>   [Fc]?
+PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRP] [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb>   [Fc]?
 NEXT
-PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?  [PRP] [PRO<type:R|W>|PRO<lemma:que|quien>] VERB|CONJ<coord:verb> Fc
+PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?  [PRP] [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb> Fc
 NEXT
-CircL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? PRP PRO<type:R|W>|PRO<lemma:que|quien> VERB|CONJ<coord:verb> [Fc]?
+CircL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? PRP PRO<type:R|W>|X<lemma:que|quien> VERB|CONJ<coord:verb> [Fc]?
 NEXT
-AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRP] [PRO<type:R|W>|PRO<lemma:que|quien>] VERB|CONJ<coord:verb> [Fc]?
+AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRP] [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb> [Fc]?
 %
 
 
@@ -1049,16 +1220,42 @@ NEXT
 AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? VERB<mode:[GP]>|CONJ<coord:verb>
 %
 
+
 ######################FIM RELATIVAS#########################
 
 
 #############NIVEL INTRACLAUSAS#############
 
-########DEPENDENCIAS COM CONJUNÇOES SUBORDINADAS###############
-AdjnR: VERB CONJ<type:S> [VERB]
-NEXT
-AdjnR: VERB [CONJ<type:S>] VERB
+
+########DEPENDENCIAS COM CONJUNÇOES BIPOLARES###############
+BipolarAdversativa2R: VERB [Fc]? CONJ<lemma:pero|mas|ahora\@bien|solo\@que|sacando\@que|quitando\@que|excepto\@que|aún\@así|a\@pesar\@de|sin\@embargo|sino\@que|ahora\@que> [Fc]? VERB
 %
+BipolarAdversativa1L: VERB [Fc]? CONJ<lemma:pero|mas|ahora\@bien|solo\@que|sacando\@que|quitando\@que|excepto\@que|aún\@así|a\@pesar\@de|sin\@embargo|sino\@que|ahora\@que> [Fc]? VERB
+%
+BipolarConcesiva2R: VERB [Fc]? CONJ<lemma:mismo\@si|mismo\@que|aunque|a\@menos\@que|a\@pesar\@de|a\@pesar\@que> [Fc]? VERB
+%
+BipolarConcesiva1L: CONJ<lemma:mismo\@si|mismo\@que|aunque|a\@menos\@que|a\@pesar\@de|a\@pesar\@que> VERB [Fc]? VERB
+%
+
+BipolarCausal1L:  CONJ<loc:causalprep> NOUNCOORD|PRO<type:D|P|I|X>   [Fc]?  VERB|CONJ<coord:verb>
+%
+BipolarCausal2R: VERB|CONJ<coord:verb>  [Fc]? CONJ<loc:causalprep> [Fc]?  NOUNCOORD|PRO<type:D|P|I|X>
+%
+
+BipolarCausal1L:  CONJ<loc:causal>|CONJ<lemma:porque|pues> VERB|CONJ<coord:verb>  [Fc]?  VERB|CONJ<coord:verb>
+%
+BipolarCausal2R: VERB|CONJ<coord:verb> [Fc]? CONJ<loc:causal>|CONJ<lemma:porque|pues> [Fc]?   VERB|CONJ<coord:verb>
+%
+#BipolarCausalL:  CONJ<loc:causalprep>  [Fc]?  VERB|CONJ<coord:verb>
+#%
+
+BipolarConsequence2R: VERB|CONJ<coord:verb>  [Fc]? CONJ<loc:conseq>|CONJ<lemma:luego> [Fc]?  VERB|CONJ<coord:verb>
+%
+
+Bipolar2R: VERB  [Fc]? CONJ<type:S> [Fc]?   VERB
+%
+
+
 
 ########FIM DEPENDENCIAS COM CONJUNÇOES SUBORDINADAS###############
 

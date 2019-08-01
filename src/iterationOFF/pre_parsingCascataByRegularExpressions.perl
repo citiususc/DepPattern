@@ -42,6 +42,7 @@ my @Lemma=();#<list><string>
 my @Attributes=();#<list><string>
 my @ATTR=();#<list><map><string>
 my %ATTR_lemma=();#<map><string>
+my %ATTR_token=();#<map><string>
 my %TagStr=();#<map><integer>
 my %IDF=();#<map><string>
 my %Ordenar=();#<map><integer>

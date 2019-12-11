@@ -77,6 +77,7 @@ sub conll{
 							$found = 1; 
 						        if ($DepsSem{$i}{$r} =~ /($DepSem)$/) {
 							    $found_sem = 1;
+							    $HeadsSem{$i}++ if (!$HeadsSem{$i});
 							    $Sem = $Rels{$i} . ":" . $Heads{$i} . "|" . $RelsSem{$i} . ":" . $HeadsSem{$i};
 							}
 						} else{

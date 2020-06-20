@@ -1,0 +1,1270 @@
+##########GRAMATICA COMUM PARA PT, ES, GL, FR################################
+
+#Declarar verbos como nao nominativos por defeito:
+Single: VERB
+Declare: nomin:no
+%
+
+
+##corrections
+
+########First corrections tree-tagger
+Single: PRP<lemma:pero|because|though|if|whether|while> [X]?
+Corr: tag:CONJ, type:S
+%
+
+
+## o 'que' apos nome e pronome relativo
+Single: [NOUN] [Fc]? CONJ<lemma:que> [NOUN] [VERB]
+Corr: tag:PRO, type:R
+%
+#
+# o 'que' apos determinante 'lo que')
+Single: [X<lemma:lo>] CONJ<lemma:que>
+Corr: tag:PRO, type:R
+%
+Single: X<lemma:lo> [PRO<lemma:que>]
+Corr: tag:DET, type:A
+%
+
+Single: [X<lemma:que>] X<token:lo> [VERB] 
+Corr: tag:PRO, type:P
+%
+
+#conjs coordenadas que hai que tratar como subordinadas
+Single: CONJ<lemma:pero|mas|aunque|sinó|>
+Corr: type:S
+%
+
+
+###Nomes de tempo que são advérbios: (#re-corrigir em nome se vai antes de derminante!)
+Single: [X]? NOUN<lemma:$AdvTemp>
+Corr: tag:ADV
+%
+
+##'creo' sempre aparece como verbo crear
+Single: VERB<token:[cC]reo> [X]? [X<lemma:que>]
+Corr: lemma:creer
+%
+
+Single: X<token:–> [X]
+Corr: tag:Fe
+%
+
+Single: [X<lemma:este>] X<lemma:lunes|martes|miércoles|jueves|viernes|sábado|domingo>
+Corr: tag:DATE
+%
+
+Single: [VERB|NOUN] ADV<lemma:como>|PRO<lemma:como>
+Corr: tag:CONJ
+
+##########tirar aspas de uma palavra#############
+
+PunctR: X Fz|Fe|Frc
+% 
+PunctL: Fz|Fe|Fra X
+%
+
+
+##########FIM tirar aspas#############
+
+
+##########LEXICAL RULES 
+>: VERB<lemma:tener|ter|haber|haver|take|have> NOUN<number:S> [PRP]
+%
+>: VERB<lemma:be|ser> ADJ [PRP]
+%
+
+<: [VERB<lemma:ser|tornar|converter|be|become>] ADV<lemma:$Quant> ADJ [CONJ|PRO<lemma:que|como>]
+NEXT
+>: VERB<lemma:ser|tornar|converter|be|become> [ADV<lemma:$Quant>] ADJ [CONJ|PRO<lemma:que|como>]
+NEXT
+>: VERB<lemma:ser|tornar|converter|be|become>  [ADV<lemma:$Quant>] [ADJ] CONJ|PRO<lemma:que|como>
+%
+
+##falta transformarse/convertirse en menos popular que...
+
+<: X<token:[Aa]> X<lemma:partir> [PRP<lemma:de>]
+NEXT
+<: [X<token:[Aa]>] X<lemma:partir> PRP<lemma:de>
+%
+
+
+<: X<lemma:momento|minuto|segundo|hora|día|mes|año|semana|siglo> X<lemma:antes|después>
+Add: tag:DATE
+%
+
+>: X<lemma:lunes|martes|miércoles|jueves|viernes|sábado|domingo> Fc [DATE]
+NEXT
+<: X<lemma:lunes|martes|miércoles|jueves|viernes|sábado|domingo> [Fc]? DATE
+%
+
+#######LOCUTIONS
+
+>: [X<lemma:a>] X<lemma:pesar> X<lemma:de>
+NEXT
+>: X<lemma:a> X<lemma:pesar> [X<lemma:de>]
+Add: tag:CONJ,type:S
+%
+
+>: [X<lemma:a>] X<lemma:pesar> X<lemma:que>
+NEXT
+>: X<lemma:a> X<lemma:pesar> [X<lemma:que>]
+Add: tag:CONJ,type:S
+%
+
+>: [X<token:[Pp]ese>] X<lemma:a> X<lemma:que>
+NEXT
+>: X<lemma:[Pp]ese> X<lemma:a> [X<lemma:que>]
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:sin> X<lemma:embargo>
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:ahora> X<lemma:que>
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:bien> X<lemma:que>
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:por> X<lemma:eso>
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:con> X<lemma:todo>
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:sino> X<lemma:que>
+Add: tag:CONJ,type:S
+%
+
+>: [X<lemma:a>] X<lemma:menos> X<lemma:que>
+NEXT
+>: X<lemma:a> X<lemma:menos> [X<lemma:que>]
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:a[uú]n> X<lemma:así>
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:excepto> X<lemma:que>
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:menos> X<lemma:que>
+Add: tag:CONJ,type:S
+%
+
+>: X<token:quitando> X<lemma:que>
+Add: tag:CONJ,type:S
+%
+
+>: X<token:sacando> X<lemma:que>
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:s[óo]lo> X<lemma:que>
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:ahora> X<lemma:bien>
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:ahora> X<lemma:que>
+Add: tag:CONJ,type:S
+%
+
+>: X<lemma:mismo> X<lemma:si>
+Add: tag:CONJ,type:S
+%
+
+##CAUSAIS:
+
+>: X<token:[pP]uesto|[Dd]ado|[vV]isto|[cC]onsiderando> X<lemma:que>
+Add: tag:CONJ,type:S,loc:causal
+%
+>: [X<token:[tT]eniendo>] [X<lemma:en>] X<lemma:cuenta> X<lemma:que>
+NEXT
+>: [X<token:[tT]eniendo>] X<lemma:en> X<lemma:cuenta> [X<lemma:que>]
+NEXT
+>: X<token:[tT]eniendo> X<lemma:en> [X<lemma:cuenta>] [X<lemma:que>]
+Add: tag:CONJ,type:S,loc:causal
+%
+>: X<lemma:ya> X<lemma:que>
+Add: tag:CONJ,type:S,loc:causal
+%
+>: [X<lemma:a>] X<lemma:causa|fuerza|propuesta|petición|efecto> X<lemma:de>
+NEXT
+>: X<lemma:a> X<lemma:causa|fuerza|propuesta|petición|efecto> [X<lemma:de>]
+Add: tag:CONJ,type:S,loc:causalprep
+%
+>: [X<lemma:a>] [DET<token:los>] X<token:efectos> X<lemma:de>
+NEXT
+>: [X<lemma:a>] DET<token:los> X<token:efectos> [X<lemma:de>]
+NEXT
+>: X<lemma:a> DET<token:los> [X<token:efectos>] [X<lemma:de>]
+Add: tag:CONJ,type:S,loc:causalprep
+%
+>: [X<lemma:con>] X<lemma:motivo> X<lemma:de>
+NEXT
+>: X<lemma:con> X<lemma:motivo> [X<lemma:de>]
+Add: tag:CONJ,type:S,loc:causalprep
+%
+>: [X<lemma:en>] X<lemma:razón|vista|virtud> X<lemma:de>
+NEXT
+>: X<lemma:en> X<lemma:razón|vista|virtud> [X<lemma:de>]
+Add: tag:CONJ,type:S,loc:causalprep
+%
+>: [X<lemma:por>] X<lemma:causa|culpa|razón> X<lemma:de>
+NEXT
+>: X<lemma:por> X<lemma:causa|culpa|razón> [X<lemma:de>]
+Add: tag:CONJ,type:S,loc:causalprep
+%
+>: [X<lemma:de>] X<lemma:acuerdo> X<lemma:con>
+NEXT
+>: X<lemma:de> X<lemma:acuerdo> [X<lemma:con>]
+Add: tag:CONJ,type:S,loc:causalprep
+%
+>: X<token:[gG]racias> X<lemma:a>
+Add: tag:CONJ,type:S,loc:causalprep
+%
+
+##Consecutivas
+>: X<lemma:en> X<lemma:consecuencia>
+Add: tag:CONJ,type:S,loc:conseq
+%
+>: X<lemma:por> X<lemma:tanto|consiguiente>
+Add: tag:CONJ,type:S,loc:conseq
+%
+>: [Fc] X<lemma:por> X<token:eso>
+Add: tag:CONJ,type:S,loc:conseq
+%
+>: [PRP<lemma:por>] X<token:lo> X<lemma:cual>
+NEXT
+>: PRP<lemma:por> X<token:lo> [X<lemma:cual|tanto>]
+Add: tag:CONJ,type:S,loc:conseq
+%
+>: [Fc] [PRP<lemma:por>] X<token:lo> X<lemma:que>
+NEXT
+>: [Fc] PRP<lemma:por> X<token:lo> [X<lemma:que>]
+Add: tag:CONJ,type:S,loc:conseq
+%
+
+#####################FRASE ADVERBIAL E ADJECTIVAL####################
+
+
+########coordinaçao ADJ 
+CoordL: ADV [Fc] [ADV] CONJ<(type:C)|(lemma:$CCord)> [ADV]
+NEXT
+PunctL: [ADV] Fc [ADV] CONJ<(type:C)|(lemma:$CCord)> [ADV]
+Recursivity: 10
+%
+
+CoordL: [Fc]? ADV CONJ<(type:C)|(lemma:$CCord)> [ADV]
+NEXT
+CoordR: [Fc]? [ADV] CONJ<(type:C)|(lemma:$CCord)> ADV
+Add: coord:adv
+%
+
+PunctL: Fc CONJ<coord:adv>
+%
+############################
+
+AdjnL: ADV<lemma:$Quant> ADV|ADJ
+%
+
+AdjnL: ADV<lemma:[Mm]ais\@de> [DET]? CARD|NOUN
+%
+
+###dous termos sem AND:
+PunctL: [ADJ] Fc ADJ [NOUN]
+NEXT
+AdjnL: ADJ [Fc] ADJ [NOUN]
+Recursivity: 5
+%
+
+
+########coordinaçao ADJ 
+CoordL: ADJ [Fc] [ADJ] CONJ<(type:C)|(lemma:$CCord)> [ADJ]
+NEXT
+PunctL: [ADJ] Fc [ADJ] CONJ<(type:C)|(lemma:$CCord)> [ADJ]
+Recursivity: 10
+%
+
+CoordL: [Fc]? ADJ CONJ<(type:C)|(lemma:$CCord)> [ADJ]
+NEXT
+CoordR: [Fc]? [ADJ] CONJ<(type:C)|(lemma:$CCord)> ADJ
+Add: coord:adj
+Inherit: gender, number
+%
+
+PunctL: Fc CONJ<coord:adj>
+%
+##tratar "carne buena y mal pescado"
+
+
+#####################FIM FRASE ADVERBIAL E ADJECTIVAL################
+
+
+##antes de tratar o NOUN+ADJ como Adjn, hai que tratar os predicativos de objecto directo (problemas: "tengo la pierna cansada" ; "tengo un coche rojo" 
+####AtrR: VERB<lemma:$SubcatODirAtr>  [DET]? [NOUN] ADJ|CONJ<coord:adj>|VERB<mode:P>
+###%
+
+
+#################FRASE SUSTANTIVA#####################################
+AdjnL: ADJ|CONJ<coord:adj>|CARD [ADV]? NOUN
+Agreement: gender, number
+Recursivity: 1
+%
+
+
+AdjnR: NOUN [ADV]? ADJ|CONJ<coord:adj>
+Agreement: gender, number
+Recursivity: 1
+%
+
+PunctR: NOUN Fc [ADJ|CONJ<coord:adj>]
+NEXT
+AdjnR: NOUN [Fc] ADJ|CONJ<coord:adj>
+Agreement: gender, number
+%
+
+AdjnR:  NOUN NOUN
+Recursivity: 1
+%
+
+AdjnR:  NOUN CARD
+%
+
+AdjnL: CARD NOUN
+%
+#################FIM FRASE SUSTANTIVA########################
+
+
+
+
+#################FRASE NOMINAL########################
+
+##corrections
+
+Single: [DET] ADJ [PRP]
+Corr: tag:NOUN
+%
+
+
+##as simply the man
+#AdjnL: [PRP] ADV [DET]  NOUN
+#%
+
+
+#o seu NOUN - todos os NOUN
+SpecL: DET DET|PRO<type:X> [NOUN]
+NEXT
+SpecL: [DET] DET|PRO<type:X> NOUN
+%
+
+#todo lo que / todo el que
+SpecL: DET<type:I> DET<type:A> [PRO<type:R>]
+%
+
+AdjnL: [DET] VERB<mode:P> NOUN
+NEXT
+SpecL: DET [VERB<mode:P>] NOUN
+%
+
+SpecL: DET CARD|DATE
+%
+
+SpecL: DET NOUN
+#Recursivity: 1
+%
+
+##el tuyo
+SpecL: DET<type:A> PRO<type:X>
+%
+
+##por lo que (pro) verbo
+
+##lo que me gusta (sustantivas)
+SpecL: DET<type:[AD]>|PRO<type:D> PRO<type:[RW]>
+Add: sust:yes
+Inherit: number, person
+%
+Single: [PRP] PRO<sust:yes>
+Add: sust:no
+%
+
+##el de Mario, uno de esos
+SpecL: DET<type:[AD]>|PRO<type:D> PRP<lemma:de> [NOUNSINGLE|PRO<type:D|P|I|X>]
+Add: nomin:yes
+Inherit: number, person
+%
+
+
+##o comer
+#SpecL: DET<type:A> VERB<mode:N>
+#%
+
+##A melhorar ...
+#SpecL: PRO<lemma:what> NOUN
+#%
+
+#################FIM FRASE NOMINAL########################
+
+
+
+#####################FRASE VERBAL####################
+
+##########Cliticos
+
+##identificar verbos reflexivos ou pronominais:
+
+ClitL: PRO<lemma:se> VERB
+Add: se:yes
+Uniq
+%
+ClitR: VERB PRO<lemma:se>
+Add: se:yes
+Uniq
+%
+ClitL: PRO<token:$cliticoind> VERB
+Add: ind:yes
+Uniq
+%
+ClitR: VERB PRO<token:$cliticoind>
+Add: ind:yes
+Uniq
+%
+
+
+##eliminar os cliticos (nao se lhes da funçao especifica)
+ClitL: PRO<token:$cliticopers> VERB
+Recursivity: 1
+%
+
+ClitR: VERB PRO<token:$cliticopers>
+Recursivity: 1
+%
+
+###########AUXILIARES
+VSpecL: VERB<type:S> [ADV]? VERB<mode:P>
+Add: voice:passive
+Inherit: mode, person, tense, number
+%
+VSpecL: VERB<token:[Ff]ui|[Ff]ue|[Ff]uimos|[Ff]ueran|[Ff]uisteis|[Ff]uese|[Ff]uesen> [ADV]? VERB<mode:P>
+Add: voice:passive
+Inherit: mode, person, tense, number
+%
+
+
+VSpecL: VERB<(type:A)|(lemma:ter|haver|haber|avoir|have)> [ADV]? VERB<mode:P>
+Add: type:perfect
+Inherit: mode, person, tense, number
+%
+
+
+##antes de tratar as perífrases:
+## "parece cansado" (V+VPP), hai que tratar os predicativos de verbos atributivos, ja que hai muitos adjectivos etiquetados como participios
+#AtrR: VERB<lemma:$SubcatAtr>  VERB<mode:P>
+#%
+##lo que me gusta es cantar
+#AtrR: VERB<lemma:ser> VERB<mode:N>
+#%
+
+#######PERIFRASES
+#verbos modais
+VSpecL: VERB<lemma:$VModalES> [ADV]? VERB<mode:N>
+#NoUniq
+Inherit: mode, person, tense, number
+%
+##conj+que 'hay que, tienes que'
+VSpecL: [VERB<lemma:tener|haber>] [ADV]* CONJ<lemma:que&type:S> [ADV]? VERB<mode:N>
+NEXT
+VSpecL: VERB<lemma:tener|haber> [ADV]* [CONJ<lemma:que&type:S>] [ADV]? VERB<mode:N>
+Inherit: mode, person, tense, number
+%
+
+##incoativos 'voy a'
+VSpecL: [VERB<lemma:ir|venir|empezar|comenzar|acabar|finalizar|terminar|pasar|estar>] [ADV]? PRP<lemma:$PrepLocs> [ADV]* VERB<mode:N>
+NEXT
+VSpecL: VERB<lemma:ir|deber|venir|empezar|comenzar|acabar|finalizar|terminar|pasar|estar> [ADV]? [PRP<lemma:$PrepLocs>] [ADV]? VERB<mode:N>
+Inherit: mode, person, tense, number
+%
+
+##outras modalidades (entre obj. direito e perífrase): suele comer, quiere comer...
+VSpecL: VERB<lemma:querer|desear|pensar|soler|acostumbrar> [ADV]? VERB<mode:N>
+#NoUniq
+Inherit: mode, person, tense, number
+%
+
+
+##estoy comiendo
+VSpecL: VERB<lemma:estar> [ADV]* VERB<mode:G>
+Inherit: mode, person, tense, number
+%
+
+#########COMPLEMENTOS ADVERVIAIS
+
+######adverbios entre virgulas
+
+PunctL: [ADV<pos:0>] Fc VERB
+NEXT
+AdjnL: ADV<pos:0> [Fc] VERB
+%
+
+
+PunctR:  VERB [Fc] [ADV] Fc
+NEXT
+PunctR: VERB Fc [ADV] [Fc]
+NEXT
+AdjnR: VERB [Fc] ADV [Fc]
+%
+
+PunctL: Fc [ADV] [Fc] VERB
+NEXT
+PunctL: [Fc] [ADV] Fc VERB
+NEXT
+AdjnL: [Fc] ADV [Fc] VERB
+%
+
+AdjnR: VERB [NOUN|PRO<type:D|P|I|X>]? ADV|CONJ<coord:adv> 
+Recursivity: 1
+%
+
+AdjnL:  ADV|CONJ<coord:adv>  VERB
+Recursivity: 1
+%
+
+
+#####################FIM FRASE VERBAL####################
+
+
+
+
+##################Frase Preposicionais de nomes#################
+
+
+########coordinaçao compl prep
+TermR: PRP NOUN [Fc] [PRP] [NOUN] [CONJ<lemma:$CCord>] [PRP] [NOUN]
+NEXT
+CoordL: PRP [NOUN] [Fc] [PRP] [NOUN] CONJ<lemma:$CCord> [PRP] [NOUN]
+NEXT
+PunctL: [PRP] [NOUN] Fc [PRP] [NOUN] CONJ<lemma:$CCord> [PRP] [NOUN]
+Recursivity: 3
+%
+
+CoordL: [Fc]? PRP [NOUN] CONJ<lemma:$CCord> [PRP] [NOUN]
+NEXT
+TermR: [Fc]? [PRP] [NOUN] [CONJ<lemma:$CCord>] PRP NOUN
+NEXT
+TermR: [Fc]? PRP NOUN [CONJ<lemma:$CCord>] [PRP] [NOUN]
+NEXT
+CoordR: [Fc]? [PRP] [NOUN] CONJ<lemma:$CCord> PRP [NOUN]
+Add: coord:cprep
+%
+####fim coordinaçao compl prep
+
+###Right attachment (RA) em complementos nominais
+###Primeiro com uma lista de preposiçoes RA, onde o antecdente tem que ser nome comum
+CprepR: [NOUNSINGLE] [PRP] [NOUNSINGLE] [PRP] [NOUNSINGLE] [PRP] [NOUNSINGLE] [PRP] NOUN<type:C> PRP<lemma:$PrepRA> NOUNSINGLE|PRO<type:D|P|I|X>
+%
+CprepR: [NOUNSINGLE] [PRP] [NOUNSINGLE] [PRP] [NOUNSINGLE] [PRP] NOUN<type:C> PRP<lemma:$PrepRA> NOUNSINGLE|PRO<type:D|P|I|X>
+%
+CprepR: [NOUNSINGLE] [PRP] [NOUNSINGLE] [PRP] NOUN<type:C> PRP<lemma:$PrepRA> NOUNSINGLE|PRO<type:D|P|I|X>
+%
+CprepR: [NOUNSINGLE] [PRP] NOUN<type:C> PRP<lemma:$PrepRA> NOUNSINGLE|PRO<type:D|P|I|X>
+%
+CprepR: NOUN<type:C> PRP<lemma:$PrepRA> NOUNSINGLE|PRO<type:D|P|I|X>
+%
+
+###Depois só com "de" para todos os casos
+CprepR: [NOUNSINGLE] [PRP] [NOUNSINGLE] [PRP] [NOUNSINGLE] [PRP] [NOUNSINGLE] [PRP] NOUNSINGLE PRP<lemma:de> NOUNSINGLE|PRO<type:D|P|I|X>
+%
+CprepR: [NOUNSINGLE] [PRP] [NOUNSINGLE] [PRP] [NOUNSINGLE] [PRP] NOUNSINGLE PRP<lemma:de> NOUNSINGLE|PRO<type:D|P|I|X>
+%
+CprepR: [NOUNSINGLE] [PRP] [NOUNSINGLE] [PRP] NOUNSINGLE PRP<lemma:de> NOUNSINGLE|PRO<type:D|P|I|X>
+%
+CprepR: [NOUNSINGLE] [PRP] NOUNSINGLE PRP<lemma:de> NOUNSINGLE|PRO<type:D|P|I|X>
+%
+CprepR: NOUNSINGLE PRP<lemma:de> NOUNSINGLE|PRO<type:D|P|I|X>
+%
+
+##uno/este/otro de Valencia
+CprepR: X<lemma:uno>|PRO<type:[DI]> PRP NOUNSINGLE|PRO<type:D|P|I|X>
+Add: tag:PRO
+%
+
+###nominado/nominación como embajador
+CprepR: NOUN ADV<lemma:como>|PRP<lemma:como>|CONJ<lemma:como> NOUN
+%
+CircR: VERB ADV<lemma:como>|PRP<lemma:como>|CONJ<lemma:como> NOUN
+%
+
+#TermR: PRP<lemma:de&nomin:yes> NOUNSINGLE|PRO<type:D|P|I|X>
+TermR: PRP<nomin:yes> NOUNSINGLE|PRO<type:D|P|I|X>
+%
+
+
+########coordinaçao NOUN
+
+CoordL: NP [Fc] [NP] CONJ<(type:C)|(lemma:$CCord)> [NP]
+NEXT
+PunctL: [NP] Fc [NP] CONJ<(type:C)|(lemma:$CCord)> [NP]
+Recursivity: 10
+%
+
+
+CoordL: [Fc]? NP CONJ<(type:C)|(lemma:$CCord)> [NP]
+NEXT
+CoordR: [Fc]? [NP] CONJ<(type:C)|(lemma:$CCord)> NP
+Add: coord:noun
+#Inherit: gender, number
+%
+
+PunctL: Fc CONJ<coord:noun>
+%
+
+###talvez colocar aqui todos Cpreps???
+CprepR: ADJ|ADV|DATE PRP NOUNCOORD|PRO<type:D|P|I|X|>
+%
+#CprepR: NOUN|CONJ<coord:noun> PRP VERB<mode:N>
+#%
+CprepR: ADJ|ADV|DATE PRP VERB<mode:N>
+NoUniq
+%
+
+#######Aposicao-1 com virgulas ou paranteses 
+
+PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc|Fpa|Fca NOUNCOORD|PRO<type:D|P|I|X>|CARD [Fc|Fpt|Fct]
+NEXT
+PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc|Fpa|Fca] NOUNCOORD|PRO<type:D|P|I|X>|CARD Fc|Fpt|Fct
+NEXT
+AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc|Fpa|Fca] NOUNCOORD|PRO<type:D|P|I|X>|CARD [Fc|Fpt|Fct]
+%
+
+PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc|Fpa|Fca [PRP] NOUNCOORD|PRO<type:D|P|I|X>|CARD [Fc|Fpt|Fct]
+NEXT
+PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc|Fpa|Fca] [PRP] NOUNCOORD|PRO<type:D|P|I|X>|CARD Fc|Fpt|Fct
+NEXT
+CprepR: NOUNCOORD|PRO<type:D|P|I|X> [Fc|Fpa|Fca] PRP NOUNCOORD|PRO<type:D|P|I|X>|CARD [Fc|Fpt|Fct]
+%
+
+
+AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc|Fpa|Fca] VERB<mode:P> [X]* [Fc|Fpt|Fct]
+NoUniq
+%
+
+##################Fim Frase Preposicionais de nomes#################
+
+
+
+
+##erros antes de relativas: 'que' etiquetado como PRO com nomes que subcategorizam conjunçao 'que'
+Single: [VERB<lemma:$SubcatClaus>]  [PRP<lemma:a>] [NOUNCOORD|PRO<type:D|P|I|X>] PRO<type:R>  [NOUNCOORD|PRO<type:D|P|I|X>]?  [VERB<mode:[^PNG]>]
+Corr: tag:CONJ, type:S
+%
+Single: [VERB<lemma:$SubcatClaus>]  [ADJ] PRO<type:R>  [NOUNCOORD|PRO<type:D|P|I|X>]?  [VERB<mode:[^PNG]>]
+Corr: tag:CONJ, type:S
+%
+
+###RELATIVAS 1
+
+
+#############especificativas e explicativas de objecto direito
+PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRO<type:R|W>|X<lemma:que|quien>] [NOUNCOORD|PRO<type:D|P|I|X>]  VERB|CONJ<coord:verb>   [Fc]?
+NEXT
+PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc] [PRO<type:R|W>|X<lemma:que|quien>] [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb>   Fc
+NEXT
+DobjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|X<lemma:que|quien> [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb>   [Fc]?
+NEXT
+AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|X<lemma:que|quien>] [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb>    [Fc]?
+NoUniq
+%
+
+#############especificativas e explicativas de sujeito
+PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb>   [Fc]?
+NEXT
+PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb> Fc
+NEXT
+SubjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|X<lemma:que|quien> VERB|CONJ<coord:verb>   [Fc]?
+#Add: adsubj:yes
+NEXT
+AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb>  [Fc]?
+NoUniq
+%
+
+#############especificativas e explicativas de ccirc
+
+PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRP] [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb>   [Fc]?
+NEXT
+PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?  [PRP] [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb> Fc
+NEXT
+CircL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? PRP PRO<type:R|W>|X<lemma:que|quien> VERB|CONJ<coord:verb> [Fc]?
+NEXT
+AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRP] [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb> [Fc]?
+NoUniq
+%
+
+#############especificativas e explicativas de ccirc com subj
+
+PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRP] [PRO<type:R|W>|X<lemma:que|quien>] [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb>   [Fc]?
+NEXT
+PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?  [PRP] [PRO<type:R|W>|X<lemma:que|quien>] [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb> Fc
+NEXT
+CircL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? PRP PRO<type:R|W>|X<lemma:que|quien> [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb> [Fc]?
+NEXT
+#SubjL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? [PRP] [PRO<type:R|W>|X<lemma:que|quien>] NOUNCOORD|PRO<type:D|P|I|X> VERB|CONJ<coord:verb> [Fc]?
+#Add: adsubj:yes
+#NEXT
+AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRP] [PRO<type:R|W>|PRO<lemma:que|quien>] [NOUNCOORD|PRO<type:D|P|I|X>] VERB|CONJ<coord:verb> [Fc]?
+NoUniq
+%
+
+PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc VERB<mode:[GP]>|CONJ<coord:verb>
+NEXT
+AdjnR: NOUNCOORD|PRO<type:D|P|I|X>  [Fc]? VERB<mode:[GP]>|CONJ<coord:verb>
+NoUniq
+%
+
+
+##################Frase CIRC especificas#################
+
+#CircR: VERB<lemma:$PTa> [NOUNCOORD|PRO<type:D|P|I|X>] PRP<lemma:a> NOUNCOORD|PRO<type:D|P|I|X>|VERB<mode:N>|ADV
+#%
+#CircR: VERB<mode:[^P]> [NOUNCOORD|PRO<type:D|P|I|X>] PRP<lemma:$PrepMA> NOUNCOORD|PRO<type:D|P|I|X>|ADV
+#%
+CircR: VERB<mode:P> [NOUNCOORD|PRO<type:D|P|I|X>] PRP<lemma:por|by> NOUNCOORD|PRO<type:D|P|I|X>|ADV
+%
+PunctR: VERB Fc [NOUNCOORD|PRO<type:D|P|I|X>] [PRP<lemma:$PrepMA>] [CARD|DATE]
+NEXT
+CircR: VERB [Fc]? [NOUNCOORD|PRO<type:D|P|I|X>] PRP<lemma:$PrepMA> CARD|DATE
+%
+
+PunctR: VERB Fc [PRP] [DATE]
+NEXT
+CircR: VERB [Fc]? PRP DATE
+%
+PunctL: [PRP] [DATE] Fc VERB
+NEXT
+CircL: PRP DATE [Fc]? VERB
+%
+
+##Apposition:
+PunctR: VERB Fc [PRP] [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]
+NEXT
+PunctR: VERB [Fc] [PRP] [NOUNCOORD|PRO<type:D|P|I|X>] Fc
+NEXT
+CircR: VERB [Fc] PRP NOUNCOORD|PRO<type:D|P|I|X> [Fc]
+%
+
+
+##################Fim CIRC#################
+
+
+############Frases Cprep 2 (casos especiais)
+
+CprepR: CARD PRP<lemma:de|entre|sobre|of|about|between> NOUNCOORD|PRO
+%
+
+CprepR: PRO<type:P> PRP<lemma:de|of> NOUNCOORD|PRO
+%
+
+
+CprepR: NOUNCOORD [PRP] [PRO<type:D|P|I|X>] PRP NOUNCOORD|ADV
+NEXT
+CprepR: NOUNCOORD PRP PRO<type:D|P|I|X> [PRP] [NOUNCOORD|ADV]
+%
+
+
+
+##########Caso especial de coordinaçao: 'industria da Galiza e do Portugal', 'venho de Madrid e de Barcelona' 
+##hai que associar o nome de relação com CprepR e CircR!!
+
+
+PrepR: VERB [NOUNCOORD|PRO<type:D|P|I|X>] CONJ<coord:cprep>
+%
+
+PrepR: NOUNCOORD|PRO<type:D|P|I|X> CONJ<coord:cprep>
+%
+
+##Bipolares com conj+noun:
+#PrepR: CONJ<loc:causalprep> NOUNCOORD|PRO
+#%
+
+##############
+
+
+
+#############sustantivas
+
+##que como sujeito
+
+SubjL: PRO<sust:yes>  VERB
+Add: nomin:yes
+Inherit: number, person
+%
+
+##que como objeto direito
+
+SubjL: [PRO<sust:yes>] NOUNCOORD|PRO<type:D|P|I|X> VERB
+NEXT
+DobjL: PRO<sust:yes> [NOUNCOORD|PRO<type:D|P|I|X>] VERB
+Add: nomin:yes
+Inherit: number, person
+%
+
+##########fim sustantivas
+
+
+####Sujeito a direita do verbo (SV)
+SubjR: VERB<lemma:$VS> NOUNCOORD|PRO<type:D|P|I|X>
+Agr: number, person
+%
+
+##com pasiva reflea
+SubjR: VERB<se:yes&lemma:$VSrefleja> NOUNCOORD|PRO<type:D|P|I|X>
+Agr: number, person
+%
+##com pronome indirecto
+SubjR: VERB<ind:yes&lemma:$VSind> NOUNCOORD|PRO<type:D|P|I|X>
+Agr: number, person
+%
+
+
+
+##objecto directo com preposição a:
+DobjPrepR: VERB<lemma:$SubcatTr> PRP<lemma:a> NOUNCOORD|PRO<type:D|P|I|X>
+%
+
+
+###########Atributivas (so adjectivais)
+
+AtrR: VERB<lemma:ser> NOUNCOORD|PRO<type:D|P|I|X>
+%
+AtrR: VERB ADJ|CONJ<coord:adj>
+%
+
+
+############# OBJ DIRECTO (so nominal)
+DobjR: VERB CARD|NOUN|CONJ<coord:noun>|PRO<type:D|P|I|X>
+%
+
+
+###Complementos Preposicionais argumentais (Creg)
+
+IobjR: VERB<lemma:($SubcatIND)|(SubcatBitr)>  [NOUNCOORD|PRO<type:D|P|I|X>]? PRP<lemma:a> NOUNCOORD|PRO<type:D|P|I|X>|VERB<mode:N>
+%
+
+CregR: VERB<lemma:$SubcatA>  [NOUNCOORD|PRO<type:D|P|I|X>]? PRP<lemma:a> NOUNCOORD|PRO<type:D|P|I|X>|VERB<mode:N>
+%
+CregR: VERB<lemma:$SubcatEN>  [NOUNCOORD|PRO<type:D|P|I|X>]? PRP<lemma:en> NOUNCOORD|PRO<type:D|P|I|X>|VERB<mode:N>
+%
+CregR: VERB<lemma:$SubcatDE>  [NOUNCOORD|PRO<type:D|P|I|X>]? PRP<lemma:de> NOUNCOORD|PRO<type:D|P|I|X>|VERB<mode:N>
+%
+CregR: VERB<lemma:$SubcatCON>  [NOUNCOORD|PRO<type:D|P|I|X>]? PRP<lemma:con> NOUNCOORD|PRO<type:D|P|I|X>|VERB<mode:N>
+%
+CregR: VERB<lemma:$SubcatPOR>  [NOUNCOORD|PRO<type:D|P|I|X>]? PRP<lemma:por> NOUNCOORD|PRO<type:D|P|I|X>|VERB<mode:N>
+%
+CregR: VERB<lemma:$SubcatHACIA>  [NOUNCOORD|PRO<type:D|P|I|X>]? PRP<lemma:hacia> NOUNCOORD|PRO<type:D|P|I|X>|VERB<mode:N>
+%
+CregR: VERB<lemma:$SubcatSOBRE>  [NOUNCOORD|PRO<type:D|P|I|X>]? PRP<lemma:sobre> NOUNCOORD|PRO<type:D|P|I|X>|VERB<mode:N>
+%
+
+
+########coordinaçao NOUN (segunda fase)
+
+CoordL: NP [Fc] [NP] CONJ<(type:C)|(lemma:$CCord)> [NP]
+NEXT
+PunctL: [NP] Fc [NP] CONJ<(type:C)|(lemma:$CCord)> [NP]
+Recursivity: 5
+%
+
+CoordL: [Fc]? NP CONJ<(type:C)|(lemma:$CCord)> [NP]
+NEXT
+CoordR: [Fc]? [NP] CONJ<(type:C)|(lemma:$CCord)> NP
+Add: coord:noun
+#Inherit: gender, number
+%
+
+PunctL: Fc CONJ<coord:noun>
+%
+#############################################
+
+
+
+
+
+######COORDINAÇAO VERBOS (antes dos circunstancias)###############
+##problemas com o Inherit: conj nao tem os atributos 'mode' e 'tense' -> so se herdam os valores
+
+CoordL: VERB<nomin:no> [Fc] [VERB<nomin:no>] CONJ<(type:C)|(lemma:$CCord)> [VERB<nomin:no>]
+NEXT
+PunctL: [VERB<nomin:no>] Fc [VERB<nomin:no>] CONJ<(type:C)|(lemma:$CCord)> [VERB<nomin:no>]
+Recursivity: 5
+%
+
+CoordL: [Fc]? VERB<nomin:no> CONJ<(type:C)|(lemma:$CCord)> [VERB<nomin:no>]
+NEXT
+CoordR: [Fc]? [VERB<nomin:no>] CONJ<(type:C)|(lemma:$CCord)> VERB<nomin:no>
+Add: coord:verb
+Inherit: mode, tense
+%
+
+PunctL: Fc CONJ<coord:verb>
+%
+
+
+############# CIRCUNSTANCIAIS
+
+##comer peixe para estar no parque em Madrid
+CircR: [VERB|CONJ<coord:verb>] [PRP] VERB|CONJ<coord:verb> [PRP] [CARD|NOUNCOORD|PRO<type:D|P|I|X>] PRP CARD|NOUNCOORD|PRO<type:D|P|I|X>
+Recursivity: 1
+%
+CircR: [VERB|CONJ<coord:verb>] [PRP] VERB|CONJ<coord:verb> PRP CARD|NOUNCOORD|PRO<type:D|P|I|X>
+NEXT
+CircR: VERB|CONJ<coord:verb> PRP VERB|CONJ<coord:verb> [PRP] [CARD|NOUNCOORD|PRO<type:D|P|I|X>]
+%
+
+CircR: VERB|CONJ<coord:verb>  PRP VERB<mode:[^PG]>|ADV|CARD
+Recursivity: 1
+%
+
+##observou ao olhar na casa
+SpecL: [VERB|CONJ<coord:verb>]  [PRP] DET<type:A>  VERB<mode:N>|ADV|CARD
+NEXT
+CircR: VERB|CONJ<coord:verb>  PRP  [DET<type:A>] VERB<mode:N>|ADV|CARD
+Recursivity: 1
+%
+
+CircR: VERB|CONJ<coord:verb> PRP NOUNCOORD|PRO<type:D|P|I|X>
+Recursivity: 1
+%
+
+
+#CprepR: VERB CONJ<coord:cprep>
+#%
+##circunstanciais entre vírgulas
+PunctR: VERB Fc [PRP] [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?
+NEXT
+PunctR: VERB [Fc] [PRP] [NOUNCOORD|PRO<type:D|P|I|X>] Fc
+NEXT
+TermR: [VERB] [Fc] PRP NOUNCOORD|PRO<type:D|P|I|X> [Fc]?
+NEXT
+CircR: VERB [Fc] PRP NOUNCOORD|PRO<type:D|P|I|X> [Fc]?
+Recursivity:1
+%
+
+##circunstanciais a esquerda
+PunctL: [PRP<pos:0>] [NOUNCOORD|PRO<type:D|P|I|X>] Fc  VERB<mode:[^PNG]>|CONJ<coord:verb>
+NEXT
+CircL: PRP<pos:0> NOUNCOORD|PRO<type:D|P|I|X> [Fc]?  VERB<mode:[^PNG]>|CONJ<coord:verb>
+%
+
+
+PunctL: Fc [PRP] [NOUNCOORD|PRO<type:D|P|I|X> ] [Fc]?  VERB<mode:[^PNG]>|CONJ<coord:verb>
+NEXT
+PunctL: [Fc]? [PRP] [NOUNCOORD|PRO<type:D|P|I|X> ] Fc  VERB<mode:[^PNG]>|CONJ<coord:verb>
+NEXT
+CircL: [Fc]? PRP NOUNCOORD|PRO<type:D|P|I|X>  [Fc]?  VERB<mode:[^PNG]>|CONJ<coord:verb>
+Recursivity:1
+%
+
+
+
+###########COMPLEMENTOS VERBAIS com nominais e gerundios (atributivas, circunstaciais, objecto directo)
+
+
+## "parece cansado" (V+VPP), hai que tratar os predicativos de verbos atributivos, ja que hai muitos adjectivos etiquetados como participios
+AtrR: VERB<lemma:$SubcatAtr>  VERB<mode:[PNG]>
+%
+
+##si o gerundio aparece com um não atributivo, entao Circ
+Circ2R: VERB VERB<mode:[GP]>
+%
+
+####Sujeito a direita do verbo (SV)
+SubjR: VERB<lemma:$VS> VERB<mode:N>
+Agr: number, person
+%
+##com pasiva refleja
+SubjR: VERB<se:yes&lemma:$VSrefleja> VERB<mode:N>
+Agr: number, person
+%
+##com pronome indirecto
+SubjR: VERB<ind:yes&lemma:$VSind> VERB<mode:N>
+Agr: number, person
+%
+
+#objecto verbal (quiero/suelo comer)
+DobjR: VERB VERB<mode:N>
+%
+
+
+
+###TRATAMENTO DE DATAS
+AdjnR:  VERB<mode:[^PNG]> DATE
+%
+
+PunctL: Fc [DATE] VERB<mode:[^PNG]>
+NEXT
+AdjnL:  [Fc]? DATE VERB<mode:[^PNG]>
+%
+
+
+##ultimos pp attachments nominais (que ficarom soltos)
+CprepR: NOUNCOORD PRP NOUNCOORD
+%
+
+
+#completivas
+##bloco: V CONJ<que> V
+
+##erros: 'que' etiquetado como PRO com nomes que subcategorizam conjunçao 'que'
+Single: [VERB<lemma:$SubcatClaus>]  PRO<type:R>  [NOUNCOORD|PRO<type:D|P|I|X>]?  [VERB<mode:[^PNG]>]
+Corr: tag:CONJ, type:S
+%
+
+SpecL: [VERB] CONJ<lemma:que|si> VERB<mode:[^PNG]>
+NEXT
+DobjR: VERB  [CONJ<lemma:que|si>] VERB<mode:[^PNG]>
+%
+
+SpecL: [VERB]  CONJ<lemma:que|si>  [NOUNCOORD|PRO<type:D|P|I|X>] VERB<mode:[^PNG]>
+NEXT
+SubjL:  [VERB]  [CONJ<lemma:que|si>]  NOUNCOORD|PRO<type:D|P|I|X> VERB<mode:[^PNG]>
+NEXT
+DobjR: VERB   [CONJ<lemma:que|si>] [NOUNCOORD|PRO<type:D|P|I|X>] VERB<mode:[^PNG]>
+%
+
+
+SpecL: [VERB] [PRP] CONJ<lemma:que> VERB<mode:[^PNG]>
+NEXT
+CircR: VERB PRP [CONJ<lemma:que>] VERB<mode:[^PNG]>
+%
+
+
+#######aposicao-2 com virgulas ou paranteses
+
+PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc|Fpa|Fca VERB [Fc|Fpt|Fct]
+NEXT
+PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc|Fpa|Fca] VERB Fc|Fpt|Fct
+NEXT
+AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc|Fpa|Fca] VERB [Fc|Fpt|Fct]
+%
+
+PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc|Fpa|Fca [PRP] NOUNCOORD|PRO<type:D|P|I|X>|CARD [Fc|Fpt|Fct]
+NEXT
+PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc|Fpa|Fca] [PRP] NOUNCOORD|PRO<type:D|P|I|X>|CARD Fc|Fpt|Fct
+NEXT
+CprepR: NOUNCOORD|PRO<type:D|P|I|X> [Fc|Fpa|Fca] PRP NOUNCOORD|PRO<type:D|P|I|X>|CARD [Fc|Fpt|Fct]
+%
+
+
+AdjnL: [Fc] VERB<mode:P> [Fc] VERB
+NEXT
+PunctL: Fc [VERB<mode:P>] [Fc] VERB
+NEXT
+PunctL: [Fc] [VERB<mode:P>] Fc VERB
+%
+
+
+########coordinaçao NOUN (tercera fase)
+
+CoordL: NP [Fc] [NP] CONJ<(type:C)|(lemma:$CCord)> [NP]
+NEXT
+PunctL: [NP] Fc [NP] CONJ<(type:C)|(lemma:$CCord)> [NP]
+Recursivity: 10
+%
+
+CoordL: [Fc]? NP CONJ<(type:C)|(lemma:$CCord)> [NP]
+NEXT
+CoordR: [Fc]? [NP] CONJ<(type:C)|(lemma:$CCord)> NP
+Add: coord:noun
+#Inherit: gender, number
+%
+
+PunctL: Fc CONJ<coord:noun>
+%
+#############################
+
+
+######COORDINAÇAO VERBOS (antes do sujeito)###############
+CoordL: VERB<nomin:no> [Fc] [VERB<nomin:no>] CONJ<(type:C)|(lemma:$CCord)> [VERB<nomin:no>]
+NEXT
+PunctL: [VERB<nomin:no>] Fc [VERB<nomin:no>] CONJ<(type:C)|(lemma:$CCord)> [VERB<nomin:no>]
+Recursivity: 5
+%
+
+
+CoordL: [Fc]? VERB<nomin:no> CONJ<(type:C)|(lemma:$CCord)> [VERB<nomin:no>]
+NEXT
+CoordR: [Fc]? [VERB<nomin:no>] CONJ<(type:C)|(lemma:$CCord)> VERB<nomin:no>
+Add: coord:verb
+Inherit: mode, tense
+%
+
+PunctL: Fc CONJ<coord:verb>
+%
+
+
+###SUJEITOS
+SubjL: NOUN<type:P> VERB<mode:[^PG]>|CONJ<coord:verb&mode:[^PG]>
+Add: adsubj:yes
+%
+
+SubjL: NOMINAL|PRO<type:D|P|I|X> VERB<mode:[^PG]>|CONJ<coord:verb&mode:[^PG]>
+Agreement: person, number
+Add: adsubj:yes
+%
+
+
+#############COMPLEMENTOS VERBAIS COM NOMINALIZAÇOES (NOMINAL)##############
+####Sujeito a direita do verbo (SV)
+
+SubjR: VERB<lemma:$VS> NOMINAL|PRO<type:D|P|I|X>
+Agr: number, person
+%
+##com pasiva reflea
+SubjR: VERB<se:yes&lemma:$VSrefleja> NOMINAL|PRO<type:D|P|I|X>
+Agr: number, person
+%
+##com pronome indirecto
+SubjR: VERB<ind:yes&lemma:$VSind> NOMINAL|PRO<type:D|P|I|X>
+Agr: number, person
+%
+
+
+##objecto directo com preposição a:
+DobjPrepR: VERB<lemma:$SubcatTr> PRP<lemma:a> NOMINAL|PRO<type:D|P|I|X>
+%
+
+
+###########Atributivas (so adjectivais)
+
+AtrR: VERB<lemma:ser> NOMINAL|PRO<type:D|P|I|X>
+%
+
+
+############# OBJ DIRECTO (so nominal)
+DobjR: VERB NOMINAL|PRO<type:D|P|I|X>
+%
+
+###Complementos Preposicionais argumentais (Creg)
+
+IobjR: VERB<lemma:($SubcatIND)|(SubcatBitr)>  [NOUNCOORD|PRO<type:D|P|I|X>]? PRP<lemma:a> NOMINAL|PRO<type:D|P|I|X>|VERB<mode:N>
+%
+
+CregR: VERB<lemma:$SubcatA>  [NOMINAL|PRO<type:D|P|I|X>]? PRP<lemma:a> NOMINAL|PRO<type:D|P|I|X>|VERB<mode:N>
+%
+CregR: VERB<lemma:$SubcatEN>  [NOMINAL|PRO<type:D|P|I|X>]? PRP<lemma:en> NOMINAL|PRO<type:D|P|I|X>|VERB<mode:N>
+%
+CregR: VERB<lemma:$SubcatDE>  [NOMINAL|PRO<type:D|P|I|X>]? PRP<lemma:de> NOMINAL|PRO<type:D|P|I|X>|VERB<mode:N>
+%
+CregR: VERB<lemma:$SubcatCON>  [NOMINAL|PRO<type:D|P|I|X>]? PRP<lemma:con> NOMINAL|PRO<type:D|P|I|X>|VERB<mode:N>
+%
+CregR: VERB<lemma:$SubcatPOR>  [NOMINAL|PRO<type:D|P|I|X>]? PRP<lemma:por> NOMINAL|PRO<type:D|P|I|X>|VERB<mode:N>
+%
+CregR: VERB<lemma:$SubcatHACIA>  [NOMINAL|PRO<type:D|P|I|X>]? PRP<lemma:hacia> NOMINAL|PRO<type:D|P|I|X>|VERB<mode:N>
+%
+CregR: VERB<lemma:$SubcatSOBRE>  [NOMINAL|PRO<type:D|P|I|X>]? PRP<lemma:sobre> NOMINAL|PRO<type:D|P|I|X>|VERB<mode:N>
+%
+
+###############FIM #############COMPLEMENTOS VERBAIS COM NOMINALIZAÇOES (NOMINAL)#############################
+
+
+######################RELATIVAS#########################
+
+#############especificativas e explicativas de objecto direito
+PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRO<type:R|W>|X<lemma:que|quien>] VERB<adsubj:yes>|CONJ<adsubj:yes&coord:verb>    [Fc]?
+NEXT
+PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? [PRO<type:R|W>|X<lemma:que|quien>] VERB<adsubj:yes>|CONJ<adsubj:yes&coord:verb>   Fc
+NEXT
+DobjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|X<lemma:que|quien> VERB<adsubj:yes>|CONJ<adsubj:yes&coord:verb>    [Fc]?
+NEXT
+AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|X<lemma:que|quien>] VERB<adsubj:yes>|CONJ<adsubj:yes&coord:verb>    [Fc]?
+%
+
+
+#############especificativas e explicativas de sujeito
+PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb>   [Fc]?
+NEXT
+PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb> Fc
+NEXT
+SubjL: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]? PRO<type:R|W>|X<lemma:que|quien> VERB|CONJ<coord:verb>   [Fc]?
+NEXT
+AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb>  [Fc]?
+%
+
+#############especificativas e explicativas de ccirc
+
+PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc [PRP] [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb>   [Fc]?
+NEXT
+PunctR: [NOUNCOORD|PRO<type:D|P|I|X>] [Fc]?  [PRP] [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb> Fc
+NEXT
+CircL: [NOUNCOORD|PRO<type:D|P|I|X>]  [Fc]? PRP PRO<type:R|W>|X<lemma:que|quien> VERB|CONJ<coord:verb> [Fc]?
+NEXT
+AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? [PRP] [PRO<type:R|W>|X<lemma:que|quien>] VERB|CONJ<coord:verb> [Fc]?
+%
+
+
+##relativas com gerundio/participio (INGLES)
+PunctL: [NOUNCOORD|PRO<type:D|P|I|X>] Fc VERB<mode:[GP]>|CONJ<coord:verb>
+NEXT
+AdjnR: NOUNCOORD|PRO<type:D|P|I|X> [Fc]? VERB<mode:[GP]>|CONJ<coord:verb>
+%
+
+
+######################FIM RELATIVAS#########################
+
+
+#############NIVEL INTRACLAUSAS#############
+
+
+########DEPENDENCIAS COM CONJUNÇOES BIPOLARES###############
+BipolarAdversativa2R: VERB [Fc]? CONJ<lemma:pero|mas|ahora\@bien|solo\@que|sacando\@que|quitando\@que|excepto\@que|aún\@así|a\@pesar\@de|sin\@embargo|sino\@que|ahora\@que> [Fc]? VERB
+%
+BipolarAdversativa1L: VERB [Fc]? CONJ<lemma:pero|mas|ahora\@bien|solo\@que|sacando\@que|quitando\@que|excepto\@que|aún\@así|a\@pesar\@de|sin\@embargo|sino\@que|ahora\@que> [Fc]? VERB
+%
+BipolarConcesiva2R: VERB [Fc]? CONJ<lemma:mismo\@si|mismo\@que|aunque|a\@menos\@que|a\@pesar\@de|a\@pesar\@que> [Fc]? VERB
+%
+BipolarConcesiva1L: CONJ<lemma:mismo\@si|mismo\@que|aunque|a\@menos\@que|a\@pesar\@de|a\@pesar\@que> VERB [Fc]? VERB
+%
+
+BipolarNCausal1L:  CONJ<loc:causalprep> NOUNCOORD|PRO<type:D|P|I|X>   [Fc]?  VERB|CONJ<coord:verb>
+%
+BipolarNCausal2R: VERB|CONJ<coord:verb>  [Fc]? CONJ<loc:causalprep> [Fc]?  NOUNCOORD|PRO<type:D|P|I|X>
+%
+
+BipolarCausal1L:  CONJ<loc:causal>|CONJ<lemma:porque|pues> VERB|CONJ<coord:verb>  [Fc]?  VERB|CONJ<coord:verb>
+%
+BipolarCausal2R: VERB|CONJ<coord:verb> [Fc]? CONJ<loc:causal>|CONJ<lemma:porque|pues> [Fc]?   VERB|CONJ<coord:verb>
+%
+#BipolarCausalL:  CONJ<loc:causalprep>  [Fc]?  VERB|CONJ<coord:verb>
+#%
+
+BipolarConsequence2R: VERB|CONJ<coord:verb>  [Fc]? CONJ<loc:conseq>|CONJ<lemma:luego> [Fc]?  VERB|CONJ<coord:verb>
+%
+
+Bipolar2R: VERB  [Fc]? CONJ<type:S> [Fc]?   VERB
+%
+
+
+
+########FIM DEPENDENCIAS COM CONJUNÇOES SUBORDINADAS###############
+
+
+
+#####prep+nom|verb isolado
+
+TermR: PRP NOUNCOORD|PRO<type:D|P|I|X>|VERB
+NoUniq
+%
+#####
+

@@ -185,6 +185,34 @@ Add: tag:CONJ,type:S
 Add: tag:CONJ,type:S
 %
 
+
+##condicionais
+
+>: [X<token:[Aa]>] [X<lemma:menos|condición>] X<lemma:de> X<lemma:que>
+NEXT
+>: [X<token:[Aa]>] X<lemma:menos|condición> X<lemma:de> [X<lemma:que>]
+NEXT
+>: X<token:[Aa]> X<lemma:menos|condición> [X<lemma:de>] [X<lemma:que>]
+Add: tag:CONJ,type:S,loc:cond
+%
+
+>: [X<token:[Aa]>] [X<lemma:no>] X<lemma:ser> X<lemma:que>
+NEXT
+>: [X<token:[Aa]>] X<lemma:no> X<lemma:ser> [X<lemma:que>]
+NEXT
+>: X<token:[Aa]> X<lemma:no> [X<lemma:ser>] [X<lemma:que>]
+Add: tag:CONJ,type:S,loc:cond
+%
+
+>: [X<token:[Ee]n>] [X<lemma:caso>] X<lemma:de> X<lemma:que>
+NEXT
+>: [X<token:[Ee]n>] X<lemma:caso> X<lemma:de> [X<lemma:que>]
+NEXT
+>: X<token:[Ee]n> X<lemma:caso> [X<lemma:de>] [X<lemma:que>]
+Add: tag:CONJ,type:S,loc:cond
+%
+
+
 ##CAUSAIS:
 
 >: X<token:[pP]uesto|[Dd]ado|[vV]isto|[cC]onsiderando> X<lemma:que>
@@ -1248,6 +1276,14 @@ BipolarCausal2R: VERB|CONJ<coord:verb> [Fc]? CONJ<loc:causal>|CONJ<lemma:porque|
 %
 #BipolarCausalL:  CONJ<loc:causalprep>  [Fc]?  VERB|CONJ<coord:verb>
 #%
+
+BipolarCondicional1L:  CONJ<loc:cond>|CONJ<lemma:si> NOUNCOORD|PRO<type:D|P|I|X>  [Fc]?  VERB|CONJ<coord:verb>
+%
+BipolarCondicional1L:  CONJ<loc:cond>|CONJ<lemma:si> VERB|CONJ<coord:verb>  [Fc]?  VERB|CONJ<coord:verb>
+%
+BipolarCondicional2R:  VERB|CONJ<cond:verb>  [Fc]? CONJ<loc:cond>|CONJ<lemma:si> [Fc]? VERB|CONJ<coord:verb>
+%
+
 
 BipolarConsequence2R: VERB|CONJ<coord:verb>  [Fc]? CONJ<loc:conseq>|CONJ<lemma:luego> [Fc]?  VERB|CONJ<coord:verb>
 %

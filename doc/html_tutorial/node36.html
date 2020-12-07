@@ -1,10 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
-<!--Converted with LaTeX2HTML 2008 (1.71)
-original version by:  Nikos Drakos, CBLU, University of Leeds
-* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
-* with significant contributions from:
-  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
 <HTML>
 <HEAD>
 <TITLE>Using DepPattern to Correct the PoS Tagged Input Text</TITLE>
@@ -13,7 +9,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
 <META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
 
 <LINK REL="STYLESHEET" HREF="tutorialGrammar.css">
@@ -27,30 +23,26 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html566"
+<A NAME="tex2html565"
   HREF="node37.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
- SRC="/usr/share/latex2html/icons/next.png"></A> 
-<A NAME="tex2html562"
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html561"
   HREF="node34.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
- SRC="/usr/share/latex2html/icons/up.png"></A> 
-<A NAME="tex2html556"
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html555"
   HREF="node35.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
- SRC="/usr/share/latex2html/icons/prev.png"></A> 
-<A NAME="tex2html564"
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html563"
   HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
- SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html567"
+<B> Next:</B> <A NAME="tex2html566"
   HREF="node37.html">Function Unicity</A>
-<B> Up:</B> <A NAME="tex2html563"
+<B> Up:</B> <A NAME="tex2html562"
   HREF="node34.html">Examples of Use</A>
-<B> Previous:</B> <A NAME="tex2html557"
+<B> Previous:</B> <A NAME="tex2html556"
   HREF="node35.html">A sample grammar</A>
- &nbsp; <B>  <A NAME="tex2html565"
+ &nbsp; <B>  <A NAME="tex2html564"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
@@ -65,11 +57,11 @@ DepPattern is provided with tools suited to correct errors of the input PoS tagg
 <P>
 
 <UL>
-<LI>A new type of dependency, ``Head'', which represents a unary relation (arity 1). In the default configuration file, dependencies.conf, we declared one type unary relation, called ``Single''.  
+<LI>A new type of dependency, &ldquo;Head&rdquo;, which represents a unary relation (arity 1). In the default configuration file, dependencies.conf, we declared one type unary relation, called &ldquo;Single&rdquo;.  
 </LI>
-<LI>A new operation, ``Corr'', whose aim is to correct all information associated to a lexical unit: type of PoS tag and morpho-syntactic features. It is similar to the operation ``Add''. The main difference is that ``Corr'' allows to change the PoS tag itself. 
+<LI>A new operation, &ldquo;Corr&rdquo;, whose aim is to correct all information associated to a lexical unit: type of PoS tag and morpho-syntactic features. It is similar to the operation &ldquo;Add&rdquo;. The main difference is that &ldquo;Corr&rdquo; allows to change the PoS tag itself. 
 </LI>
-<LI>A new output format obtained using flag -c. Instead of generating as output the dependency triplets identified by the grammar (flag -a), we can use flag -c  to rewrite the same input, but containing all corrections made by operations such as ``Corr'', or ``Inherit'', or ``Add''.   
+<LI>A new output format obtained using flag -c. Instead of generating as output the dependency triplets identified by the grammar (flag -a), we can use flag -c  to rewrite the same input, but containing all corrections made by operations such as &ldquo;Corr&rdquo;, or &ldquo;Inherit&rdquo;, or &ldquo;Add&rdquo;.   
 </LI>
 </UL>
 
@@ -89,10 +81,10 @@ Single : [NOUN] CONJ&lt;lemma:that&amp;type:S&gt;
 </BLOCKQUOTE>
 
 <P>
-This way, the information introduced by the operator ``Corr'' is used to change the head expression of the unary relation ``Single''. It substitutes tag PRO and type R for the information contained in the head (tag CONJ and type S).  More precisely, this rule identifies as head a subordinate conjunction with lemma <SPAN  CLASS="textit">that</SPAN> following a noun (its context), and transform this head entry into a relative pronoun. Notice that there there is no dependent expression involved in the rule, since the relation type of ``Single'' is Head.    
+This way, the information introduced by the operator &ldquo;Corr&rdquo; is used to change the head expression of the unary relation &ldquo;Single&rdquo;. It substitutes tag PRO and type R for the information contained in the head (tag CONJ and type S).  More precisely, this rule identifies as head a subordinate conjunction with lemma <SPAN  CLASS="textit">that</SPAN> following a noun (its context), and transform this head entry into a relative pronoun. Notice that there there is no dependent expression involved in the rule, since the relation type of &ldquo;Single&rdquo; is Head.    
 
 <P>
-``Corr'' also allows correcting attibutes by using the values of other attributes:
+&ldquo;Corr&rdquo; also allows correcting attibutes by using the values of other attributes:
 
 <P>
 <BLOCKQUOTE>
@@ -107,35 +99,28 @@ It means that the value of the lemma is the value of the token. In other words, 
 
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html566"
+<A NAME="tex2html565"
   HREF="node37.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
- SRC="/usr/share/latex2html/icons/next.png"></A> 
-<A NAME="tex2html562"
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html561"
   HREF="node34.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
- SRC="/usr/share/latex2html/icons/up.png"></A> 
-<A NAME="tex2html556"
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html555"
   HREF="node35.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
- SRC="/usr/share/latex2html/icons/prev.png"></A> 
-<A NAME="tex2html564"
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html563"
   HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
- SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html567"
+<B> Next:</B> <A NAME="tex2html566"
   HREF="node37.html">Function Unicity</A>
-<B> Up:</B> <A NAME="tex2html563"
+<B> Up:</B> <A NAME="tex2html562"
   HREF="node34.html">Examples of Use</A>
-<B> Previous:</B> <A NAME="tex2html557"
+<B> Previous:</B> <A NAME="tex2html556"
   HREF="node35.html">A sample grammar</A>
- &nbsp; <B>  <A NAME="tex2html565"
+ &nbsp; <B>  <A NAME="tex2html564"
   HREF="node1.html">Contents</A></B> </DIV>
 <!--End of Navigation Panel-->
-<ADDRESS>
-gamallo
-2012-02-06
-</ADDRESS>
+
 </BODY>
 </HTML>

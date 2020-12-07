@@ -1,10 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
-<!--Converted with LaTeX2HTML 2008 (1.71)
-original version by:  Nikos Drakos, CBLU, University of Leeds
-* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
-* with significant contributions from:
-  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<!--Converted with LaTeX2HTML 2018 (Released Feb 1, 2018) -->
 <HTML>
 <HEAD>
 <TITLE>Uniqueness Principle</TITLE>
@@ -13,7 +9,7 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <META NAME="resource-type" CONTENT="document">
 <META NAME="distribution" CONTENT="global">
 
-<META NAME="Generator" CONTENT="LaTeX2HTML v2008">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2018">
 <META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
 
 <LINK REL="STYLESHEET" HREF="tutorialGrammar.css">
@@ -27,30 +23,26 @@ original version by:  Nikos Drakos, CBLU, University of Leeds
 <BODY >
 
 <DIV CLASS="navigation"><!--Navigation Panel-->
-<A NAME="tex2html370"
+<A NAME="tex2html369"
   HREF="node21.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
- SRC="/usr/share/latex2html/icons/next.png"></A> 
-<A NAME="tex2html366"
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html365"
   HREF="node19.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
- SRC="/usr/share/latex2html/icons/up.png"></A> 
-<A NAME="tex2html360"
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html359"
   HREF="node19.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
- SRC="/usr/share/latex2html/icons/prev.png"></A> 
-<A NAME="tex2html368"
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html367"
   HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
- SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html371"
+<B> Next:</B> <A NAME="tex2html370"
   HREF="node21.html">Uniqueness Principle and contextual</A>
-<B> Up:</B> <A NAME="tex2html367"
+<B> Up:</B> <A NAME="tex2html366"
   HREF="node19.html">How rules are applied</A>
-<B> Previous:</B> <A NAME="tex2html361"
+<B> Previous:</B> <A NAME="tex2html360"
   HREF="node19.html">How rules are applied</A>
- &nbsp; <B>  <A NAME="tex2html369"
+ &nbsp; <B>  <A NAME="tex2html368"
   HREF="node1.html">Contents</A></B> 
 <BR>
 <BR></DIV>
@@ -78,7 +70,7 @@ AdjunctLeft : ADJ NOUN
 </BLOCKQUOTE>
 
 <P>
-Let's analyse the expression ``a beautiful mountain''.  The input string of the parser would be like this:
+Let's analyse the expression &ldquo;a beautiful mountain&rdquo;.  The input string of the parser would be like this:
 
 <P>
 <BLOCKQUOTE>
@@ -87,7 +79,7 @@ a_DT_&lt;...&gt; beautiful_ADJ_&lt;...&gt; mountain_NOUN_&lt;...&gt;
 </BLOCKQUOTE>
 
 <P>
-The first rule is applied on this string and finds the ``ADJ NOUN'' pattern. This finding allows the rule to identify the adjunct dependency between ``beautiful'' and ``mountain''. But the rule also removes the adjective (which is the dependent expression) from the string that will be the input the following rule. So, the second rule will be applied on this new input:
+The first rule is applied on this string and finds the &ldquo;ADJ NOUN&rdquo; pattern. This finding allows the rule to identify the adjunct dependency between &ldquo;beautiful&rdquo; and &ldquo;mountain&rdquo;. But the rule also removes the adjective (which is the dependent expression) from the string that will be the input the following rule. So, the second rule will be applied on this new input:
 
 <P>
 <BLOCKQUOTE>
@@ -96,10 +88,10 @@ a_DT_&lt;...&gt; mountain_NOUN_&lt;...&gt;
 </BLOCKQUOTE>
 
 <P>
-It finds the ``DT NOUN'' pattern and then the dependency between ``a'' and ``mountain''. In addition, it removes the determiner from the input string. The head ``mountain'' is the only expression to be analysed in further applications of rules. 
+It finds the &ldquo;DT NOUN&rdquo; pattern and then the dependency between &ldquo;a&rdquo; and &ldquo;mountain&rdquo;. In addition, it removes the determiner from the input string. The head &ldquo;mountain&rdquo; is the only expression to be analysed in further applications of rules. 
 
 <P>
-According to the ``Uniqueness principle'', a dependent word only has one head. So, if we identify a dependency relation containing a dependent word which is no more the head of any word, then it means that we have alredy found all dependencies associated to that word and it can be removed from the search space.     
+According to the &ldquo;Uniqueness principle&rdquo;, a dependent word only has one head. So, if we identify a dependency relation containing a dependent word which is no more the head of any word, then it means that we have alredy found all dependencies associated to that word and it can be removed from the search space.     
 The fact of removing one by one the dependents from the input string allows us to reduce in a systematic way the search space, which consists of a huge variety of possible patterns of tags.  
 
 <P>
@@ -114,35 +106,28 @@ Considering Uniqueness, the following constraint is required to write well-forme
 
 <DIV CLASS="navigation"><HR>
 <!--Navigation Panel-->
-<A NAME="tex2html370"
+<A NAME="tex2html369"
   HREF="node21.html">
-<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
- SRC="/usr/share/latex2html/icons/next.png"></A> 
-<A NAME="tex2html366"
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next" SRC="next.png"></A> 
+<A NAME="tex2html365"
   HREF="node19.html">
-<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
- SRC="/usr/share/latex2html/icons/up.png"></A> 
-<A NAME="tex2html360"
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up" SRC="up.png"></A> 
+<A NAME="tex2html359"
   HREF="node19.html">
-<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
- SRC="/usr/share/latex2html/icons/prev.png"></A> 
-<A NAME="tex2html368"
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous" SRC="prev.png"></A> 
+<A NAME="tex2html367"
   HREF="node1.html">
-<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
- SRC="/usr/share/latex2html/icons/contents.png"></A>  
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents" SRC="contents.png"></A>  
 <BR>
-<B> Next:</B> <A NAME="tex2html371"
+<B> Next:</B> <A NAME="tex2html370"
   HREF="node21.html">Uniqueness Principle and contextual</A>
-<B> Up:</B> <A NAME="tex2html367"
+<B> Up:</B> <A NAME="tex2html366"
   HREF="node19.html">How rules are applied</A>
-<B> Previous:</B> <A NAME="tex2html361"
+<B> Previous:</B> <A NAME="tex2html360"
   HREF="node19.html">How rules are applied</A>
- &nbsp; <B>  <A NAME="tex2html369"
+ &nbsp; <B>  <A NAME="tex2html368"
   HREF="node1.html">Contents</A></B> </DIV>
 <!--End of Navigation Panel-->
-<ADDRESS>
-gamallo
-2012-02-06
-</ADDRESS>
+
 </BODY>
 </HTML>

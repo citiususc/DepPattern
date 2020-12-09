@@ -61,12 +61,12 @@ The same syntax with `deppattern.bat` command. You must install Perl and Ruby fo
 
 Return a syntactic analysis for Portuguese in -a format:
 ```
-./deppattern pt -f test/test-pt -a
+./deppattern pt -f tests/test-pt -a
 ```
 
 Return a syntactic analysis for English in -conll format:
 ```
-./deppattern en -f test/test-en -conll
+./deppattern en -f tests/test-en -conll
 ```
 
 Generate a parser (parser.perl) from the English grammar using the compiler:
@@ -78,7 +78,7 @@ Generate a parser (parser.perl) from the English grammar using the compiler:
 Return a syntactic analysis using the Spanish grammar, with -conll format:
 
 ```
-./deppattern en -f test/test-es -g grammars/grammar-devel-es/grammar-es.dp -conll`
+./deppattern en -f tests/test-es -g grammars/grammar-devel-es/grammar-es.dp -conll`
 ```
 
 You also may enter the input text in pipeline:

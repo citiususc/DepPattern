@@ -13,6 +13,7 @@
 use strict;
 use warnings;
 use File::Basename;
+use lib ".";
 
 binmode STDIN, ':utf8';
 binmode STDOUT, ':utf8';
